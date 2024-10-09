@@ -1,10 +1,12 @@
 public class Soldado extends Rango { 
+    
 
-    protected String nombre;
-    protected String id;
-    protected String rango;
+    private final String nombre;
+    private final String id;
+    protected Nivel_militar rango; // 
+    //private String rango;
 
-    public Soldado(int nivel, String nombre, String id, String rango) {
+    public Soldado(int nivel, String nombre, String id, Nivel_militar rango) {
         super(nivel); 
         this.nombre = nombre;
         this.id = id;
@@ -18,26 +20,34 @@ public class Soldado extends Rango {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+
+     public Nivel_militar getRango() {
+         return rango;
     }
 
-    public String getRango() {
-        return rango;
-    }
-
-    public void setRango(String rango) {
+    public void setRango(Nivel_militar rango) {
         this.rango = rango;
     }
 
+    // public interface OperacionesMilitares{
+    //     void asignarMision(String mision);
+    //     void reportarEstado();
+
+    // }
+
+    //Mostra en consola informacion de los Militares
+
+     public void mostrarInformacion() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("ID: " + id);
+        System.out.println("Rango: " + rango);
+        System.out.println("Nivel: " + nivel);
+    }
     
 
     
