@@ -19,6 +19,7 @@ public class Soldado extends Rango {
     } 
 
     public void realizarAccion() { 
+        // Implementacion de metodo realizar accion
     }
 
     public String getNombre() {

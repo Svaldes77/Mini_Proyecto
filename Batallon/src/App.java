@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 //Clase principal que contiene el método main
 import java.util.ArrayList;
+=======
+ import java.util.ArrayList;
+>>>>>>> origin/deploy
 public class App {
     public static void main(String[] args) {
         // Crear instancias de Soldado, SoldadoRaso, Teniente y Coronel
@@ -41,6 +45,20 @@ public class App {
             }
         }
  
+
+        //Downcasting}
+        ArrayList<Soldado> lista = new ArrayList<Soldado>();
+        lista.add(soldadoRaso1);
+        lista.add(teniente);
+        lista.add(coronel);
+        System.out.println("--------------------------------");
+        for (Soldado soldadito: lista) {
+            if(soldadito.getClass() == Teniente.class){
+                Teniente tenientesoldadito = (Teniente)soldadito;
+                System.out.println("Es teniente");
+                tenientesoldadito.realizarAccion();
+            }
+        }
 
     }
 }
