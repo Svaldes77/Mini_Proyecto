@@ -5,6 +5,8 @@ public abstract class Rango {
         this.nivel = nivel;
     }
 
+    //public abstract void realizarAccion();
+
     public int getNivel() {
         return nivel;
     }
@@ -15,4 +17,6 @@ public abstract class Rango {
 
     abstract void realizarAccion();
 }
+
+
 

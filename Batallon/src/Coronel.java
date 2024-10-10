@@ -1,7 +1,7 @@
 public class Coronel extends Soldado {
     private String estrategia; 
     
-    public Coronel(int nivel, String nombre, String id, String rango, String estrategia) {
+    public Coronel(int nivel, String nombre, String id, Nivel_militar rango, String estrategia) {
         super(nivel, nombre, id,rango); 
         this.estrategia = estrategia; 
     }
@@ -12,6 +12,8 @@ public class Coronel extends Soldado {
         System.out.println("Soy un coronel y estoy Preparando la estrategia de ataque"); 
     }
 
+
+    //Metodos Get y Set
 
     public String getEstrategia() {
         return estrategia;
