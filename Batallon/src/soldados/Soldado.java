@@ -2,10 +2,14 @@ package soldados;
 import rangos.Nivel_militar;
 import rangos.Rango;
 //import misiones.OperacionesMilitares;
+<<<<<<< HEAD
 //imopotamos paquetes necesearios
 
 
 //se implementa la clase base "Soldado" que extiende de la clase abstracta Rango
+=======
+
+>>>>>>> 610e7d6bbd77285a5238ccc8a74198806e3afa20
 public class Soldado extends Rango { 
     
     //Atributos de la clase Soldado

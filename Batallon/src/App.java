@@ -39,9 +39,13 @@ public class App {
         coronel.asignarMision("Armar contraataque enemigo");
         coronel.reportarEstado();
 
+<<<<<<< HEAD
 
         System.out.println("---------------------------------------");
         System.out.println("El numero de soldados es: "+ Soldado.getContadorSoldados() );
+=======
+        System.out.println("el numero de soldados es "+ Soldado.getContadorSoldados() );
+>>>>>>> 610e7d6bbd77285a5238ccc8a74198806e3afa20
 
 
         //Downcasting}
