@@ -4,8 +4,7 @@ public class App {
         // Crear instancias de Soldado, SoldadoRaso, Teniente y Coronel
         SoldadoRaso soldadoRaso1 = new SoldadoRaso(6, "Pedro Gomez", "67890", Nivel_militar.TENIENTE);
         Teniente teniente = new Teniente(3, "Luis Martinez", "54321",Nivel_militar.TENIENTE, "Unidad Alfa");
-        // Coronel coronel = new Coronel(4, "Carlos Sanchez", "98765",Nivel_militar.CORONEL, "Estrategia de Defensa");
-        //Capitan capitan= new Capitan(2)
+        Coronel coronel = new Coronel(4, "Carlos Sanchez", "98765",Nivel_militar.CORONEL, "Estrategia de Defensa"); 
 
         // Llamar a los métodos realizarAccion 
         //soldadoRaso1.realizarAccion();
@@ -26,7 +25,7 @@ public class App {
         soldadoRaso1.asignarMision("MISION SALVAR MARTE"); 
         soldadoRaso1.reportarEstado(); 
 
-        Soldado.getContadorSoldados(); 
+        System.out.println("el numero de soldados es "+Soldado.getContadorSoldados() );
 
 
     }
