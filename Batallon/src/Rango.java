@@ -1,5 +1,5 @@
 public abstract class Rango {
-    int nivel;
+    protected int nivel;
     
     public Rango(int nivel) {
         this.nivel = nivel;

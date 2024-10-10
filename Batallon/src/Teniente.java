@@ -15,9 +15,8 @@ public class Teniente extends Soldado {
         this.unidad = unidad;
     } 
 
-
     @Override
     public void realizarAccion() {
-        System.out.println("Soy un teniente y estoy Supervisando la trinchera");  
+        System.out.println("Soy un"+ Nivel_militar.TENIENTE + "y estoy Supervisando la trinchera");  
     }
 }

@@ -4,16 +4,24 @@ public class Soldado extends Rango {
     private final String nombre;
     private final String id;
     protected Nivel_militar rango; // 
-    //private String rango;
+    private static int contadorSoldados = 0; // Contador de Soldados
 
     public Soldado(int nivel, String nombre, String id, Nivel_militar rango) {
         super(nivel); 
         this.nombre = nombre;
         this.id = id;
         this.rango = rango;
+        contadorSoldados++ ; // Incrementa el contador de Soldados 
     }
 
+<<<<<<< HEAD
     
+=======
+    public static int getContadorSoldados() {
+        return contadorSoldados;
+    } 
+
+>>>>>>> origin/bypipe
     public void realizarAccion() { 
     }
 
