@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-=======
-
-package soldados;
-import rangos.Nivel_militar;
-//import rangos.Rango;
-import misiones.OperacionesMilitares;
-public class Coronel extends Soldado implements OperacionesMilitares{
-    
-    //Atributos
->>>>>>> 610e7d6bbd77285a5238ccc8a74198806e3afa20
-
 package soldados; //Paquete de la Clase
 import rangos.Nivel_militar;
 //import rangos.Rango;
