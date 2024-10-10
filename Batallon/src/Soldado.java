@@ -13,6 +13,7 @@ public class Soldado extends Rango {
         this.rango = rango;
     }
 
+    
     public void realizarAccion() { 
     }
 
