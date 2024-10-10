@@ -11,7 +11,7 @@ public class App {
         //teniente.realizarAccion();
         //coronel.realizarAccion();
 
-        // Prueva de los métodos get y set para cada clase atributos private 
+        // Prueba de los métodos get y set para cada clase atributos private 
         //System.out.println("Unidad del teniente: " + teniente.getUnidad());
         //System.out.println("Estrategia del coronel: " + coronel.getEstrategia());
         // System.out.println("Nombre del soldado raso: " + soldadoRaso1.getNombre());
