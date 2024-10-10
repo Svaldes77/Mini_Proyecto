@@ -14,14 +14,10 @@ public class Soldado extends Rango {
         contadorSoldados++ ; // Incrementa el contador de Soldados 
     }
 
-<<<<<<< HEAD
-    
-=======
     public static int getContadorSoldados() {
         return contadorSoldados;
     } 
 
->>>>>>> origin/bypipe
     public void realizarAccion() { 
     }
 
