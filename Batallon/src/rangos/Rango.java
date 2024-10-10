@@ -1,3 +1,4 @@
+package rangos;
 public abstract class Rango {
     protected int nivel;
     
@@ -15,7 +16,7 @@ public abstract class Rango {
         this.nivel = nivel;
     }
 
-    abstract void realizarAccion();
+    public abstract void realizarAccion();
 }
 
 

@@ -1,3 +1,8 @@
+package soldados;
+import rangos.Nivel_militar;
+import rangos.Rango;
+//import misiones.OperacionesMilitares;
+
 public class Soldado extends Rango { 
     
 

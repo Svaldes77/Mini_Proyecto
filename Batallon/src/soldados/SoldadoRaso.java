@@ -1,3 +1,8 @@
+package soldados;
+import rangos.Nivel_militar;
+//import rangos.Rango;
+import misiones.OperacionesMilitares;
+
 public class SoldadoRaso extends Soldado implements OperacionesMilitares {
 
     public SoldadoRaso(int nivel, String nombre, String id, Nivel_militar rango) {
