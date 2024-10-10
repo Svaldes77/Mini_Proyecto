@@ -1,4 +1,4 @@
-public class SoldadoRaso extends Soldado {
+public class SoldadoRaso extends Soldado implements OperacionesMilitares {
 
     public SoldadoRaso(int nivel, String nombre, String id, Nivel_militar rango) {
         super(nivel, nombre, id,rango);
@@ -8,14 +8,20 @@ public class SoldadoRaso extends Soldado {
 
     }
 
+    @Override 
+    public void asignarMision(String mision){
+        System.out.println("Soldado Raso asignado a la misión: " + mision);
+
+    };
+
+    public void reportarEstado(){ 
+        System.out.println(Nivel_militar.CORONEL+"ESTOY VIGIA EN LA TORRETA");     
+     };
+
+     //Sobre escrit
     @Override
     public void realizarAccion() {
         System.out.println("Soy un: "+ Nivel_militar.SOLDADO_RASO + "estoy en la trinchera");
-    } 
+    }
 
-    // @Override
-    // public void asignarMision(String mision) {
-    //     System.out.println("Soldado Raso asignado a la misión: " + mision);
-    // }
-    
 }

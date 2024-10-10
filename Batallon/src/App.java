@@ -1,8 +1,9 @@
+//Clase principal que contiene el método main
 public class App {
     public static void main(String[] args) {
         // Crear instancias de Soldado, SoldadoRaso, Teniente y Coronel
-        SoldadoRaso soldadoRaso1 = new SoldadoRaso(2, "Pedro Gomez", "67890", Nivel_militar.TENIENTE);
-        // Teniente teniente = new Teniente(3, "Luis Martinez", "54321",Nivel_militar.TENIENTE, "Unidad Alfa");
+        SoldadoRaso soldadoRaso1 = new SoldadoRaso(6, "Pedro Gomez", "67890", Nivel_militar.TENIENTE);
+        Teniente teniente = new Teniente(3, "Luis Martinez", "54321",Nivel_militar.TENIENTE, "Unidad Alfa");
         // Coronel coronel = new Coronel(4, "Carlos Sanchez", "98765",Nivel_militar.CORONEL, "Estrategia de Defensa");
         //Capitan capitan= new Capitan(2)
 
@@ -20,6 +21,13 @@ public class App {
 
         //Prueba de herencia, metodo mostrarInformacion
         soldadoRaso1.mostrarInformacion();
+        teniente.mostrarInformacion();
+
+        soldadoRaso1.asignarMision("MISION SALVAR MARTE"); 
+        soldadoRaso1.reportarEstado(); 
+
+        Soldado.getContadorSoldados(); 
+
 
     }
 }
