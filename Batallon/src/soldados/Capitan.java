@@ -1,4 +1,8 @@
-public class Capitan extends Soldado {
+package soldados;
+import rangos.Nivel_militar;
+//import rangos.Rango;
+import misiones.OperacionesMilitares;
+public class Capitan extends Soldado implements OperacionesMilitares{
     private int numeroDeSoldados;
     
     public Capitan(int nivel, String nombre, String id, Nivel_militar rango , int numeroDeSoldados) {
@@ -22,14 +26,14 @@ public class Capitan extends Soldado {
         this.numeroDeSoldados = numeroDeSoldados;
     } 
 
-    // @Override
-    // public void asignarMision(String mision) {
-    //     System.out.println("Capitán asignado a coordinar la misión: " + mision);
-    // }
+    @Override 
+    public void asignarMision(String mision) {
+    System.out.println("Capitán asignado a coordinar la misión: " + mision);
+    }
 
-    // @Override
-    // public void reportarEstado() {
-    //     System.out.println("Capitán supervisando " + numeroDeSoldados + " soldados.");
-    // }
+    @Override 
+    public void reportarEstado() {
+     System.out.println("Capitán supervisando " + numeroDeSoldados + " soldados.");
+    }
     
 }

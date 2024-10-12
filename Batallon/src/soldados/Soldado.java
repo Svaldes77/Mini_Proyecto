@@ -1,13 +1,24 @@
+<<<<<<< HEAD:Batallon/src/Soldado.java
 //Clase Soldado que hereda de la clase Rango
 
 public class Soldado extends Rango { 
     
     //Atributos
+=======
+package soldados;
+import rangos.Nivel_militar;
+import rangos.Rango;
+//import misiones.OperacionesMilitares;
+public class Soldado extends Rango { 
+    
+    //Atributos de la clase Soldado
+>>>>>>> origin/deploy:Batallon/src/soldados/Soldado.java
     private final String nombre;
     private final String id;
     protected Nivel_militar rango;
     private static int contadorSoldados = 0; // Contador de Soldados
 
+    //Constructor de la clase Soldado que recibe los parametros nivel, nombre, id y rango
     public Soldado(int nivel, String nombre, String id, Nivel_militar rango) {
         super(nivel); 
         this.nombre = nombre;
@@ -15,29 +26,29 @@ public class Soldado extends Rango {
         this.rango = rango;
         contadorSoldados++ ; // Incrementa el contador de Soldados 
     }
-
+    //Metodo que retorna el contador de Soldados, es static para que pueda ser accedido sin instanciar un objeto
     public static int getContadorSoldados() {
         return contadorSoldados;
     } 
 
+    //Metodo que se implementa en las clases hijas
     public void realizarAccion() { 
         // Implementacion de metodo realizar accion
     }
 
+
+    //Metodos Get
     public String getNombre() {
         return nombre;
     }
-
-
     public String getId() {
         return id;
     }
-
-
      public Nivel_militar getRango() {
          return rango;
     }
 
+    //Metodo Set
     public void setRango(Nivel_militar rango) {
         this.rango = rango;
     }
@@ -55,6 +66,9 @@ public class Soldado extends Rango {
         System.out.println("ID: " + id);
         System.out.println("Rango: " + rango);
         System.out.println("Nivel: " + nivel);
+        System.out.println("--------------------------");
+
+    //en el app.java esta el ejemplo de como se imprime la informacion de los soldados
     }
     
 
