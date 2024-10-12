@@ -1,10 +1,3 @@
-<<<<<<< HEAD:Batallon/src/Soldado.java
-//Clase Soldado que hereda de la clase Rango
-
-public class Soldado extends Rango { 
-    
-    //Atributos
-=======
 package soldados;
 import rangos.Nivel_militar;
 import rangos.Rango;
@@ -12,7 +5,6 @@ import rangos.Rango;
 public class Soldado extends Rango { 
     
     //Atributos de la clase Soldado
->>>>>>> origin/deploy:Batallon/src/soldados/Soldado.java
     private final String nombre;
     private final String id;
     protected Nivel_militar rango;
