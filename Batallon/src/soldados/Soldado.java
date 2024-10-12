@@ -1,7 +1,10 @@
 package soldados;
+
 import rangos.Nivel_militar;
 import rangos.Rango;
 //import misiones.OperacionesMilitares;
+
+// La clase Soldado extiende la clase Rango
 public class Soldado extends Rango { 
     
     //Atributos de la clase Soldado
@@ -18,6 +21,7 @@ public class Soldado extends Rango {
         this.rango = rango;
         contadorSoldados++ ; // Incrementa el contador de Soldados 
     }
+
     //Metodo que retorna el contador de Soldados, es static para que pueda ser accedido sin instanciar un objeto
     public static int getContadorSoldados() {
         return contadorSoldados;
@@ -32,9 +36,11 @@ public class Soldado extends Rango {
     //Metodos Get
     public String getNombre() {
         return nombre;
+
     }
     public String getId() {
         return id;
+
     }
      public Nivel_militar getRango() {
          return rango;
@@ -52,7 +58,6 @@ public class Soldado extends Rango {
     // }
 
     //Mostra en consola informacion de los Militares
-
      public void mostrarInformacion() {
         System.out.println("Nombre: " + nombre);
         System.out.println("ID: " + id);
@@ -62,9 +67,5 @@ public class Soldado extends Rango {
 
     //en el app.java esta el ejemplo de como se imprime la informacion de los soldados
     }
-    
-
-    
-
 }
 
