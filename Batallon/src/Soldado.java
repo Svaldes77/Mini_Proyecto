@@ -1,9 +1,11 @@
+//Clase Soldado que hereda de la clase Rango
+
 public class Soldado extends Rango { 
     
-
+    //Atributos
     private final String nombre;
     private final String id;
-    protected Nivel_militar rango; // 
+    protected Nivel_militar rango;
     private static int contadorSoldados = 0; // Contador de Soldados
 
     public Soldado(int nivel, String nombre, String id, Nivel_militar rango) {
@@ -59,3 +61,4 @@ public class Soldado extends Rango {
     
 
 }
+
