@@ -34,15 +34,16 @@ public class App {
         soldadoRaso1.mostrarInformacion();
         teniente.mostrarInformacion();
 
+        // Asignar misiones y reportar estado
         soldadoRaso1.asignarMision("MISION SALVAR MARTE"); 
         soldadoRaso1.reportarEstado(); 
         coronel.asignarMision("Armar contraataque enemigo");
         coronel.reportarEstado();
 
+        // Mostrar el número de soldados
         System.out.println("el numero de soldados es: "+ Soldado.getContadorSoldados() );
 
-
-        //Downcasting}
+        // Downcasting 
         ArrayList<Soldado> lista = new ArrayList<Soldado>();
         lista.add(soldadoRaso1);
         lista.add(teniente);
