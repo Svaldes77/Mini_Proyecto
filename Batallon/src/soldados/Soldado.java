@@ -1,17 +1,12 @@
 package soldados;
 
+import java.util.ArrayList;
+
 import rangos.Nivel_militar;
 import rangos.Rango;
 //import misiones.OperacionesMilitares;
-<<<<<<< HEAD
-//importamos los paquetes necesarios
-
-//clase base Soldado que trae los atributos y metodos comunes a las clases hijas
-//trae la clase abstracta Rango
-=======
 
 // La clase Soldado extiende la clase Rango
->>>>>>> 10afdc437e9998d65b1e0cd01def35220799b40e
 public class Soldado extends Rango { 
     
     //Atributos de la clase Soldado
@@ -73,6 +68,12 @@ public class Soldado extends Rango {
         System.out.println("--------------------------");
 
     //en el app.java esta el ejemplo de como se imprime la informacion de los soldados
+    }
+
+    public static void mostrarInformacion(ArrayList<Soldado> listaSoldados) {
+        for (Soldado soldado : listaSoldados) {
+            soldado.mostrarInformacion();
+        }
     }
 }
 

@@ -76,10 +76,10 @@ public class App {
 
         switch (opcion) {
             case 1:
-                //listaSoldados.add(crearSoldadoRaso(scanner));
+                listaSoldados.add(SoldadoRaso.crearSoldadoRaso(scanner));
                 break;
             case 2:
-                //listaSoldados.add(crearTeniente(scanner));
+                listaSoldados.add(Teniente.crearTeniente(scanner));
                 break;
             case 3:
                 //listaSoldados.add(crearCoronel(scanner));
@@ -88,7 +88,7 @@ public class App {
                 //listaSoldados.add(crearcapitan(scanner));
                 break;
             case 5:
-                //mostrarInformacion(listaSoldados);
+                Soldado.mostrarInformacion(listaSoldados);
                 break;
             case 6:
                 System.out.println("Saliendo...");
@@ -107,4 +107,5 @@ public class App {
             }
         }
     }
+    
 }
