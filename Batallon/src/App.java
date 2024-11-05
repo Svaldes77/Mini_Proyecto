@@ -82,7 +82,7 @@ public class App {
                 //listaSoldados.add(crearTeniente(scanner));
                 break;
             case 3:
-                //listaSoldados.add(crearCoronel(scanner));
+                // listaSoldados.add(crearCoronel(scanner));
                 break;
             case 4:
                 //listaSoldados.add(crearcapitan(scanner));
@@ -107,4 +107,5 @@ public class App {
             }
         }
     }
+
 }
