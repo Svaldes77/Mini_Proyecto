@@ -107,9 +107,6 @@ public class App {
             }
         }
     }
-<<<<<<< HEAD
 
-=======
     
->>>>>>> origin/deploy
 }
