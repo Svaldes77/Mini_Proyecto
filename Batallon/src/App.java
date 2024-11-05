@@ -76,10 +76,10 @@ public class App {
 
         switch (opcion) {
             case 1:
-                //listaSoldados.add(crearSoldadoRaso(scanner));
+                listaSoldados.add(SoldadoRaso.crearSoldadoRaso(scanner)); // agrega el soldado creado a la lista
                 break;
             case 2:
-                //listaSoldados.add(crearTeniente(scanner));
+                listaSoldados.add(Teniente.crearTeniente(scanner));
                 break;
             case 3:
                 // listaSoldados.add(crearCoronel(scanner));
@@ -88,7 +88,7 @@ public class App {
                 //listaSoldados.add(crearcapitan(scanner));
                 break;
             case 5:
-                //mostrarInformacion(listaSoldados);
+                Soldado.mostrarInformacion(listaSoldados); // Muestra la información de todos los soldados
                 break;
             case 6:
                 System.out.println("Saliendo...");
@@ -97,15 +97,19 @@ public class App {
             default:
                 System.out.println("Opción no válida. Intente de nuevo.");
             }
-        } catch (InputMismatchException e) {
+        } catch (InputMismatchException e) { //InputMismatchException e lo utilizamos para que el programa no se caiga si el usuario ingresa un valor que no es un numero
                 System.out.println("Entrada no válida. Por favor, ingrese un número.");
                 scanner.nextLine(); // Consumir la entrada no válida
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException e) { //IllegalArgumentException e lo utilizamos para que el programa no se caiga si el usuario ingresa un rango que no es válido
                 System.out.println("Rango no válido. Por favor, ingrese un rango válido.");
             } catch (Exception e) {
                 System.out.println("Ocurrió un error: " + e.getMessage());
             }
         }
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin/deploy
 }
