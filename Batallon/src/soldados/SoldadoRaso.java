@@ -24,7 +24,7 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares {
     };
 
     public void reportarEstado(){ 
-        System.out.println(Nivel_militar.CORONEL+"ESTOY VIGIA EN LA TORRETA"); //Mensaje que se imprime en consola
+        System.out.println(Nivel_militar.CORONEL+" AQUI ESTOY VIGIA EN LA TORRETA"); //Mensaje que se imprime en consola
      };
 
 
