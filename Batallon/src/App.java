@@ -59,53 +59,53 @@ public class App {
     //         }
     //     }
 
-    Scanner scanner = new Scanner(System.in);
-    ArrayList<Soldado> listaSoldados = new ArrayList<Soldado>();  
-    while (true) {
-        try {    
-        System.out.println("Seleccione una opción:");
-        System.out.println("1. Crear Soldado Raso");
-        System.out.println("2. Crear Teniente");
-        System.out.println("3. Crear Coronel");
-        System.out.println("4. Crear Capitán");
-        System.out.println("5. Mostrar información de todos los soldados");
-        System.out.println("6. Salir");
-        System.out.print("Opción: ");
-        int opcion = scanner.nextInt();
-        scanner.nextLine(); // Consumir la nueva línea
+    // Scanner scanner = new Scanner(System.in);
+    // ArrayList<Soldado> listaSoldados = new ArrayList<Soldado>();  
+    // while (true) {
+    //     try {    
+    //     System.out.println("Seleccione una opción:");
+    //     System.out.println("1. Crear Soldado Raso");
+    //     System.out.println("2. Crear Teniente");
+    //     System.out.println("3. Crear Coronel");
+    //     System.out.println("4. Crear Capitán");
+    //     System.out.println("5. Mostrar información de todos los soldados");
+    //     System.out.println("6. Salir");
+    //     System.out.print("Opción: ");
+    //     int opcion = scanner.nextInt();
+    //     scanner.nextLine(); // Consumir la nueva línea
 
-        switch (opcion) {
-            case 1:
-                listaSoldados.add(SoldadoRaso.crearSoldadoRaso(scanner)); // agrega el soldado creado a la lista
-                break;
-            case 2:
-                listaSoldados.add(Teniente.crearTeniente(scanner));
-                break;
-            case 3:
-                // listaSoldados.add(crearCoronel(scanner));
-                break;
-            case 4:
-                //listaSoldados.add(crearcapitan(scanner));
-                break;
-            case 5:
-                Soldado.mostrarInformacion(listaSoldados); // Muestra la información de todos los soldados
-                break;
-            case 6:
-                System.out.println("Saliendo...");
-                scanner.close();
-                return;
-            default:
-                System.out.println("Opción no válida. Intente de nuevo.");
-            }
-        } catch (InputMismatchException e) { //InputMismatchException e lo utilizamos para que el programa no se caiga si el usuario ingresa un valor que no es un numero
-                System.out.println("Entrada no válida. Por favor, ingrese un número.");
-                scanner.nextLine(); // Consumir la entrada no válida
-            } catch (IllegalArgumentException e) { //IllegalArgumentException e lo utilizamos para que el programa no se caiga si el usuario ingresa un rango que no es válido
-                System.out.println("Rango no válido. Por favor, ingrese un rango válido.");
-            } catch (Exception e) {
-                System.out.println("Ocurrió un error: " + e.getMessage());
-            }
-        }
+        // switch (opcion) {
+        //     case 1:
+        //         listaSoldados.add(SoldadoRaso.crearSoldadoRaso(scanner)); // agrega el soldado creado a la lista
+        //         break;
+        //     case 2:
+        //         listaSoldados.add(Teniente.crearTeniente(scanner));
+        //         break;
+        //     case 3:
+        //         // listaSoldados.add(crearCoronel(scanner));
+        //         break;
+        //     case 4:
+        //         //listaSoldados.add(crearcapitan(scanner));
+        //         break;
+        //     case 5:
+        //         Soldado.mostrarInformacion(listaSoldados); // Muestra la información de todos los soldados
+        //         break;
+        //     case 6:
+        //         System.out.println("Saliendo...");
+        //         scanner.close();
+        //         return;
+        //     default:
+        //         System.out.println("Opción no válida. Intente de nuevo.");
+        //     }
+        // } catch (InputMismatchException e) { //InputMismatchException e lo utilizamos para que el programa no se caiga si el usuario ingresa un valor que no es un numero
+        //         System.out.println("Entrada no válida. Por favor, ingrese un número.");
+        //         scanner.nextLine(); // Consumir la entrada no válida
+        //     } catch (IllegalArgumentException e) { //IllegalArgumentException e lo utilizamos para que el programa no se caiga si el usuario ingresa un rango que no es válido
+        //         System.out.println("Rango no válido. Por favor, ingrese un rango válido.");
+        //     } catch (Exception e) {
+        //         System.out.println("Ocurrió un error: " + e.getMessage());
+        //     }
+        // }
     }
 
     

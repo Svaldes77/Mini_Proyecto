@@ -46,49 +46,33 @@ public class Capitan extends Soldado implements OperacionesMilitares{
      System.out.println("Capitán supervisando " + numeroDeSoldados + " soldados.");//Mensaje que se imprime en consola
     }
     
-    // // Método estático para crear una instancia de Capitan
+    // Método estático para crear una instancia de Capitan
     // public static Capitan crearCapitan(Scanner scanner) {
     //     try {
-    //         int nivel = leerEntero(scanner, "Ingrese el nivel: ");
-    //         String nombre = leerCadena(scanner, "Ingrese el nombre: ");
-    //         String id = leerCadena(scanner, "Ingrese el ID: ");
-    //         Nivel_militar rango = leerRango(scanner, "Ingrese el rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL): ");
-    //         int numeroDeSoldados = leerEntero(scanner, "Ingrese el número de soldados: ");
-    //         return new Capitan(nivel, nombre, id, rango, numeroDeSoldados);
+    //         System.out.println("Escribe el nivel: ");
+    //         int nivel = scanner.nextInt();
+    //         scanner.nextLine(); //Consumir linea
+            
+    //         System.out.println("Escribe el nombre: ");
+    //         String nombre = scanner.nextLine();
+
+    //         System.out.println("Escribe el ID: ");
+    //         String id = scanner.nextLine();
+
+    //         System.out.println("Escribe un rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL) :");
+    //         String rangoStr = scanner.nextLine();
+
+    //         Nivel_militar rango =Nivel_militar.valueOf(rangoStr.toUpperCase());
+
+    //         System.out.println("Escribe el numero de soldados a disposicion: ");
+    //         int numero_Soldados = scanner.nextInt();
+    //         scanner.nextLine(); //Consumir linea
+
+        
+    //         return new Capitan(nivel, nombre, id, rango, numero_Soldados);
     //     } catch (Exception e) {
     //         System.out.println("Ocurrió un error al crear Capitán: " + e.getMessage());
     //     }
     //     return null;
-    // }
-
-    // // Métodos auxiliares para leer datos del usuario
-    // private static int leerEntero(Scanner scanner, String mensaje) {
-    //     System.out.print(mensaje);
-    //     while (!scanner.hasNextInt()) {
-    //         System.out.println("Por favor, ingrese un número entero válido.");
-    //         scanner.next(); // Consumir la entrada no válida
-    //         System.out.print(mensaje);
-    //     }
-    //     return scanner.nextInt();
-    // }
-
-    // private static String leerCadena(Scanner scanner, String mensaje) {
-    //     System.out.print(mensaje);
-    //     return scanner.nextLine();
-    // }
-
-    // private static Nivel_militar leerRango(Scanner scanner, String mensaje) {
-    //     System.out.print(mensaje);
-    //     while (true) {
-    //         try {
-    //             String input = scanner.nextLine().toUpperCase();
-    //             return Nivel_militar.valueOf(input);
-    //         } catch (IllegalArgumentException e) {
-    //             System.out.println("Rango no válido. Por favor, ingrese uno de los siguientes: SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL.");
-    //             System.out.print(mensaje);
-    //         }
-    //     }
-    // }
-
-    
+    // }    
 }
