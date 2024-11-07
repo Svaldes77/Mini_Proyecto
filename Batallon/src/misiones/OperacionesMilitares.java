@@ -7,5 +7,5 @@ public interface OperacionesMilitares {
     void asignarMision(String mision);
 
     // Método para reportar el estado
-    void reportarEstado();  
+    void reportarEstado(String estado);  
 }

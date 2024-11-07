@@ -1,6 +1,6 @@
 package soldados;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 import rangos.Nivel_militar;
 // import rangos.Rango;
@@ -33,6 +33,13 @@ public class Teniente extends Soldado {
     public void realizarAccion() {
         System.out.println("Soy el "+ Nivel_militar.TENIENTE + " y estoy Supervisando la trinchera"); //Mensaje que se imprime en consola
     }
+    //metodo mostrar unidad 
+    public void mostrarUnidad(){
+        System.out.println("La unidad del teniente es: " + unidad);
+    } 
+
+
+
     // public static Teniente crearTeniente(Scanner scanner) {
     //     try {
     //         System.out.println("Ingrese el nivel: ");
