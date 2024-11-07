@@ -47,6 +47,7 @@ public class App {
         // Mostrar el número de soldados
         System.out.println("el numero de soldados es: "+ Soldado.getContadorSoldados() );
 
+<<<<<<< HEAD
         //Downcasting 
         ArrayList<Soldado> lista = new ArrayList<Soldado>();
         lista.add(soldadoRaso1);
@@ -60,6 +61,21 @@ public class App {
                 tenientesoldadito.realizarAccion();
             }
         }
+=======
+        // Downcasting 
+    //     ArrayList<Soldado> lista = new ArrayList<Soldado>();
+    //     lista.add(soldadoRaso1);
+    //     lista.add(teniente);
+    //     lista.add(coronel);
+    //     System.out.println("--------------------------------");
+    //     for (Soldado soldadito: lista) {
+    //         if(soldadito.getClass() == Teniente.class){
+    //             Teniente tenientesoldadito = (Teniente)soldadito;
+    //             System.out.println("Es teniente");
+    //             tenientesoldadito.realizarAccion();
+    //         }
+    //     }
+>>>>>>> origin/deploy
 
     // Scanner scanner = new Scanner(System.in);
     // ArrayList<Soldado> listaSoldados = new ArrayList<Soldado>();  
@@ -76,6 +92,7 @@ public class App {
     //     int opcion = scanner.nextInt();
     //     scanner.nextLine(); // Consumir la nueva línea
 
+<<<<<<< HEAD
 //         switch (opcion) {
 //             case 1:
 //                 listaSoldados.add(SoldadoRaso.crearSoldadoRaso(scanner));
@@ -109,4 +126,41 @@ public class App {
 //             }
 //         }
      }
+=======
+        // switch (opcion) {
+        //     case 1:
+        //         listaSoldados.add(SoldadoRaso.crearSoldadoRaso(scanner)); // agrega el soldado creado a la lista
+        //         break;
+        //     case 2:
+        //         listaSoldados.add(Teniente.crearTeniente(scanner));
+        //         break;
+        //     case 3:
+        //         // listaSoldados.add(crearCoronel(scanner));
+        //         break;
+        //     case 4:
+        //         //listaSoldados.add(crearcapitan(scanner));
+        //         break;
+        //     case 5:
+        //         Soldado.mostrarInformacion(listaSoldados); // Muestra la información de todos los soldados
+        //         break;
+        //     case 6:
+        //         System.out.println("Saliendo...");
+        //         scanner.close();
+        //         return;
+        //     default:
+        //         System.out.println("Opción no válida. Intente de nuevo.");
+        //     }
+        // } catch (InputMismatchException e) { //InputMismatchException e lo utilizamos para que el programa no se caiga si el usuario ingresa un valor que no es un numero
+        //         System.out.println("Entrada no válida. Por favor, ingrese un número.");
+        //         scanner.nextLine(); // Consumir la entrada no válida
+        //     } catch (IllegalArgumentException e) { //IllegalArgumentException e lo utilizamos para que el programa no se caiga si el usuario ingresa un rango que no es válido
+        //         System.out.println("Rango no válido. Por favor, ingrese un rango válido.");
+        //     } catch (Exception e) {
+        //         System.out.println("Ocurrió un error: " + e.getMessage());
+        //     }
+        // }
+    }
+
+    
+>>>>>>> origin/deploy
 }

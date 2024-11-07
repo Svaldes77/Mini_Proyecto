@@ -1,5 +1,7 @@
 package soldados;
 
+import java.util.ArrayList;
+
 import rangos.Nivel_militar;
 import rangos.Rango;
 //import misiones.OperacionesMilitares;
@@ -66,6 +68,12 @@ public class Soldado extends Rango {
         System.out.println("--------------------------");
 
     //en el app.java esta el ejemplo de como se imprime la informacion de los soldados
+    }
+
+    public static void mostrarInformacion(ArrayList<Soldado> listaSoldados) {
+        for (Soldado soldado : listaSoldados) {
+            soldado.mostrarInformacion();
+        }
     }
 }
 

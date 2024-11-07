@@ -2,7 +2,11 @@ package soldados;
 
 import rangos.Nivel_militar;
 
+<<<<<<< HEAD
 //import java.util.Scanner;
+=======
+import java.util.Scanner;
+>>>>>>> origin/deploy
 
 //import rangos.Rango;
 import misiones.OperacionesMilitares;
@@ -26,7 +30,11 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares {
     };
 
     public void reportarEstado(){ 
+<<<<<<< HEAD
         System.out.println("Soy un: " + Nivel_militar.SOLDADO_RASO + "ESTOY VIGIA EN LA TORRETA"); //Mensaje que se imprime en consola
+=======
+        System.out.println(Nivel_militar.CORONEL+" AQUI ESTOY VIGIA EN LA TORRETA"); //Mensaje que se imprime en consola
+>>>>>>> origin/deploy
      };
 
     //Sobre escritura de metodos de la clase padre
@@ -36,6 +44,7 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares {
     }
 
     // public static SoldadoRaso crearSoldadoRaso(Scanner scanner) {
+<<<<<<< HEAD
     // System.out.print("Ingrese el nivel: ");
     // int nivel = scanner.nextInt();
     // scanner.nextLine(); // Consumir la nueva línea
@@ -51,6 +60,30 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares {
     // Nivel_militar rango = Nivel_militar.valueOf(rangoStr.toUpperCase());
 
     // return new SoldadoRaso(nivel, nombre, id, rango);
+=======
+    //     try {
+    //         System.out.println("Ingrese el nivel: ");
+    //         int nivel = scanner.nextInt();
+    //         scanner.nextLine(); // Consumir la nueva línea
+
+    //         System.out.println("Ingrese el nombre: ");
+    //         String nombre  = scanner.nextLine();
+           
+    //         System.out.println("Ingrese el ID: ");
+    //         String id = scanner.nextLine();
+
+    //         System.out.print("Ingrese el rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL): ");
+    //         String rangoStr = scanner.nextLine();
+    //         Nivel_militar rango = Nivel_militar.valueOf(rangoStr.toUpperCase());
+
+    //         return new SoldadoRaso(nivel, nombre, id, rango);
+    //     } catch (Exception e) {
+    //         System.out.println("Ocurrió un error al crear Soldado Raso: " + e.getMessage());
+    //     }
+    //     return null;
+    // }
+
+>>>>>>> origin/deploy
 }
 
 
