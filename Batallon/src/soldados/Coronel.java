@@ -1,6 +1,9 @@
 package soldados; //Paquete de la Clase
 
 import rangos.Nivel_militar;
+
+import java.util.Scanner;
+
 //import rangos.Rango;
 import misiones.OperacionesMilitares;
 //importamos los paquetes necesarios
@@ -46,4 +49,33 @@ public class Coronel extends Soldado implements OperacionesMilitares{
         this.estrategia = estrategia;
     }
     
+    // // Método estático para crear una instancia de Capitan
+    // public static Coronel crearCoronel (Scanner scanner) {
+    //     try {
+    //         System.out.println("Escribe el nivel: ");
+    //         int nivel = scanner.nextInt();
+    //         scanner.nextLine(); //Consumir linea
+            
+    //         System.out.println("Escribe el nombre: ");
+    //         String nombre = scanner.nextLine();
+
+    //         System.out.println("Escribe el ID: ");
+    //         String id = scanner.nextLine();
+
+    //         System.out.println("Escribe un rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL) :");
+    //         String rangoStr = scanner.nextLine();
+
+    //         Nivel_militar rango =Nivel_militar.valueOf(rangoStr.toUpperCase());
+
+    //         System.out.println("Escribe la estrategia asignada al coronel: ");
+    //         String estrategia = scanner.nextLine();
+            
+
+        
+    //         return new Coronel(nivel, nombre, id, rango, estrategia);
+    //     } catch (Exception e) {
+    //         System.out.println("Ocurrió un error al crear Capitán: " + e.getMessage());
+    //     }
+    //     return null;
+    // }  
 }

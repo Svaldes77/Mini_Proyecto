@@ -33,30 +33,30 @@ public class Teniente extends Soldado {
     public void realizarAccion() {
         System.out.println("Soy el "+ Nivel_militar.TENIENTE + " y estoy Supervisando la trinchera"); //Mensaje que se imprime en consola
     }
-    public static Teniente crearTeniente(Scanner scanner) {
-        try {
-            System.out.println("Ingrese el nivel: ");
-            int nivel = scanner.nextInt();
-            scanner.nextLine(); // Consumir la nueva línea
+    // public static Teniente crearTeniente(Scanner scanner) {
+    //     try {
+    //         System.out.println("Ingrese el nivel: ");
+    //         int nivel = scanner.nextInt();
+    //         scanner.nextLine(); // Consumir la nueva línea
 
-            System.out.println("Ingrese el nombre: ");
-            String nombre  = scanner.nextLine();
+    //         System.out.println("Ingrese el nombre: ");
+    //         String nombre  = scanner.nextLine();
            
-            System.out.println("Ingrese el ID: ");
-            String id = scanner.nextLine();
+    //         System.out.println("Ingrese el ID: ");
+    //         String id = scanner.nextLine();
 
-            System.out.print("Ingrese el rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL): ");
-            String rangoStr = scanner.nextLine();
-            Nivel_militar rango = Nivel_militar.valueOf(rangoStr.toUpperCase());
+    //         System.out.print("Ingrese el rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL): ");
+    //         String rangoStr = scanner.nextLine();
+    //         Nivel_militar rango = Nivel_militar.valueOf(rangoStr.toUpperCase());
 
-            System.out.println("Ingrese la unidad: ");
-            String unidad = scanner.nextLine();
+    //         System.out.println("Ingrese la unidad: ");
+    //         String unidad = scanner.nextLine();
 
 
-            return new Teniente(nivel, nombre, id, rango, unidad);
-        } catch (Exception e) {
-            System.out.println("Ocurrió un error al crear Soldado Raso: " + e.getMessage());
-        }
-        return null;
-    }
+    //         return new Teniente(nivel, nombre, id, rango, unidad);
+    //     } catch (Exception e) {
+    //         System.out.println("Ocurrió un error al crear Soldado Raso: " + e.getMessage());
+    //     }
+    //     return null;
+    // }
 }

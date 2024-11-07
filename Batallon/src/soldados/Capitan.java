@@ -1,6 +1,9 @@
 package soldados;
 
 import rangos.Nivel_militar;
+
+import java.util.Scanner;
+
 //import rangos.Rango;
 import misiones.OperacionesMilitares;
 
@@ -43,4 +46,33 @@ public class Capitan extends Soldado implements OperacionesMilitares{
      System.out.println("Capitán supervisando " + numeroDeSoldados + " soldados.");//Mensaje que se imprime en consola
     }
     
+    // Método estático para crear una instancia de Capitan
+    // public static Capitan crearCapitan(Scanner scanner) {
+    //     try {
+    //         System.out.println("Escribe el nivel: ");
+    //         int nivel = scanner.nextInt();
+    //         scanner.nextLine(); //Consumir linea
+            
+    //         System.out.println("Escribe el nombre: ");
+    //         String nombre = scanner.nextLine();
+
+    //         System.out.println("Escribe el ID: ");
+    //         String id = scanner.nextLine();
+
+    //         System.out.println("Escribe un rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL) :");
+    //         String rangoStr = scanner.nextLine();
+
+    //         Nivel_militar rango =Nivel_militar.valueOf(rangoStr.toUpperCase());
+
+    //         System.out.println("Escribe el numero de soldados a disposicion: ");
+    //         int numero_Soldados = scanner.nextInt();
+    //         scanner.nextLine(); //Consumir linea
+
+        
+    //         return new Capitan(nivel, nombre, id, rango, numero_Soldados);
+    //     } catch (Exception e) {
+    //         System.out.println("Ocurrió un error al crear Capitán: " + e.getMessage());
+    //     }
+    //     return null;
+    // }    
 }
