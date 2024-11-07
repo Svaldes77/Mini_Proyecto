@@ -1,6 +1,9 @@
 package soldados;
 
 import rangos.Nivel_militar;
+
+//import java.util.Scanner;
+
 //import rangos.Rango;
 import misiones.OperacionesMilitares;
 //importamos los paquetes necesarios
@@ -23,7 +26,7 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares {
     };
 
     public void reportarEstado(){ 
-        System.out.println(Nivel_militar.CORONEL+"ESTOY VIGIA EN LA TORRETA"); //Mensaje que se imprime en consola
+        System.out.println("Soy un: " + Nivel_militar.SOLDADO_RASO + "ESTOY VIGIA EN LA TORRETA"); //Mensaje que se imprime en consola
      };
 
     //Sobre escritura de metodos de la clase padre
@@ -32,4 +35,22 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares {
         System.out.println("Soy un: "+ Nivel_militar.SOLDADO_RASO + "estoy en la trinchera");//Mensaje que se imprime en consola
     }
 
+    // public static SoldadoRaso crearSoldadoRaso(Scanner scanner) {
+    // System.out.print("Ingrese el nivel: ");
+    // int nivel = scanner.nextInt();
+    // scanner.nextLine(); // Consumir la nueva línea
+
+    // System.out.print("Ingrese el nombre: ");
+    // String nombre = scanner.nextLine();
+
+    // System.out.print("Ingrese el ID: ");
+    // String id = scanner.nextLine();
+
+    // System.out.print("Ingrese el rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL): ");
+    // String rangoStr = scanner.nextLine();
+    // Nivel_militar rango = Nivel_militar.valueOf(rangoStr.toUpperCase());
+
+    // return new SoldadoRaso(nivel, nombre, id, rango);
 }
+
+
