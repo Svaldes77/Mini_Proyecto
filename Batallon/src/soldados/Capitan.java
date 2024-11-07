@@ -2,7 +2,9 @@ package soldados;
 
 import rangos.Nivel_militar;
 
-import java.util.Scanner;
+import java.security.PublicKey;
+
+//import java.util.Scanner;
 
 //import rangos.Rango;
 import misiones.OperacionesMilitares;
@@ -32,6 +34,9 @@ public class Capitan extends Soldado implements OperacionesMilitares{
     public void setNumeroDeSoldados(int numeroDeSoldados) {
         this.numeroDeSoldados = numeroDeSoldados;
     } 
+    public int getNumeroDeSoldados(){
+        return numeroDeSoldados;
+    } 
 
     // Método sobrescrito de la interfaz OperacionesMilitares para asignar una misión
     @Override 
@@ -42,9 +47,13 @@ public class Capitan extends Soldado implements OperacionesMilitares{
 
     // Método sobrescrito de la interfaz OperacionesMilitares para reportar el estado
     @Override 
-    public void reportarEstado() {
-     System.out.println("Capitán supervisando " + numeroDeSoldados + " soldados.");//Mensaje que se imprime en consola
+    public void reportarEstado(String estado) {
+     System.out.println("Soy un capitan y estoy" + estado);//Mensaje que se imprime en consola
     }
+
+    public void mostrarNumerosoldados(){
+        System.out.println("El numero de soldados bajo mi mando es: " + numeroDeSoldados);
+    } 
     
     // Método estático para crear una instancia de Capitan
     // public static Capitan crearCapitan(Scanner scanner) {

@@ -66,9 +66,13 @@ public class Soldado extends Rango {
         System.out.println("Rango: " + rango);
         System.out.println("Nivel: " + nivel);
         System.out.println("--------------------------");
+    }
 
     //en el app.java esta el ejemplo de como se imprime la informacion de los soldados
-    }
+
+    
+    
+    //Mostra en cosola informacion de militares pero que son de tipo coronel
 
     public static void mostrarInformacion(ArrayList<Soldado> listaSoldados) {
         for (Soldado soldado : listaSoldados) {

@@ -2,7 +2,7 @@ package soldados; //Paquete de la Clase
 
 import rangos.Nivel_militar;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 //import rangos.Rango;
 import misiones.OperacionesMilitares;
@@ -28,8 +28,8 @@ public class Coronel extends Soldado implements OperacionesMilitares{
 
     // Sobrescritura del método reportarEstado de la interfaz OperacionesMilitares
     @Override
-    public void reportarEstado() {
-        System.out.println("Soy un coronel y estoy reportando el estado de la tropa"); 
+    public void reportarEstado(String estado) {
+        System.out.println("Soy un coronel y mi estado es" + estado);  
     }
     
     // Sobrescritura del método asignarMision de la interfaz OperacionesMilitares
@@ -48,6 +48,12 @@ public class Coronel extends Soldado implements OperacionesMilitares{
     public void setEstrategia(String estrategia) {
         this.estrategia = estrategia;
     }
+
+    public void mostrarEstrategia(){
+        System.out.println("La estrategia del coronel es: " + estrategia);
+    } 
+
+
     
     // // Método estático para crear una instancia de Capitan
     // public static Coronel crearCoronel (Scanner scanner) {

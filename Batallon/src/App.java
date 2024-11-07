@@ -2,7 +2,7 @@ import java.util.ArrayList;
 //import java.util.InputMismatchException;
 //import java.util.Scanner; 
 import rangos.Nivel_militar;
-//import soldados.Capitan;
+import soldados.Capitan;
 import soldados.Coronel;
 import soldados.Soldado;
 import soldados.SoldadoRaso;
@@ -15,17 +15,35 @@ import soldados.Teniente;
 public class App {
     public static void main(String[] args) {
         // Crear instancias de Soldado, SoldadoRaso, Teniente y Coronel
-        SoldadoRaso soldadoRaso1 = new SoldadoRaso(6, "Pedro Gomez", "67890", Nivel_militar.TENIENTE);
-        Teniente teniente = new Teniente(3, "Luis Martinez", "54321",Nivel_militar.TENIENTE, "Unidad Alfa");
-        Coronel coronel = new Coronel(4, "Carlos Sanchez", "98765",Nivel_militar.CORONEL, "Estrategia de Defensa"); 
+        SoldadoRaso soldadoRaso1 = new SoldadoRaso(6, "Pedro Gomez", "67890", Nivel_militar.TENIENTE); // soldado raso cuenta con SOLDADO_RASO inicializado
+        Teniente teniente1 = new Teniente(3, "Luis Martinez", "54321",Nivel_militar.TENIENTE, "Unidad Alfa");
+        Coronel coronel1 = new Coronel(4, "Carlos Sanchez", "98765",Nivel_militar.CORONEL, "Estrategia de Defensa"); 
+        Capitan capitan1 = new Capitan(5, "Juan Perez", "12345", Nivel_militar.CAPITAN, 10); 
 
-        // Llamar a los métodos realizarAccion 
+        // Prueba de metodos para soldado 
         soldadoRaso1.realizarAccion();
-        soldadoRaso1.reportarEstado(); 
-        teniente.realizarAccion();
-        coronel.realizarAccion();
+        soldadoRaso1.reportarEstado(" Esperando ordenes"); 
+        System.out.println("----------------------------");
+        // prueba de metodos para teniente
+        teniente1.realizarAccion();
+        teniente1.mostrarUnidad(); 
+        System.out.println("----------------------------"); 
 
-        // // //Prueba de los métodos get y set para cada clase atributos private 
+        // prueba de metodos para coronel
+        coronel1.asignarMision("MISION SALVAR MARTE");
+        coronel1.realizarAccion();
+        coronel1.reportarEstado(" En guardia");
+        coronel1.mostrarEstrategia(); 
+        System.out.println("----------------------------");
+        // prueba de metodos para capitan}
+        capitan1.asignarMision("MISION ATACAR");
+        capitan1.reportarEstado(" En cubierta");  
+        capitan1.mostrarNumerosoldados(); 
+        capitan1.realizarAccion(); 
+        System.out.println("----------------------------"); 
+
+
+        //Prueba de los métodos get y set para cada clase atributos private 
         // System.out.println("---------------------------------------");
         // System.out.println("Unidad del teniente: " + teniente.getUnidad());
         // System.out.println("Estrategia del coronel: " + coronel.getEstrategia());
@@ -35,24 +53,21 @@ public class App {
         // System.out.println("---------------------------------------");
 
         //Prueba de herencia, metodo mostrarInformacion
-        soldadoRaso1.mostrarInformacion();
-        teniente.mostrarInformacion();
 
-        // Asignar misiones y reportar estado
-        soldadoRaso1.asignarMision("MISION SALVAR MARTE"); 
-        soldadoRaso1.reportarEstado(); 
-        coronel.asignarMision("Armar contraataque enemigo");
-        coronel.reportarEstado();
+        soldadoRaso1.mostrarInformacion();
+        teniente1.mostrarInformacion();
+        coronel1.mostrarInformacion();
+        capitan1.mostrarInformacion(); 
 
         // Mostrar el número de soldados
         System.out.println("el numero de soldados es: "+ Soldado.getContadorSoldados() );
 
-<<<<<<< HEAD
         //Downcasting 
         ArrayList<Soldado> lista = new ArrayList<Soldado>();
         lista.add(soldadoRaso1);
-        lista.add(teniente);
-        lista.add(coronel);
+        lista.add(teniente1);
+        lista.add(coronel1);
+        lista.add(capitan1); 
         System.out.println("--------------------------------");
         for (Soldado soldadito: lista) {
             if(soldadito.getClass() == Teniente.class){
@@ -61,21 +76,6 @@ public class App {
                 tenientesoldadito.realizarAccion();
             }
         }
-=======
-        // Downcasting 
-    //     ArrayList<Soldado> lista = new ArrayList<Soldado>();
-    //     lista.add(soldadoRaso1);
-    //     lista.add(teniente);
-    //     lista.add(coronel);
-    //     System.out.println("--------------------------------");
-    //     for (Soldado soldadito: lista) {
-    //         if(soldadito.getClass() == Teniente.class){
-    //             Teniente tenientesoldadito = (Teniente)soldadito;
-    //             System.out.println("Es teniente");
-    //             tenientesoldadito.realizarAccion();
-    //         }
-    //     }
->>>>>>> origin/deploy
 
     // Scanner scanner = new Scanner(System.in);
     // ArrayList<Soldado> listaSoldados = new ArrayList<Soldado>();  
@@ -92,41 +92,6 @@ public class App {
     //     int opcion = scanner.nextInt();
     //     scanner.nextLine(); // Consumir la nueva línea
 
-<<<<<<< HEAD
-//         switch (opcion) {
-//             case 1:
-//                 listaSoldados.add(SoldadoRaso.crearSoldadoRaso(scanner));
-//                 break;
-//             case 2:
-//                 //listaSoldados.add(crearTeniente(scanner));
-//                 break;
-//             case 3:
-//                 //listaSoldados.add(crearCoronel(scanner));
-//                 break;
-//             case 4:
-//                 //listaSoldados.add(crearcapitan(scanner));
-//                 break;
-//             case 5:
-//                 //mostrarInformacion(listaSoldados);
-//                 break;
-//             case 6:
-//                 System.out.println("Saliendo...");
-//                 scanner.close();
-//                 return;
-//             default:
-//                 System.out.println("Opción no válida. Intente de nuevo.");
-//             }
-//         } catch (InputMismatchException e) {
-//                 System.out.println("Entrada no válida. Por favor, ingrese un número.");
-//                 scanner.nextLine(); // Consumir la entrada no válida
-//             } catch (IllegalArgumentException e) {
-//                 System.out.println("Rango no válido. Por favor, ingrese un rango válido.");
-//             } catch (Exception e) {
-//                 System.out.println("Ocurrió un error: " + e.getMessage());
-//             }
-//         }
-     }
-=======
         // switch (opcion) {
         //     case 1:
         //         listaSoldados.add(SoldadoRaso.crearSoldadoRaso(scanner)); // agrega el soldado creado a la lista
@@ -162,5 +127,4 @@ public class App {
     }
 
     
->>>>>>> origin/deploy
 }
