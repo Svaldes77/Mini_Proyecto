@@ -79,6 +79,7 @@ public class Soldado extends Rango {
             soldado.mostrarInformacion();
         }
     }
+<<<<<<< HEAD
     
     // Método regañado que baja de nivel al ser regañado
     public void regañado(ArrayList<Soldado> listaSoldados) {
@@ -94,3 +95,20 @@ public class Soldado extends Rango {
         }
     }
 }
+=======
+
+    public void  patrullar(){
+        
+    }
+
+    public void saludar(){
+       
+    }
+
+    public void regañado(){
+        
+    }   
+}
+
+
+>>>>>>> origin/deploy

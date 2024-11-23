@@ -26,8 +26,10 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares {
     };
 
     public void reportarEstado(String estado){ 
+
         System.out.println("Soy un: " + Nivel_militar.SOLDADO_RASO  +  estado); //Mensaje que se imprime en consola
      };
+
 
     //Sobre escritura de metodos de la clase padre
     @Override
