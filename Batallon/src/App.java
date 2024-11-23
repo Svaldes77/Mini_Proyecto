@@ -25,12 +25,12 @@ public class App {
         // Crear instancias de Soldado, SoldadoRaso, Teniente y Coronel
         SoldadoRaso soldadoRaso1 = new SoldadoRaso(1, "Pedro Perez", "12345", Nivel_militar.SOLDADO_RASO);
 
-        // Teniente teniente1 = new Teniente(3, "Luis Martinez", "54321",Nivel_militar.TENIENTE, "Unidad Alfa");
-        // Coronel coronel1 = new Coronel(4, "Carlos Sanchez", "98765",Nivel_militar.CORONEL, "Estrategia de Defensa"); 
-        // Capitan capitan1 = new Capitan(5, "Juan Perez", "12345", Nivel_militar.CAPITAN, 10); 
+        Teniente teniente1 = new Teniente(3, "Luis Martinez", "54321",Nivel_militar.TENIENTE, "Unidad Alfa");
+        Coronel coronel1 = new Coronel(4, "Carlos Sanchez", "98765",Nivel_militar.CORONEL, "Estrategia de Defensa"); 
+        Capitan capitan1 = new Capitan(5, "Juan Perez", "12345", Nivel_militar.CAPITAN, 10); 
 
-        // // Prueba de metodos para soldado 
-        // soldadoRaso1.realizarAccion();
+        // Prueba de metodos para soldado 
+        soldadoRaso1.realizarAccion();
 
     
 
@@ -41,18 +41,18 @@ public class App {
         // teniente1.mostrarUnidad(); 
         // System.out.println("----------------------------"); 
 
-        // // prueba de metodos para coronel
-        // coronel1.asignarMision("MISION SALVAR MARTE");
-        // coronel1.realizarAccion();
-        // coronel1.reportarEstado(" En guardia");
-        // coronel1.mostrarEstrategia(); 
-        // System.out.println("----------------------------");
-        // // prueba de metodos para capitan}
-        // capitan1.asignarMision("MISION ATACAR");
-        // capitan1.reportarEstado(" En cubierta");  
-        // capitan1.mostrarNumerosoldados(); 
-        // capitan1.realizarAccion(); 
-        // System.out.println("----------------------------"); 
+        // prueba de metodos para coronel
+        coronel1.asignarMision("MISION SALVAR MARTE");
+        coronel1.realizarAccion();
+        coronel1.reportarEstado(" En guardia");
+        coronel1.mostrarEstrategia(); 
+        System.out.println("----------------------------");
+        // prueba de metodos para capitan}
+        capitan1.asignarMision("MISION ATACAR");
+        capitan1.reportarEstado(" En cubierta");  
+        capitan1.mostrarNumerosoldados(); 
+        capitan1.realizarAccion(); 
+        System.out.println("----------------------------"); 
 
 
         // //Prueba de los métodos get y set para cada clase atributos private 
@@ -74,20 +74,20 @@ public class App {
         // // Mostrar el número de soldados
         // System.out.println("el numero de soldados es: "+ Soldado.getContadorSoldados() );
 
-        // //Downcasting 
-        // ArrayList<Soldado> lista = new ArrayList<Soldado>();
-        // lista.add(soldadoRaso1);
-        // lista.add(teniente1);
-        // lista.add(coronel1);
-        // lista.add(capitan1); 
-        // System.out.println("--------------------------------");
-        // for (Soldado soldadito: lista) {
-        //     if(soldadito.getClass() == Teniente.class){
-        //         Teniente tenientesoldadito = (Teniente)soldadito;
-        //         System.out.println("Es teniente");
-        //         tenientesoldadito.realizarAccion();
-        //     }
-        // }
+        //Downcasting 
+        ArrayList<Soldado> lista = new ArrayList<Soldado>();
+        lista.add(soldadoRaso1);
+        lista.add(teniente1);
+        lista.add(coronel1);
+        lista.add(capitan1); 
+        System.out.println("--------------------------------");
+        for (Soldado soldadito: lista) {
+            if(soldadito.getClass() == Teniente.class){
+                Teniente tenientesoldadito = (Teniente)soldadito;
+                System.out.println("Es teniente");
+                tenientesoldadito.realizarAccion();
+            }
+        }
 
 
         // Mostrar la lista de soldados antes de ser regañados

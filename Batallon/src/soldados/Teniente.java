@@ -45,11 +45,6 @@ public class Teniente extends Soldado implements OperacionesMilitares {
 
     } 
 
-    public void realizarRegano(){
-
-    }
-
-
     @Override
     public void asignarMision(String mision) {
         System.out.println("El teniente le han asignado la mision: " + mision);

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 //import java.util.Scanner;
 
+import java.util.Iterator;
+
 //import rangos.Rango;
 import misiones.OperacionesMilitares;
 //importamos los paquetes necesarios
@@ -57,7 +59,6 @@ public class Coronel extends Soldado implements OperacionesMilitares{
         System.out.println("La estrategia del coronel es: " + estrategia);
     } 
 
-<<<<<<< HEAD
      // Método regañado() sobreescrito
     @Override
     public void regañado(ArrayList<Soldado> listaSoldados) {
@@ -70,11 +71,7 @@ public class Coronel extends Soldado implements OperacionesMilitares{
         for (Soldado soldado : listaSoldados) {
             soldado.regañado(listaSoldados);  // El Coronel regaña a cada soldado
         }
-=======
-    public void saludar(){
-
->>>>>>> origin/deploy
-    }
+    
 
 
     
@@ -108,3 +105,6 @@ public class Coronel extends Soldado implements OperacionesMilitares{
     //     return null;
     // }  
 }
+
+    }
+
