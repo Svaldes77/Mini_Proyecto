@@ -79,5 +79,18 @@ public class Soldado extends Rango {
             soldado.mostrarInformacion();
         }
     }
+
+    public void  patrullar(){
+        
+    }
+
+    public void saludar(){
+       
+    }
+
+    public void regañado(){
+        
+    }   
 }
+
 

@@ -4,13 +4,14 @@ package soldados;
 
 import rangos.Nivel_militar;
 // import rangos.Rango;
-// import misiones.OperacionesMilitares;
+import misiones.OperacionesMilitares;
 // importamos los packages necesarios
 
 // Clase Teniente que hereda de la clase Soldado
-public class Teniente extends Soldado {
+public class Teniente extends Soldado implements OperacionesMilitares {
 
-    private String unidad; // Atributo de la clase Teniente
+    private String unidad; 
+
 
     // Constructor de la clase Teniente que recibe los parametros nivel, nombre, id, rango y unidad
     public Teniente(int nivel, String nombre, String id, Nivel_militar rango , String unidad) {
@@ -18,6 +19,8 @@ public class Teniente extends Soldado {
         this.rango = Nivel_militar.TENIENTE;
         this.unidad = unidad; 
     }
+
+
 
     // Metodos Get y Set
     public String getUnidad() {
@@ -32,11 +35,31 @@ public class Teniente extends Soldado {
     @Override
     public void realizarAccion() {
         System.out.println("Soy el "+ Nivel_militar.TENIENTE + " y estoy Supervisando la trinchera"); //Mensaje que se imprime en consola
+        //JOptionPane.showMessageDialog(null, "Soy "+ Nivel_militar.TENIENTE + " y estoy Supervisando la trinchera");
+    
     }
     //metodo mostrar unidad 
     public void mostrarUnidad(){
         System.out.println("La unidad del teniente es: " + unidad);
+        
+
     } 
+
+    public void realizarRegano(){
+
+    }
+
+
+    @Override
+    public void asignarMision(String mision) {
+        System.out.println("El teniente le han asignado la mision: " + mision);
+    }
+    @Override
+    public void reportarEstado(String estado) {
+        System.out.println("El teniente reporta que la mision esta: " + estado);
+    }
+
+    // Metodo que se sobre escribe de la interfaz OperacionesMilitares
 
 
 
