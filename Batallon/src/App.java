@@ -12,52 +12,11 @@ import rangos.Rango;
 import misiones.OperacionesMilitares;
 
 
-<<<<<<< HEAD
-    // Metodo que recibe un objeto de tipo SoldadoRaso y muestra el estado del soldado  prueba del polimorfismo 
-    // public void recibirSoldado(SoldadoRaso soldadoRaso1){
-    //     soldadoRaso1.reportarEstado(" En guardia");
-    // }
-    
-    
-    public static void main(String[] args) {
-        // Crear instancias de Soldado, SoldadoRaso, Teniente y Coronel
-        SoldadoRaso soldadoRaso1 = new SoldadoRaso(1, "Pedro Perez", "12345", Nivel_militar.SOLDADO_RASO);
-
-        Teniente teniente1 = new Teniente(3, "Luis Martinez", "54321",Nivel_militar.TENIENTE, "Unidad Alfa");
-        Coronel coronel1 = new Coronel(4, "Carlos Sanchez", "98765",Nivel_militar.CORONEL, "Estrategia de Defensa"); 
-        Capitan capitan1 = new Capitan(5, "Juan Perez", "12345", Nivel_militar.CAPITAN, 10); 
-
-        // Prueba de metodos para soldado 
-        soldadoRaso1.realizarAccion();
-
-    
-
-    
-        // System.out.println("----------------------------");
-        // // prueba de metodos para teniente
-        // teniente1.realizarAccion();
-        // teniente1.mostrarUnidad(); 
-        // System.out.println("----------------------------"); 
-
-        // prueba de metodos para coronel
-        coronel1.asignarMision("MISION SALVAR MARTE");
-        coronel1.realizarAccion();
-        coronel1.reportarEstado(" En guardia");
-        coronel1.mostrarEstrategia(); 
-        System.out.println("----------------------------");
-        // prueba de metodos para capitan}
-        capitan1.asignarMision("MISION ATACAR");
-        capitan1.reportarEstado(" En cubierta");  
-        capitan1.mostrarNumerosoldados(); 
-        capitan1.realizarAccion(); 
-        System.out.println("----------------------------"); 
-=======
->>>>>>> origin/deploy
 
 
         // // }
 
-<<<<<<< HEAD
+
         // //Prueba de herencia, metodo mostrarInformacion
 
         // soldadoRaso1.mostrarInformacion();
@@ -69,78 +28,35 @@ import misiones.OperacionesMilitares;
         // System.out.println("el numero de soldados es: "+ Soldado.getContadorSoldados() );
 
         //Downcasting 
-        ArrayList<Soldado> lista = new ArrayList<Soldado>();
-        lista.add(soldadoRaso1);
-        lista.add(teniente1);
-        lista.add(coronel1);
-        lista.add(capitan1); 
-        System.out.println("--------------------------------");
-        for (Soldado soldadito: lista) {
-            if(soldadito.getClass() == Teniente.class){
-                Teniente tenientesoldadito = (Teniente)soldadito;
-                System.out.println("Es teniente");
-                tenientesoldadito.realizarAccion();
-            }
-        }
+        // ArrayList<Soldado> lista = new ArrayList<Soldado>();
+        // lista.add(soldadoRaso1);
+        // lista.add(teniente1);
+        // lista.add(coronel1);
+        // lista.add(capitan1); 
+        // System.out.println("--------------------------------");
+        // for (Soldado soldadito: lista) {
+        //     if(soldadito.getClass() == Teniente.class){
+        //         Teniente tenientesoldadito = (Teniente)soldadito;
+        //         System.out.println("Es teniente");
+        //         tenientesoldadito.realizarAccion();
+        //     }
+        // }
 
 
         // Mostrar la lista de soldados antes de ser regañados
-        System.out.println("Soldados antes de ser regañados:");
-        for (Soldado soldado : lista) {
-            System.out.println(soldado.getNombre() + " - Nivel: " + soldado.getNivel());
-        }
+        // System.out.println("Soldados antes de ser regañados:");
+        // for (Soldado soldado : lista) {
+        //     System.out.println(soldado.getNombre() + " - Nivel: " + soldado.getNivel());
+        // }
 
-        // El Coronel regaña a todos los soldados
-        System.out.println("\nEl Coronel va a regañar a todos los soldados:");
-        coronel1.regañarSoldados(lista);  // El Coronel regaña a todos los soldados
+        // // El Coronel regaña a todos los soldados
+        // System.out.println("\nEl Coronel va a regañar a todos los soldados:");
+        // coronel1.regañarSoldados(lista);  // El Coronel regaña a todos los soldados
 
-        // Mostrar la lista de soldados después de ser regañados
-        System.out.println("\nSoldados después de ser regañados:");
-        for (Soldado soldado : lista) {
-            System.out.println(soldado.getNombre() + " - Nivel: " + soldado.getNivel());
-        }
-=======
-        // import javax.swing.*;
-        // import java.awt.*;
-        // import java.awt.event.ActionEvent;
-        // import java.awt.event.ActionListener;
-        // import java.util.ArrayList;
-        
-        // public class App extends JFrame {
-        //     private ArrayList<Soldado> listaSoldados;
-        //     private DefaultListModel<String> listModel;
-        //     private JList<String> listSoldados;
-        
-        //     public App() {
-        //         listaSoldados = new ArrayList<>();
-        //         listModel = new DefaultListModel<>();
-        //         setTitle("Gestión de Soldados");
-        //         setSize(500, 400);
-        //         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //         setLayout(new BorderLayout());
-        
-        //         // Panel para mostrar la lista de soldados
-        //         JPanel panelLista = new JPanel(new BorderLayout());
-        //         listSoldados = new JList<>(listModel);
-        //         panelLista.add(new JScrollPane(listSoldados), BorderLayout.CENTER);
-        //         JButton btnAccionSoldado = new JButton("Realizar Acción");
-        //         panelLista.add(btnAccionSoldado, BorderLayout.SOUTH);
-        
-        //         // Botón para agregar soldado
-        //         JButton btnAgregarSoldado = new JButton("Agregar Soldado");
-        
-        //         // Agregar paneles al frame
-        //         add(btnAgregarSoldado, BorderLayout.NORTH);
-        //         add(panelLista, BorderLayout.CENTER);
-        
-        //         // Agregar listeners a los botones
-        //         btnAgregarSoldado.addActionListener(new ActionListener() {
-        //             @Override
-        //             public void actionPerformed(ActionEvent e) {
-        //                 mostrarDialogoCrearSoldado();
-        //             }
-        //         });
-        
+        // // Mostrar la lista de soldados después de ser regañados
+        // System.out.println("\nSoldados después de ser regañados:");
+        // for (Soldado soldado : lista) {
+        //     System.out.println(soldado.getNombre() + " - Nivel: " + soldado.getNivel());
         //         btnAccionSoldado.addActionListener(new ActionListener() {
         //             @Override
         //             public void actionPerformed(ActionEvent e) {
@@ -297,11 +213,7 @@ import misiones.OperacionesMilitares;
         //         });
         //     }
         // }
->>>>>>> origin/deploy
-
-
-
-
+        
         public class App extends java.awt.Frame {
 
             /**
@@ -338,7 +250,6 @@ import misiones.OperacionesMilitares;
                 label1 = new java.awt.Label();
                 label2 = new java.awt.Label();
                 label3 = new java.awt.Label();
-                label4 = new java.awt.Label();
                 label5 = new java.awt.Label();
                 label6 = new java.awt.Label();
                 jCheckBox4 = new javax.swing.JCheckBox();
@@ -366,7 +277,7 @@ import misiones.OperacionesMilitares;
                 jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 70)); // NOI18N
                 jLabel1.setText("Gestión de Soldados");
         
-                jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("icon.png"))); // NOI18N
+                jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icon.png"))); // NOI18N
                 jLabel2.setToolTipText("");
 
 
@@ -729,8 +640,4 @@ import misiones.OperacionesMilitares;
             private java.awt.Label label6;
             // End of variables declaration                   
         }
-        
-
-
-
-
+    

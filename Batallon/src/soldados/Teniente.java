@@ -48,8 +48,6 @@ public class Teniente extends Soldado implements OperacionesMilitares {
 
     } 
 
-<<<<<<< HEAD
-=======
     public void realizarRegano(){
 
     }
@@ -61,7 +59,6 @@ public class Teniente extends Soldado implements OperacionesMilitares {
     }
 
 
->>>>>>> origin/deploy
     @Override
     public void asignarMision(String mision) {
         System.out.println("El teniente le han asignado la mision: " + mision);
