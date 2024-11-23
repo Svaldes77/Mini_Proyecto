@@ -77,6 +77,23 @@ public class App {
             }
         }
 
+
+        // Mostrar la lista de soldados antes de ser regañados
+        System.out.println("Soldados antes de ser regañados:");
+        for (Soldado soldado : lista) {
+            System.out.println(soldado.getNombre() + " - Nivel: " + soldado.getNivel());
+        }
+
+        // El Coronel regaña a todos los soldados
+        System.out.println("\nEl Coronel va a regañar a todos los soldados:");
+        coronel1.regañarSoldados(lista);  // El Coronel regaña a todos los soldados
+
+        // Mostrar la lista de soldados después de ser regañados
+        System.out.println("\nSoldados después de ser regañados:");
+        for (Soldado soldado : lista) {
+            System.out.println(soldado.getNombre() + " - Nivel: " + soldado.getNivel());
+        }
+
     // Scanner scanner = new Scanner(System.in);
     // ArrayList<Soldado> listaSoldados = new ArrayList<Soldado>();  
     // while (true) {
