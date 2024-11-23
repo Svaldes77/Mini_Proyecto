@@ -24,6 +24,8 @@ public class App {
     public static void main(String[] args) {
         // Crear instancias de Soldado, SoldadoRaso, Teniente y Coronel
         SoldadoRaso soldadoRaso1 = new SoldadoRaso(1, "Pedro Perez", "12345", Nivel_militar.SOLDADO_RASO);
+        soldadoRaso1.saludar();
+        soldadoRaso1.patrullar();
 
         // Teniente teniente1 = new Teniente(3, "Luis Martinez", "54321",Nivel_militar.TENIENTE, "Unidad Alfa");
         // Coronel coronel1 = new Coronel(4, "Carlos Sanchez", "98765",Nivel_militar.CORONEL, "Estrategia de Defensa"); 
@@ -89,22 +91,6 @@ public class App {
         //     }
         // }
 
-<<<<<<< HEAD
-    Scanner scanner = new Scanner(System.in);
-    ArrayList<Soldado> listaSoldados = new ArrayList<Soldado>();  
-    while (true) {
-        try {    
-        System.out.println("Seleccione una opción:");
-        System.out.println("1. Crear Soldado Raso");
-        System.out.println("2. Crear Teniente");
-        System.out.println("3. Crear Coronel");
-        System.out.println("4. Crear Capitán");
-        System.out.println("5. Mostrar información de todos los soldados");
-        System.out.println("6. Salir");
-        System.out.print("Opción: ");
-        int opcion = scanner.nextInt();
-        scanner.nextLine(); // Consumir la nuev a línea
-=======
     // Scanner scanner = new Scanner(System.in);
     // ArrayList<Soldado> listaSoldados = new ArrayList<Soldado>();  
     // while (true) {
@@ -119,7 +105,6 @@ public class App {
     //     System.out.print("Opción: ");
     //     int opcion = scanner.nextInt();
     //     scanner.nextLine(); // Consumir la nueva línea
->>>>>>> deploy
 
         // switch (opcion) {
         //     case 1:

@@ -82,10 +82,34 @@ public class Soldado extends Rango {
     }
 
     public void  patrullar(){
+        switch (rango) {
+            case Nivel_militar.SOLDADO_RASO:
+                System.out.println("El soldado raso "+nombre+" esta patrullando en patines");
+                break;
+            case Nivel_militar.TENIENTE:
+                System.out.println("El teniente "+nombre+" esta patrullando en burro");
+                break;
+            case Nivel_militar.CAPITAN:
+                System.out.println("El capitan "+nombre+" esta patrullando en un unicornio y esta chill de cojones");
+                break;
+            case Nivel_militar.CORONEL:
+                System.out.println("Soy el coronel " +nombre+ " y no patrulla, soy el fuking jefe");
+            default:
+                break;
+        }
+
         
     }
 
     public void saludar(){
+        char primeraLetra = nombre.charAt(0);
+        char ultimaLetra = nombre.charAt(nombre.length()-1);
+
+        if(primeraLetra == ultimaLetra ){
+            System.out.println(" hola, soy el " + rango + " "+nombre+ " y ponte hacer algo ");
+        }else{
+            System.out.println(" hola, soy el " + rango + " "+nombre+ " estoy mamado de esta vida");
+        }
        
     }
 

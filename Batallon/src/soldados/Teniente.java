@@ -38,18 +38,6 @@ public class Teniente extends Soldado implements OperacionesMilitares {
         //JOptionPane.showMessageDialog(null, "Soy "+ Nivel_militar.TENIENTE + " y estoy Supervisando la trinchera");
     
     }
-<<<<<<< HEAD
-
-    // Metodo que crea un objeto de la clase Teniente
-    public static Teniente crearTeniente(Scanner scanner) { //static para que pueda ser accedido sin instanciar un objeto
-        try { // try-catch para manejar excepciones
-            System.out.println("Ingrese el nivel: ");
-            int nivel = scanner.nextInt();
-            scanner.nextLine(); // Consumir la nueva línea
-
-            System.out.println("Ingrese el nombre: "); //Mensaje que se imprime en consola
-            String nombre  = scanner.nextLine();
-=======
     //metodo mostrar unidad 
     public void mostrarUnidad(){
         System.out.println("La unidad del teniente es: " + unidad);
@@ -83,7 +71,6 @@ public class Teniente extends Soldado implements OperacionesMilitares {
 
     //         System.out.println("Ingrese el nombre: ");
     //         String nombre  = scanner.nextLine();
->>>>>>> deploy
            
     //         System.out.println("Ingrese el ID: ");
     //         String id = scanner.nextLine();
@@ -92,18 +79,6 @@ public class Teniente extends Soldado implements OperacionesMilitares {
     //         String rangoStr = scanner.nextLine();
     //         Nivel_militar rango = Nivel_militar.valueOf(rangoStr.toUpperCase());
 
-<<<<<<< HEAD
-            System.out.println("Ingrese la unidad: "); //Mensaje que se imprime en consola
-            String unidad = scanner.nextLine(); //unidad es un parametro propio de la clase Teniente
-
-
-            return new Teniente(nivel, nombre, id, rango, unidad); // Se retorna un nuevo objeto de la clase Teniente
-        } catch (Exception e) {
-            System.out.println("Ocurrió un error al crear Soldado Raso: " + e.getMessage());
-        }
-        return null; // Se retorna null en caso de error
-    }
-=======
     //         System.out.println("Ingrese la unidad: ");
     //         String unidad = scanner.nextLine();
 
@@ -114,5 +89,4 @@ public class Teniente extends Soldado implements OperacionesMilitares {
     //     }
     //     return null;
     // }
->>>>>>> deploy
 }
