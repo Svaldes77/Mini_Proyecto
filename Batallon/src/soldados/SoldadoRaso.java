@@ -2,7 +2,7 @@ package soldados;
 
 import rangos.Nivel_militar;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 //import rangos.Rango;
 import misiones.OperacionesMilitares;
@@ -25,29 +25,40 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares {
         System.out.println("Soldado Raso asignado a la misión: " + mision);
     };
 
-    public void reportarEstado(){ 
-        System.out.println(Nivel_militar.CORONEL+" AQUI ESTOY VIGIA EN LA TORRETA"); //Mensaje que se imprime en consola
+    public void reportarEstado(String estado){ 
+
+        System.out.println("Soy un: " + Nivel_militar.SOLDADO_RASO  +  estado); //Mensaje que se imprime en consola
      };
+
 
     //Sobre escritura de metodos de la clase padre
     @Override
     public void realizarAccion() {
-        System.out.println("Soy un: "+ Nivel_militar.SOLDADO_RASO + "estoy en la trinchera");//Mensaje que se imprime en consola
+        System.out.println("Soy un: "+ Nivel_militar.SOLDADO_RASO + " estoy en la trinchera");//Mensaje que se imprime en consola
     }
 
+<<<<<<< HEAD
     //Metodo que crea un objeto de la clase SoldadoRaso
     public static SoldadoRaso crearSoldadoRaso(Scanner scanner) { 
         try { //Manejo de excepciones
             System.out.println("Ingrese el nivel: "); //Mensaje que se imprime en consola
             int nivel = scanner.nextInt();
             scanner.nextLine(); // Consumir la nueva línea
+=======
+    // public static SoldadoRaso crearSoldadoRaso(Scanner scanner) { //Método para crear un Soldado Raso 
+    //     try {
+    //         System.out.println("Ingrese el nivel: ");
+    //         int nivel = scanner.nextInt();
+    //         scanner.nextLine(); // Consumir la nueva línea
+>>>>>>> deploy
 
-            System.out.println("Ingrese el nombre: ");
-            String nombre  = scanner.nextLine();
+    //         System.out.println("Ingrese el nombre: ");
+    //         String nombre  = scanner.nextLine();
            
-            System.out.println("Ingrese el ID: ");
-            String id = scanner.nextLine();
+    //         System.out.println("Ingrese el ID: ");
+    //         String id = scanner.nextLine();
 
+<<<<<<< HEAD
             System.out.print("Ingrese el rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL): "); // Mensaje que se imprime en consola
             String rangoStr = scanner.nextLine(); // Se lee el rango
             Nivel_militar rango = Nivel_militar.valueOf(rangoStr.toUpperCase()); // Se convierte a mayúsculas
@@ -58,5 +69,19 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares {
         }
         return null;
     }
+=======
+    //         System.out.print("Ingrese el rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL): ");
+    //         String rangoStr = scanner.nextLine();
+    //         Nivel_militar rango = Nivel_militar.valueOf(rangoStr.toUpperCase());
+
+    //         return new SoldadoRaso(nivel, nombre, id, rango);
+    //     } catch (Exception e) {
+    //         System.out.println("Ocurrió un error al crear Soldado Raso: " + e.getMessage());
+    //     }
+    //     return null;
+    // }
+>>>>>>> deploy
 
 }
+
+

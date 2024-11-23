@@ -1,20 +1,27 @@
 package soldados;
 
 import rangos.Nivel_militar;
+
+
+
+//import java.util.Scanner;
+
 //import rangos.Rango;
 import misiones.OperacionesMilitares;
 
 // La clase Capitan extiende la clase Soldado e implementa la interfaz OperacionesMilitares
 public class Capitan extends Soldado implements OperacionesMilitares{
 
-    // Atributo que almacena el número de soldados bajo el mando del capitán
-    private int numeroDeSoldados;
+    
+    int cantidadSoldadosBajoSuMando; // Atributo propio de la clase Capitan
+    
     
     // Constructor de la clase Capitan
-    public Capitan(int nivel, String nombre, String id, Nivel_militar rango , int numeroDeSoldados) {
+    public Capitan(int nivel, String nombre, String id, Nivel_militar rango , int cantidadSoldadosBajoSuMando) {
         super(nivel, nombre, id, rango); // Llama al constructor de la clase base Soldado
         //super(3);
-        this.numeroDeSoldados = numeroDeSoldados; //Inicialización de atributos propios de la clase Capitan
+        this.cantidadSoldadosBajoSuMando = cantidadSoldadosBajoSuMando; //Inicialización de atributos propios de la clase Capitan
+        this.nivel = 2;
     }
     
     // Método sobrescrito de la clase Soldado
@@ -22,13 +29,6 @@ public class Capitan extends Soldado implements OperacionesMilitares{
     public void realizarAccion() {
         System.out.println("Soy un capitan y estoy implementando la contra");
     }
-
-    // Método getter para obtener el número de soldados
-    // Método setter para establecer el número de soldados
-
-    public void setNumeroDeSoldados(int numeroDeSoldados) {
-        this.numeroDeSoldados = numeroDeSoldados;
-    } 
 
     // Método sobrescrito de la interfaz OperacionesMilitares para asignar una misión
     @Override 
@@ -39,8 +39,41 @@ public class Capitan extends Soldado implements OperacionesMilitares{
 
     // Método sobrescrito de la interfaz OperacionesMilitares para reportar el estado
     @Override 
-    public void reportarEstado() {
-     System.out.println("Capitán supervisando " + numeroDeSoldados + " soldados.");//Mensaje que se imprime en consola
+    public void reportarEstado(String estado) {
+     System.out.println("Soy un capitan y estoy" + estado);//Mensaje que se imprime en consola
     }
+
+    public void mostrarNumerosoldados(){
+        System.out.println("El numero de soldados bajo mi mando es: " + cantidadSoldadosBajoSuMando);
+    } 
     
+    // Método estático para crear una instancia de Capitan
+    // public static Capitan crearCapitan(Scanner scanner) {
+    //     try {
+    //         System.out.println("Escribe el nivel: ");
+    //         int nivel = scanner.nextInt();
+    //         scanner.nextLine(); //Consumir linea
+            
+    //         System.out.println("Escribe el nombre: ");
+    //         String nombre = scanner.nextLine();
+
+    //         System.out.println("Escribe el ID: ");
+    //         String id = scanner.nextLine();
+
+    //         System.out.println("Escribe un rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL) :");
+    //         String rangoStr = scanner.nextLine();
+
+    //         Nivel_militar rango =Nivel_militar.valueOf(rangoStr.toUpperCase());
+
+    //         System.out.println("Escribe el numero de soldados a disposicion: ");
+    //         int numero_Soldados = scanner.nextInt();
+    //         scanner.nextLine(); //Consumir linea
+
+        
+    //         return new Capitan(nivel, nombre, id, rango, numero_Soldados);
+    //     } catch (Exception e) {
+    //         System.out.println("Ocurrió un error al crear Capitán: " + e.getMessage());
+    //     }
+    //     return null;
+    // }    
 }
