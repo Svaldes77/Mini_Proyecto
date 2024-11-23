@@ -7,3 +7,12 @@ public enum Nivel_militar {
     TENIENTE,       // Nivel de Teniente
     CORONEL         // Nivel de Coronel
 }
+//  @Override
+//     public String toString() {
+//         switch (this) {
+//             case SOLDADO_RASO: return "Soldado Raso";
+//             case TENIENTE: return "Teniente";
+//             case CAPITAN: return "Capitán";
+//             case CORONEL: return "Coronel";
+//             default: throw new IllegalArgumentException();
+//         }

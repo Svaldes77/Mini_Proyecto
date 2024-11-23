@@ -10,14 +10,16 @@ import misiones.OperacionesMilitares;
 
 //Clase Coronel que hereda de la clase Soldado e implementa la interfaz OperacionesMilitares
 public class Coronel extends Soldado implements OperacionesMilitares{
+    private String estrategia; 
 
     // Atributo que almacena la estrategia del coronel
-    private String estrategia; 
+     
     
     //Constructor Coronel
     public Coronel(int nivel, String nombre, String id, Nivel_militar rango, String estrategia) {
         super(nivel, nombre, id,rango); // Llama al constructor de la clase base Soldado 
         this.estrategia = estrategia; //Inicialización de atributos propios de la clase Coronel
+        this.nivel = 4;
     }
 
     // Sobrescritura del método realizarAccion de la clase Soldado
@@ -52,6 +54,10 @@ public class Coronel extends Soldado implements OperacionesMilitares{
     public void mostrarEstrategia(){
         System.out.println("La estrategia del coronel es: " + estrategia);
     } 
+
+    public void saludar(){
+
+    }
 
 
     
