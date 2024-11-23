@@ -72,7 +72,7 @@ public class App {
         System.out.println("6. Salir");
         System.out.print("Opción: ");
         int opcion = scanner.nextInt();
-        scanner.nextLine(); // Consumir la nueva línea
+        scanner.nextLine(); // Consumir la nuev a línea
 
         switch (opcion) {
             case 1:

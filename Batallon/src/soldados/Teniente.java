@@ -33,13 +33,15 @@ public class Teniente extends Soldado {
     public void realizarAccion() {
         System.out.println("Soy el "+ Nivel_militar.TENIENTE + " y estoy Supervisando la trinchera"); //Mensaje que se imprime en consola
     }
-    public static Teniente crearTeniente(Scanner scanner) {
-        try {
+
+    // Metodo que crea un objeto de la clase Teniente
+    public static Teniente crearTeniente(Scanner scanner) { //static para que pueda ser accedido sin instanciar un objeto
+        try { // try-catch para manejar excepciones
             System.out.println("Ingrese el nivel: ");
             int nivel = scanner.nextInt();
             scanner.nextLine(); // Consumir la nueva línea
 
-            System.out.println("Ingrese el nombre: ");
+            System.out.println("Ingrese el nombre: "); //Mensaje que se imprime en consola
             String nombre  = scanner.nextLine();
            
             System.out.println("Ingrese el ID: ");
@@ -49,14 +51,14 @@ public class Teniente extends Soldado {
             String rangoStr = scanner.nextLine();
             Nivel_militar rango = Nivel_militar.valueOf(rangoStr.toUpperCase());
 
-            System.out.println("Ingrese la unidad: ");
-            String unidad = scanner.nextLine();
+            System.out.println("Ingrese la unidad: "); //Mensaje que se imprime en consola
+            String unidad = scanner.nextLine(); //unidad es un parametro propio de la clase Teniente
 
 
-            return new Teniente(nivel, nombre, id, rango, unidad);
+            return new Teniente(nivel, nombre, id, rango, unidad); // Se retorna un nuevo objeto de la clase Teniente
         } catch (Exception e) {
             System.out.println("Ocurrió un error al crear Soldado Raso: " + e.getMessage());
         }
-        return null;
+        return null; // Se retorna null en caso de error
     }
 }

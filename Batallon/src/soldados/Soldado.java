@@ -70,9 +70,10 @@ public class Soldado extends Rango {
     //en el app.java esta el ejemplo de como se imprime la informacion de los soldados
     }
 
+     //Metodo que recibe un ArrayList de Soldados y muestra la informacion de cada uno
     public static void mostrarInformacion(ArrayList<Soldado> listaSoldados) {
-        for (Soldado soldado : listaSoldados) {
-            soldado.mostrarInformacion();
+        for (Soldado soldado : listaSoldados) { //Recorre la lista de soldados
+            soldado.mostrarInformacion(); //Muestra la informacion de cada soldado
         }
     }
 }

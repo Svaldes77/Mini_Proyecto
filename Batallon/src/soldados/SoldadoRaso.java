@@ -35,9 +35,10 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares {
         System.out.println("Soy un: "+ Nivel_militar.SOLDADO_RASO + "estoy en la trinchera");//Mensaje que se imprime en consola
     }
 
-    public static SoldadoRaso crearSoldadoRaso(Scanner scanner) {
-        try {
-            System.out.println("Ingrese el nivel: ");
+    //Metodo que crea un objeto de la clase SoldadoRaso
+    public static SoldadoRaso crearSoldadoRaso(Scanner scanner) { 
+        try { //Manejo de excepciones
+            System.out.println("Ingrese el nivel: "); //Mensaje que se imprime en consola
             int nivel = scanner.nextInt();
             scanner.nextLine(); // Consumir la nueva línea
 
@@ -47,13 +48,13 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares {
             System.out.println("Ingrese el ID: ");
             String id = scanner.nextLine();
 
-            System.out.print("Ingrese el rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL): ");
-            String rangoStr = scanner.nextLine();
-            Nivel_militar rango = Nivel_militar.valueOf(rangoStr.toUpperCase());
+            System.out.print("Ingrese el rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL): "); // Mensaje que se imprime en consola
+            String rangoStr = scanner.nextLine(); // Se lee el rango
+            Nivel_militar rango = Nivel_militar.valueOf(rangoStr.toUpperCase()); // Se convierte a mayúsculas
 
-            return new SoldadoRaso(nivel, nombre, id, rango);
-        } catch (Exception e) {
-            System.out.println("Ocurrió un error al crear Soldado Raso: " + e.getMessage());
+            return new SoldadoRaso(nivel, nombre, id, rango); // Se retorna un nuevo objeto de la clase SoldadoRaso
+        } catch (Exception e) { // Se captura la excepción
+            System.out.println("Ocurrió un error al crear Soldado Raso: " + e.getMessage()); // mensaje en consola
         }
         return null;
     }
