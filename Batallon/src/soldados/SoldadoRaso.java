@@ -2,6 +2,8 @@ package soldados;
 
 import rangos.Nivel_militar;
 
+import java.util.ArrayList;
+
 //import java.util.Scanner;
 
 //import rangos.Rango;
@@ -29,6 +31,24 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares {
 
         System.out.println("Soy un: " + Nivel_militar.SOLDADO_RASO  +  estado); //Mensaje que se imprime en consola
      };
+
+     
+    @Override
+    public String toString() {
+        return super.toString();
+    } 
+
+    
+    // Este método no tiene lógica propia, pero puede ser llamado
+//    @Override
+//     public void reganado() {
+//         if (getNivel() > 1) {
+//             setNivel(getNivel() - 1); // Reducir el nivel del soldado
+//             System.out.println("El Teniente " + getNombre() + " ha regañado a " + getNombre() + ". Nuevo nivel: " + getNivel());
+//         } else {
+//             System.out.println(getNombre() + " ha sido expulsado, su nivel era 1.");
+//         }
+//     }
 
 
     //Sobre escritura de metodos de la clase padre
@@ -60,6 +80,7 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares {
     //     return null;
     // }
 
+    
 }
 
 

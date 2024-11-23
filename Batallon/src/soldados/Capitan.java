@@ -46,6 +46,15 @@ public class Capitan extends Soldado implements OperacionesMilitares{
     public void mostrarNumerosoldados(){
         System.out.println("El numero de soldados bajo mi mando es: " + cantidadSoldadosBajoSuMando);
     } 
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Número de Soldados: " + cantidadSoldadosBajoSuMando;
+    }
+
+
+    // Este método no tiene lógica propia, pero puede ser llamado
+    
     
     // Método estático para crear una instancia de Capitan
     // public static Capitan crearCapitan(Scanner scanner) {
@@ -76,4 +85,5 @@ public class Capitan extends Soldado implements OperacionesMilitares{
     //     }
     //     return null;
     // }    
+
 }

@@ -2,6 +2,8 @@ package soldados; //Paquete de la Clase
 
 import rangos.Nivel_militar;
 
+import java.util.ArrayList;
+
 //import java.util.Scanner;
 
 //import rangos.Rango;
@@ -58,6 +60,25 @@ public class Coronel extends Soldado implements OperacionesMilitares{
     public void saludar(){
 
     }
+    
+    @Override
+    public String toString() {
+        return super.toString() + ", Estrategia: " + estrategia;
+    }
+
+     // Método regañado() sobreescrito
+    // @Override
+    // public void regañado(ArrayList<Soldado> listaSoldados) {
+    //     // Lógica de regañado específica para el Coronel
+    //     System.out.println(this.getNombre() + " (Coronel) está regañando a los soldados.");
+    // }
+
+    // // Método para ejecutar regañado a todos los soldados
+    // public void regañarSoldados(ArrayList<Soldado> listaSoldados) {
+    //     for (Soldado soldado : listaSoldados) {
+    //         soldado.regañado(listaSoldados);  // El Coronel regaña a cada soldado
+    //     }
+    // }
 
 
     
