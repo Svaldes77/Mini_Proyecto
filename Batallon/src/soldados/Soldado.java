@@ -53,6 +53,11 @@ public class Soldado extends Rango {
         this.rango = rango;
     }
 
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Nombre: " + nombre + ", Identificación: " + id + ", Nivel Militar: " + rango;
+    }
+
     // public interface OperacionesMilitares{
     //     void asignarMision(String mision);
     //     void reportarEstado();
@@ -95,17 +100,50 @@ public class Soldado extends Rango {
     }
 
 
-    public void  patrullar(){
-        
+    public void patrullar(){
+        switch (rango) {
+            case Nivel_militar.SOLDADO_RASO:
+                System.out.println("El soldado raso "+nombre+" esta patrullando en patines");
+                break;
+            case Nivel_militar.TENIENTE:
+                System.out.println("El teniente "+nombre+" esta patrullando en burro");
+                break;
+            case Nivel_militar.CAPITAN:
+                System.out.println("El capitan "+nombre+" esta patrullando en un unicornio y esta chill de cojones");
+                break;
+            case Nivel_militar.CORONEL:
+                System.out.println("Soy el coronel " +nombre+ " y no patrulla, soy el fuking jefe");
+            default:
+                break;
+        }
+
     }
 
     public void saludar(){
+        char primeraLetra = nombre.charAt(0);
+        char ultimaLetra = nombre.charAt(nombre.length()-1);
+
+        if(primeraLetra == ultimaLetra ){
+            System.out.println(" hola, soy el " + rango + " "+nombre+ " y ponte hacer algo ");
+        }else{
+            System.out.println(" hola, soy el " + rango + " "+nombre+ " estoy mamado de esta vida");
+        }
        
     }
 
-    public void regañado(){
-        
-    }   
+    // Método regañado que baja de nivel al ser regañado
+    public void regañado(ArrayList<Soldado> listaSoldados) {
+        if (this.nivel > 0) {
+            this.nivel--;  // Baja el nivel
+            System.out.println(this.nombre + " ha sido regañado y su nivel ha bajado.");
+        }
+
+        // Si el nivel llega a 0, se expulsa al soldado
+        if (this.nivel == 0) {
+            System.out.println(this.nombre + " ha sido expulsado por llegar al nivel más bajo.");
+            listaSoldados.remove(this);  // Remueve el soldado de la lista
+        }
+    }  
 }
 
 

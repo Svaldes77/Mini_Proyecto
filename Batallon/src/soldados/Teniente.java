@@ -3,6 +3,9 @@ package soldados;
 //import java.util.Scanner;
 
 import rangos.Nivel_militar;
+
+import java.util.ArrayList;
+
 // import rangos.Rango;
 import misiones.OperacionesMilitares;
 // importamos los packages necesarios
@@ -41,10 +44,24 @@ public class Teniente extends Soldado implements OperacionesMilitares {
     //metodo mostrar unidad 
     public void mostrarUnidad(){
         System.out.println("La unidad del teniente es: " + unidad);
-        
+
 
     } 
 
+<<<<<<< HEAD
+=======
+    public void realizarRegano(){
+
+    }
+
+    
+    @Override
+    public String toString() {
+        return super.toString() + ", Unidad: " + unidad;
+    }
+
+
+>>>>>>> origin/deploy
     @Override
     public void asignarMision(String mision) {
         System.out.println("El teniente le han asignado la mision: " + mision);
@@ -53,6 +70,8 @@ public class Teniente extends Soldado implements OperacionesMilitares {
     public void reportarEstado(String estado) {
         System.out.println("El teniente reporta que la mision esta: " + estado);
     }
+    // Sobrescribir el método regañado en Teniente
+    
 
     // Metodo que se sobre escribe de la interfaz OperacionesMilitares
 
@@ -84,4 +103,6 @@ public class Teniente extends Soldado implements OperacionesMilitares {
     //     }
     //     return null;
     // }
+
+    
 }
