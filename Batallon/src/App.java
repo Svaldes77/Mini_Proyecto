@@ -12,49 +12,6 @@ import rangos.Rango;
 import misiones.OperacionesMilitares;
 
 
-<<<<<<< HEAD
-    // Metodo que recibe un objeto de tipo SoldadoRaso y muestra el estado del soldado  prueba del polimorfismo 
-    // public void recibirSoldado(SoldadoRaso soldadoRaso1){
-    //     soldadoRaso1.reportarEstado(" En guardia");
-    // }
-    
-    
-    public static void main(String[] args) {
-        // Crear instancias de Soldado, SoldadoRaso, Teniente y Coronel
-        SoldadoRaso soldadoRaso1 = new SoldadoRaso(1, "Pedro Perez", "12345", Nivel_militar.SOLDADO_RASO);
-        soldadoRaso1.saludar();
-        soldadoRaso1.patrullar();
-
-        // Teniente teniente1 = new Teniente(3, "Luis Martinez", "54321",Nivel_militar.TENIENTE, "Unidad Alfa");
-        // Coronel coronel1 = new Coronel(4, "Carlos Sanchez", "98765",Nivel_militar.CORONEL, "Estrategia de Defensa"); 
-        // Capitan capitan1 = new Capitan(5, "Juan Perez", "12345", Nivel_militar.CAPITAN, 10); 
-
-        // // Prueba de metodos para soldado 
-        // soldadoRaso1.realizarAccion();
-
-    
-
-    
-        // System.out.println("----------------------------");
-        // // prueba de metodos para teniente
-        // teniente1.realizarAccion();
-        // teniente1.mostrarUnidad(); 
-        // System.out.println("----------------------------"); 
-
-        // // prueba de metodos para coronel
-        // coronel1.asignarMision("MISION SALVAR MARTE");
-        // coronel1.realizarAccion();
-        // coronel1.reportarEstado(" En guardia");
-        // coronel1.mostrarEstrategia(); 
-        // System.out.println("----------------------------");
-        // // prueba de metodos para capitan}
-        // capitan1.asignarMision("MISION ATACAR");
-        // capitan1.reportarEstado(" En cubierta");  
-        // capitan1.mostrarNumerosoldados(); 
-        // capitan1.realizarAccion(); 
-        // System.out.println("----------------------------"); 
-=======
->>>>>>> origin/deploy
 
 
         // // }

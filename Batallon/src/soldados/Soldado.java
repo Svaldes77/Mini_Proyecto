@@ -86,11 +86,7 @@ public class Soldado extends Rango {
         }
     }
 
-<<<<<<< HEAD
-    public void  patrullar(){
-=======
     public void patrullar(){
->>>>>>> origin/deploy
         switch (rango) {
             case Nivel_militar.SOLDADO_RASO:
                 System.out.println("El soldado raso "+nombre+" esta patrullando en patines");
@@ -107,13 +103,6 @@ public class Soldado extends Rango {
                 break;
         }
 
-<<<<<<< HEAD
-        
-=======
->>>>>>> origin/deploy
-    }
-
-    public void saludar(){
         char primeraLetra = nombre.charAt(0);
         char ultimaLetra = nombre.charAt(nombre.length()-1);
 
