@@ -13,8 +13,7 @@ public class Capitan extends Soldado {
 
     
     int cantidadSoldadosBajoSuMando; // Atributo propio de la clase Capitan
-    
-    
+       
     // Constructor de la clase Capitan
     public Capitan(int nivel, String nombre, String id, Nivel_militar rango , int cantidadSoldadosBajoSuMando) {
         super(nivel, nombre, id, rango); // Llama al constructor de la clase base Soldado
@@ -40,8 +39,7 @@ public class Capitan extends Soldado {
 
     // Método sobrescrito de la interfaz OperacionesMilitares para reportar el estado
 
-    
-
+    // Método para mostrar la cantidad de soldados bajo su mando
     public void mostrarNumerosoldados(){
         System.out.println("El numero de soldados bajo mi mando es: " + cantidadSoldadosBajoSuMando);
     } 
@@ -89,5 +87,7 @@ public class Capitan extends Soldado {
     //     }
     //     return null;
     // }    
+
+    //¿BORRAMOS LO DE ARRIBA?
 
 }

@@ -6,18 +6,12 @@ import java.util.ArrayList;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-
 import rangos.Nivel_militar;
 import soldados.Capitan;
 import soldados.Coronel;
 import soldados.Soldado;
 import soldados.SoldadoRaso;
 import soldados.Teniente;
-
-
-
-
-
 
         public class App extends Frame {
 
@@ -28,7 +22,6 @@ import soldados.Teniente;
                 initComponents();
             }
             
-                   
             private void initComponents() {
 
                 buttonGroupAcciones = new ButtonGroup();
@@ -435,26 +428,23 @@ import soldados.Teniente;
                         if (soldadoSeleccionado != null) {
                             // Llama al método regañado del soldado
                             soldadoSeleccionado.regañado(listaSoldados);
+
+                            actualizarListaGrafica();
             
                             // Actualiza el modelo de la lista
                             if (soldadoSeleccionado.getNivel() > 0) {
-                                //listModel.setElementAt(soldadoSeleccionado.getNombre(), selectedIndex);
                                 listModel.setElementAt(soldadoSeleccionado.toString(), selectedIndex);
                                 JOptionPane.showMessageDialog(this, 
                                     "El nivel del soldado " + soldadoSeleccionado.getNombre() + " ha sido reducido a " + soldadoSeleccionado.getNivel() + ".", 
                                     "Regañado", JOptionPane.INFORMATION_MESSAGE);
-                                        // Refresca la interfaz gráfica de la lista
-                                jListSoldados.repaint();
-                                jListSoldados.updateUI();
+                                       
                             } else {
                                 listModel.removeElementAt(selectedIndex);
                                 JOptionPane.showMessageDialog(this, 
                                     "El soldado " + soldadoSeleccionado.getNombre() + " ha sido expulsado por alcanzar el nivel más bajo.", 
                                     "Expulsión", JOptionPane.INFORMATION_MESSAGE);
                             }
-                            // Refresca la interfaz gráfica de la lista
-                            jListSoldados.repaint();
-                            jListSoldados.updateUI();
+                            
                         } else {
                             JOptionPane.showMessageDialog(this, 
                                 "No se pudo encontrar el soldado seleccionado.", 
@@ -503,6 +493,14 @@ import soldados.Teniente;
                 }
                 
             }
+
+            private void actualizarListaGrafica() {
+                listModel.clear(); // Limpia el modelo actual
+                for (Soldado soldado : listaSoldados) {
+                    listModel.addElement(soldado.toString()); // Agrega cada soldado actualizado
+                }
+            }
+            
   
             private void jCheckBoxNumeroSoldadosEnMando(ActionEvent evt) {  
                                                        
