@@ -60,8 +60,27 @@ public class Soldado extends Rango  implements OperacionesMilitares {
 
     @Override
     public String toString() {
-        return "ID: " + id + ", Nombre: " + nombre  + ", Nivel Militar: " + rango;
+    String rango;
+
+        // Asignar rango según el nivel
+        switch (nivel) {
+            case 1:
+                rango = "Soldado Raso";
+                break;
+            case 2:
+                rango = "Teniente";
+                break;
+            case 3:
+                rango = "Capitán";
+                break;
+            default:
+                rango = nivel >= 4 ? "Coronel" : "Expulsado"; // Nivel >= 4: Coronel, Nivel 0: Expulsado
+                break;
+        }
+
+        return "ID: " + id + ", Nombre: " + nombre + ", Nivel: " + nivel + ", Rango: " + rango;
     }
+
 
     // public interface OperacionesMilitares{
     //     void asignarMision(String mision);
@@ -81,30 +100,14 @@ public class Soldado extends Rango  implements OperacionesMilitares {
     //en el app.java esta el ejemplo de como se imprime la informacion de los soldados
 
     
-    
     //Mostra en cosola informacion de militares pero que son de tipo coronel
-
     public static void mostrarInformacion(ArrayList<Soldado> listaSoldados) {
         for (Soldado soldado : listaSoldados) {
             soldado.mostrarInformacion();
         }
     }
     
-    // // Método regañado que baja de nivel al ser regañado
-    // public void regañado(ArrayList<Soldado> listaSoldados) {
-    //     if (this.nivel > 0) {
-    //         this.nivel--;  // Baja el nivel
-    //         System.out.println(this.nombre + " ha sido regañado y su nivel ha bajado.");
-    //     }
-
-    //     // Si el nivel llega a 0, se expulsa al soldado
-    //     if (this.nivel == 0) {
-    //         System.out.println(this.nombre + " ha sido expulsado por llegar al nivel más bajo.");
-    //         listaSoldados.remove(this);  // Remueve el soldado de la lista
-    //     }
-    // }
-
-
+    //Metodo que se implementa en las clases hijas
     public void patrullar(){
         switch (rango) {
             case SOLDADO_RASO:
