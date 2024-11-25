@@ -2,15 +2,14 @@ package soldados;
 
 import rangos.Nivel_militar;
 
-
+import javax.swing.JOptionPane;
 
 //import java.util.Scanner;
 
 //import rangos.Rango;
-import misiones.OperacionesMilitares;
 
 // La clase Capitan extiende la clase Soldado e implementa la interfaz OperacionesMilitares
-public class Capitan extends Soldado implements OperacionesMilitares{
+public class Capitan extends Soldado {
 
     
     int cantidadSoldadosBajoSuMando; // Atributo propio de la clase Capitan
@@ -23,7 +22,9 @@ public class Capitan extends Soldado implements OperacionesMilitares{
         this.cantidadSoldadosBajoSuMando = cantidadSoldadosBajoSuMando; //Inicialización de atributos propios de la clase Capitan
         this.nivel = 2;
     }
-    
+    public int getCantidadSoldadosBajoSuMando() {
+        return cantidadSoldadosBajoSuMando;
+    }
     // Método sobrescrito de la clase Soldado
     @Override
     public void realizarAccion() {
@@ -38,10 +39,8 @@ public class Capitan extends Soldado implements OperacionesMilitares{
     }
 
     // Método sobrescrito de la interfaz OperacionesMilitares para reportar el estado
-    @Override 
-    public void reportarEstado(String estado) {
-     System.out.println("Soy un capitan y estoy" + estado);//Mensaje que se imprime en consola
-    }
+
+    
 
     public void mostrarNumerosoldados(){
         System.out.println("El numero de soldados bajo mi mando es: " + cantidadSoldadosBajoSuMando);
@@ -50,6 +49,11 @@ public class Capitan extends Soldado implements OperacionesMilitares{
     @Override
     public String toString() {
         return super.toString() + ", Número de Soldados: " + cantidadSoldadosBajoSuMando;
+    }
+
+    @Override
+    public void reportarEstado() {
+        JOptionPane.showMessageDialog(null, "Capitán  " + getNombre() + " reporto ofensiva con " + getCantidadSoldadosBajoSuMando() + " soldados bajo mi mando");
     }
 
 
