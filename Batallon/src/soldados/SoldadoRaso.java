@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 import rangos.Nivel_militar;
 
 
-
 //import java.util.Scanner;
 
 //import rangos.Rango;
@@ -39,26 +38,11 @@ public class SoldadoRaso extends Soldado  {
         return super.toString();
     } 
 
-    
-    // Este método no tiene lógica propia, pero puede ser llamado
-//    @Override
-//     public void reganado() {
-//         if (getNivel() > 1) {
-//             setNivel(getNivel() - 1); // Reducir el nivel del soldado
-//             System.out.println("El Teniente " + getNombre() + " ha regañado a " + getNombre() + ". Nuevo nivel: " + getNivel());
-//         } else {
-//             System.out.println(getNombre() + " ha sido expulsado, su nivel era 1.");
-//         }
-//     }
-
-
     //Sobre escritura de metodos de la clase padre
     @Override
     public void realizarAccion() {
-        System.out.println("Soy un: "+ Nivel_militar.SOLDADO_RASO + " estoy en la trinchera");//Mensaje que se imprime en consola
+        JOptionPane.showMessageDialog(null, "Soy el "+ getRango() + " "+ getNombre() + "  estoy en la trinchera combatiendo contra el sr. tocino");//Mensaje que se imprime en consola
     }
-
-
     
 }
 

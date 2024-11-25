@@ -4,8 +4,6 @@ import rangos.Nivel_militar; //Importamos la clase Nivel_militar
 
 import java.util.ArrayList; //Importamos la clase ArrayList 
 
-
-
 import javax.swing.JOptionPane;
 
 import java.util.ArrayList;
@@ -35,7 +33,7 @@ public class Coronel extends Soldado{
     // Sobrescritura del método realizarAccion de la clase Soldado
     @Override
     public void realizarAccion() {
-        System.out.println("Soy un coronel y estoy Preparando la estrategia de ataque"); 
+        JOptionPane.showMessageDialog(null, "Soy el "+ getRango() + " "+ getNombre() + "  estoy libre viendo planeta vegeta");
     }
 
     // Sobrescritura del método reportarEstado de la interfaz OperacionesMilitares
@@ -65,42 +63,11 @@ public class Coronel extends Soldado{
         System.out.println("La estrategia del coronel es: " + estrategia);
     } 
 
-     // Método regañado() sobreescrito
-    // @Override
-    // public void regañado(ArrayList<Soldado> listaSoldados) {
-    //     // Lógica de regañado específica para el Coronel
-    //     System.out.println(this.getNombre() + " (Coronel) está regañando a los soldados.");
-    // }
-    
+    // Método toString() sobreescrito
     @Override
     public String toString() {
         return super.toString() + ", Estrategia: " + estrategia;
     }
-
-     // Método regañado() sobreescrito
-    // @Override
-    // public void regañado(ArrayList<Soldado> listaSoldados) {
-    //     // Lógica de regañado específica para el Coronel
-    //     System.out.println(this.getNombre() + " (Coronel) está regañando a los soldados.");
-    // }
-
-    // // Método para ejecutar regañado a todos los soldados
-    // public void regañarSoldados(ArrayList<Soldado> listaSoldados) {
-    //     for (Soldado soldado : listaSoldados) {
-    //         soldado.regañado(listaSoldados);  // El Coronel regaña a cada soldado
-    //     }
-    // }
-
-    // Método para ejecutar regañado a todos los soldados
-//     public void regañarSoldados(ArrayList<Soldado> listaSoldados) {
-//         for (Soldado soldado : listaSoldados) {
-//             soldado.regañado(listaSoldados);  // El Coronel regaña a cada soldado
-//         }
-    
-
-
-    
-// }
 
     }
 

@@ -6,18 +6,12 @@ import java.util.ArrayList;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-
 import rangos.Nivel_militar;
 import soldados.Capitan;
 import soldados.Coronel;
 import soldados.Soldado;
 import soldados.SoldadoRaso;
 import soldados.Teniente;
-
-
-
-
-
 
         public class App extends Frame {
 
@@ -28,7 +22,6 @@ import soldados.Teniente;
                 initComponents();
             }
             
-                   
             private void initComponents() {
 
                 buttonGroupAcciones = new ButtonGroup();
@@ -41,11 +34,11 @@ import soldados.Teniente;
                 botonCrearSoldado = new JButton();
                 jLabel4 = new JLabel();
                 buttonReportarEstado = new JRadioButton();
-                jRadioButton3 = new JRadioButton();
+                JRadioButtonRealizarAccion = new JRadioButton();
                 jCheckBox1 = new JCheckBox();
                 jCheckBox2 = new JCheckBox();
-                jRadioButton1 = new JRadioButton();
-                jRadioButton4 = new JRadioButton();
+                jRadioButtonPatrullar = new JRadioButton();
+                jRadioButtonSaludar = new JRadioButton();
                 jCheckBox3 = new JCheckBox();
                 label1 = new Label();
                 label2 = new Label();
@@ -149,10 +142,12 @@ import soldados.Teniente;
                         RadioButtonReportarEstado(evt);
                     }
                 });
+
+
         
-                buttonGroupAcciones.add(jRadioButton3);
-                jRadioButton3.setText("Realizar acción ");
-                jRadioButton3.addActionListener(new ActionListener() {
+                buttonGroupAcciones.add(JRadioButtonRealizarAccion);
+                JRadioButtonRealizarAccion.setText("Realizar acción ");
+                JRadioButtonRealizarAccion.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
                         RadioButtonRealizarAccion(evt);
                     }
@@ -174,11 +169,22 @@ import soldados.Teniente;
                     }
                 });
         
-                buttonGroupAcciones.add(jRadioButton1);
-                jRadioButton1.setText("Patrullar");
+                buttonGroupAcciones.add(jRadioButtonPatrullar);
+                jRadioButtonPatrullar.setText("Patrullar");
+                jRadioButtonPatrullar.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        RadioButtonPatrullar(evt);
+                    }
+                });
+
         
-                buttonGroupAcciones.add(jRadioButton4);
-                jRadioButton4.setText("Saludar");
+                buttonGroupAcciones.add(jRadioButtonSaludar);
+                jRadioButtonSaludar.setText("Saludar");
+                jRadioButtonSaludar.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        jRadioButtonSaludar(evt);
+                    }
+                });
         
                 buttonGroupAcciones.add(jCheckBox3);
                 jCheckBox3.setText("Anunciar estrategia");
@@ -257,11 +263,11 @@ import soldados.Teniente;
                                         .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addGap(262, 262, 262)
-                                                .addComponent(jRadioButton1, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jRadioButtonPatrullar, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addComponent(buttonReportarEstado)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jRadioButton3))
+                                                .addComponent(JRadioButtonRealizarAccion))
                                             .addComponent(label2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel5))
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -270,7 +276,7 @@ import soldados.Teniente;
                                                 .addComponent(botonCrearSoldado, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel4)) 
-                                            .addComponent(jRadioButton4, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jRadioButtonSaludar, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))))
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 );
                 jPanel2Layout.setVerticalGroup(
@@ -291,9 +297,9 @@ import soldados.Teniente;
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(buttonReportarEstado)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton4))
+                            .addComponent(JRadioButtonRealizarAccion)
+                            .addComponent(jRadioButtonPatrullar)
+                            .addComponent(jRadioButtonSaludar))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
@@ -435,26 +441,23 @@ import soldados.Teniente;
                         if (soldadoSeleccionado != null) {
                             // Llama al método regañado del soldado
                             soldadoSeleccionado.regañado(listaSoldados);
+
+                            actualizarListaGrafica();
             
                             // Actualiza el modelo de la lista
                             if (soldadoSeleccionado.getNivel() > 0) {
-                                //listModel.setElementAt(soldadoSeleccionado.getNombre(), selectedIndex);
                                 listModel.setElementAt(soldadoSeleccionado.toString(), selectedIndex);
                                 JOptionPane.showMessageDialog(this, 
                                     "El nivel del soldado " + soldadoSeleccionado.getNombre() + " ha sido reducido a " + soldadoSeleccionado.getNivel() + ".", 
                                     "Regañado", JOptionPane.INFORMATION_MESSAGE);
-                                        // Refresca la interfaz gráfica de la lista
-                                jListSoldados.repaint();
-                                jListSoldados.updateUI();
+                                       
                             } else {
                                 listModel.removeElementAt(selectedIndex);
                                 JOptionPane.showMessageDialog(this, 
                                     "El soldado " + soldadoSeleccionado.getNombre() + " ha sido expulsado por alcanzar el nivel más bajo.", 
                                     "Expulsión", JOptionPane.INFORMATION_MESSAGE);
                             }
-                            // Refresca la interfaz gráfica de la lista
-                            jListSoldados.repaint();
-                            jListSoldados.updateUI();
+                            
                         } else {
                             JOptionPane.showMessageDialog(this, 
                                 "No se pudo encontrar el soldado seleccionado.", 
@@ -475,7 +478,6 @@ import soldados.Teniente;
 
             private void RadioButtonReportarEstado(ActionEvent evt) {
                 String soldadoSeleccionado = jListSoldados.getSelectedValue();
-
                 if (soldadoSeleccionado != null) {
                     Soldado soldado = null;
             
@@ -503,8 +505,17 @@ import soldados.Teniente;
                 }
                 
             }
+
+            private void actualizarListaGrafica() {
+                listModel.clear(); // Limpia el modelo actual
+                for (Soldado soldado : listaSoldados) {
+                    listModel.addElement(soldado.toString()); // Agrega cada soldado actualizado
+                }
+            }
+            
   
             private void jCheckBoxNumeroSoldadosEnMando(ActionEvent evt) {  
+
                                                        
                 // 
             }                                          
@@ -519,11 +530,96 @@ import soldados.Teniente;
             }                                          
         
             private void RadioButtonRealizarAccion(ActionEvent evt) {
+                String soldadoSeleccionado = jListSoldados.getSelectedValue();
+                if (soldadoSeleccionado != null) {
+                    Soldado soldado = null;
+            
+                    // Buscar el soldado seleccionado en la lista de soldados
+                    for (Soldado s : listaSoldados) {
+                        if (s.toString().equals(soldadoSeleccionado)) {
+                            soldado = s;
+                            break;
+                        }
+                    }
+            
+                    if (soldado != null) {
+                        soldado.realizarAccion();
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection();  
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Soldado no encontrado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Por favor, seleccione un soldado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                }                                      
+
                                                               
                 
-            }                                             
-                          
+            }            
+            
+            private void RadioButtonPatrullar(ActionEvent evt) {
+                String soldadoSeleccionado = jListSoldados.getSelectedValue();
+                if (soldadoSeleccionado != null) {
+                    Soldado soldado = null;
+            
+                    // Buscar el soldado seleccionado en la lista de soldados
+                    for (Soldado s : listaSoldados) {
+                        if (s.toString().equals(soldadoSeleccionado)) {
+                            soldado = s;
+                            break;
+                        }
+                    }
+            
+                    if (soldado != null) {
+                        soldado.patrullar();
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection();  
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Soldado no encontrado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Por favor, seleccione un soldado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                }                                             
                 
+            }
+                          
+            
+            private void jRadioButtonSaludar(ActionEvent evt){
+                String soldadoSeleccionado = jListSoldados.getSelectedValue();
+                if (soldadoSeleccionado != null) {
+                    Soldado soldado = null;
+            
+                    // Buscar el soldado seleccionado en la lista de soldados
+                    for (Soldado s : listaSoldados) {
+                        if (s.toString().equals(soldadoSeleccionado)) {
+                            soldado = s;
+                            break;
+                        }
+                    }
+            
+                    if (soldado != null) {
+                        soldado.saludar();
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection();  
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Soldado no encontrado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Por favor, seleccione un soldado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                }
+            }
                                                   
         
             /**
@@ -554,10 +650,10 @@ import soldados.Teniente;
             private JLabel jLabel5;
             private JPanel jPanel1;
             private JPanel jPanel2;
-            private JRadioButton jRadioButton1;
+            private JRadioButton jRadioButtonPatrullar;
             private JRadioButton buttonReportarEstado;
-            private JRadioButton jRadioButton3;
-            private JRadioButton jRadioButton4;
+            private JRadioButton JRadioButtonRealizarAccion;
+            private JRadioButton jRadioButtonSaludar;
 
             private Label label1;
             private Label label2;

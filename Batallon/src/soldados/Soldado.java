@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d0190f92fa13d256d207da1ce7e848aebc8902a7
 import misiones.OperacionesMilitares;
 import rangos.Nivel_militar;
 import rangos.Rango;
@@ -60,8 +63,27 @@ public class Soldado extends Rango  implements OperacionesMilitares {
 
     @Override
     public String toString() {
-        return "ID: " + id + ", Nombre: " + nombre  + ", Nivel Militar: " + rango;
+    String rango;
+
+        // Asignar rango según el nivel
+        switch (nivel) {
+            case 1:
+                rango = "Soldado Raso";
+                break;
+            case 2:
+                rango = "Teniente";
+                break;
+            case 3:
+                rango = "Capitán";
+                break;
+            default:
+                rango = nivel >= 4 ? "Coronel" : "Expulsado"; // Nivel >= 4: Coronel, Nivel 0: Expulsado
+                break;
+        }
+
+        return "ID: " + id + ", Nombre: " + nombre + ", Nivel: " + nivel + ", Rango: " + rango;
     }
+
 
     // public interface OperacionesMilitares{
     //     void asignarMision(String mision);
@@ -81,57 +103,41 @@ public class Soldado extends Rango  implements OperacionesMilitares {
     //en el app.java esta el ejemplo de como se imprime la informacion de los soldados
 
     
-    
     //Mostra en cosola informacion de militares pero que son de tipo coronel
-
     public static void mostrarInformacion(ArrayList<Soldado> listaSoldados) {
-        for (Soldado soldado : listaSoldados) {
-            soldado.mostrarInformacion();
+        for (Soldado soldado : listaSoldados) { //Recorre la lista de soldados
+            soldado.mostrarInformacion(); //Muestra la informacion de cada soldado
         }
     }
     
-    // // Método regañado que baja de nivel al ser regañado
-    // public void regañado(ArrayList<Soldado> listaSoldados) {
-    //     if (this.nivel > 0) {
-    //         this.nivel--;  // Baja el nivel
-    //         System.out.println(this.nombre + " ha sido regañado y su nivel ha bajado.");
-    //     }
-
-    //     // Si el nivel llega a 0, se expulsa al soldado
-    //     if (this.nivel == 0) {
-    //         System.out.println(this.nombre + " ha sido expulsado por llegar al nivel más bajo.");
-    //         listaSoldados.remove(this);  // Remueve el soldado de la lista
-    //     }
-    // }
-
-
+    //Metodo que se implementa en las clases hijas
     public void patrullar(){
         switch (rango) {
             case SOLDADO_RASO:
-                System.out.println("El soldado raso "+nombre+" esta patrullando en patines");
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y estoy patrullando en patines");
                 break;
             case TENIENTE:
-                System.out.println("El teniente "+nombre+" esta patrullando en burro");
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y estoy patrullando en burro tactico");
                 break;
             case CAPITAN:
-                System.out.println("El capitan "+nombre+" esta patrullando en un unicornio y esta chill de cojones");
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y estoy patrullando chill de cojones en un unicornio");
                 break;
             case CORONEL:
-                System.out.println("Soy el coronel " +nombre+ " y no patrullo, soy el fuking jefe");
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y no patrullo, soy fvking jefe");
+                break;
             default:
                 break;
         }
-
     }
-
+        
     public void saludar(){
         char primeraLetra = nombre.charAt(0);
         char ultimaLetra = nombre.charAt(nombre.length()-1);
 
         if(primeraLetra == ultimaLetra ){
-            System.out.println(" hola, soy el " + rango + " "+nombre+ " y ponte hacer algo ");
+            JOptionPane.showMessageDialog(null, "un saludo del "+ getRango()+ " "+ getNombre()+ " y ponte a estudiar ingles");
         }else{
-            System.out.println(" hola, soy el " + rango + " "+nombre+ " estoy mamado de esta vida");
+            JOptionPane.showMessageDialog(null, "un saludo del "+ getRango()+ " "+ getNombre()+ " y estoy mamado de esta vida");
         }
        
     }
@@ -143,7 +149,7 @@ public class Soldado extends Rango  implements OperacionesMilitares {
             this.nivel--;  // Baja el nivel
             System.out.println(this.nombre + " ha sido regañado y su nivel ha bajado.");
         }
-
+        
         // Si el nivel llega a 0, se expulsa al soldado
         if (this.nivel == 0) {
             System.out.println(this.nombre + " ha sido expulsado por llegar al nivel más bajo.");
