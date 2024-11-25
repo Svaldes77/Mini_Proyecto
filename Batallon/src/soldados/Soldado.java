@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import javafx.event.ActionEvent;
+
 import misiones.OperacionesMilitares;
 import rangos.Nivel_militar;
 import rangos.Rango;
@@ -90,8 +90,6 @@ public class Soldado extends Rango  implements OperacionesMilitares {
         }
     }
     
-<<<<<<< HEAD
-=======
     // // Método regañado que baja de nivel al ser regañado
     // public void regañado(ArrayList<Soldado> listaSoldados) {
     //     if (this.nivel > 0) {
@@ -105,7 +103,6 @@ public class Soldado extends Rango  implements OperacionesMilitares {
     //         listaSoldados.remove(this);  // Remueve el soldado de la lista
     //     }
     // }
->>>>>>> c02074827648c8f7ad76d00ca8ef175b1891de08
 
 
     public void patrullar(){
@@ -139,10 +136,7 @@ public class Soldado extends Rango  implements OperacionesMilitares {
        
     }
 
-<<<<<<< HEAD
-=======
     
->>>>>>> c02074827648c8f7ad76d00ca8ef175b1891de08
     // Método regañado que baja de nivel al ser regañado
     public void regañado(List<Soldado> listaSoldados) {
         if (this.nivel > 0) {
