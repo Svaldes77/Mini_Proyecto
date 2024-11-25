@@ -99,11 +99,6 @@ public class Soldado extends Rango  implements OperacionesMilitares {
 
     
     //Mostra en cosola informacion de militares pero que son de tipo coronel
-<<<<<<< HEAD
-
-     //Metodo que recibe un ArrayList de Soldados y muestra la informacion de cada uno
-=======
->>>>>>> origin/deploy
     public static void mostrarInformacion(ArrayList<Soldado> listaSoldados) {
         for (Soldado soldado : listaSoldados) { //Recorre la lista de soldados
             soldado.mostrarInformacion(); //Muestra la informacion de cada soldado
