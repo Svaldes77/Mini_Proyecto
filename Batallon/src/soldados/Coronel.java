@@ -64,11 +64,11 @@ public class Coronel extends Soldado{
     } 
 
      // Método regañado() sobreescrito
-    @Override
-    public void regañado(ArrayList<Soldado> listaSoldados) {
-        // Lógica de regañado específica para el Coronel
-        System.out.println(this.getNombre() + " (Coronel) está regañando a los soldados.");
-    }
+    // @Override
+    // public void regañado(ArrayList<Soldado> listaSoldados) {
+    //     // Lógica de regañado específica para el Coronel
+    //     System.out.println(this.getNombre() + " (Coronel) está regañando a los soldados.");
+    // }
     
     @Override
     public String toString() {
@@ -90,15 +90,15 @@ public class Coronel extends Soldado{
     // }
 
     // Método para ejecutar regañado a todos los soldados
-    public void regañarSoldados(ArrayList<Soldado> listaSoldados) {
-        for (Soldado soldado : listaSoldados) {
-            soldado.regañado(listaSoldados);  // El Coronel regaña a cada soldado
-        }
+//     public void regañarSoldados(ArrayList<Soldado> listaSoldados) {
+//         for (Soldado soldado : listaSoldados) {
+//             soldado.regañado(listaSoldados);  // El Coronel regaña a cada soldado
+//         }
     
 
 
     
-}
+// }
 
     }
 
