@@ -27,7 +27,7 @@ public class Capitan extends Soldado {
     // Método sobrescrito de la clase Soldado
     @Override
     public void realizarAccion() {
-        System.out.println("Soy un capitan y estoy implementando la contra");
+        JOptionPane.showMessageDialog(null, "Soy el "+ getRango() + " "+ getNombre() + "  estoy en la hora del almuerzo");
     }
 
     // Método sobrescrito de la interfaz OperacionesMilitares para asignar una misión

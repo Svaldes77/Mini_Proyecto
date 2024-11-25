@@ -41,7 +41,7 @@ public class SoldadoRaso extends Soldado  {
     //Sobre escritura de metodos de la clase padre
     @Override
     public void realizarAccion() {
-        System.out.println("Soy un: "+ Nivel_militar.SOLDADO_RASO + " estoy en la trinchera");//Mensaje que se imprime en consola
+        JOptionPane.showMessageDialog(null, "Soy el "+ getRango() + " "+ getNombre() + "  estoy en la trinchera combatiendo contra el sr. tocino");//Mensaje que se imprime en consola
     }
     
 }
