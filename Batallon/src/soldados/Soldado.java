@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
-
-import javafx.event.ActionEvent;
 import misiones.OperacionesMilitares;
 import rangos.Nivel_militar;
 import rangos.Rango;
@@ -91,9 +89,6 @@ public class Soldado extends Rango  implements OperacionesMilitares {
         }
     }
     
-<<<<<<< HEAD
-  
-=======
     // // Método regañado que baja de nivel al ser regañado
     // public void regañado(ArrayList<Soldado> listaSoldados) {
     //     if (this.nivel > 0) {
@@ -108,40 +103,39 @@ public class Soldado extends Rango  implements OperacionesMilitares {
     //     }
     // }
 
->>>>>>> c02074827648c8f7ad76d00ca8ef175b1891de08
 
     public void patrullar(){
         switch (rango) {
             case SOLDADO_RASO:
-                System.out.println("El soldado raso "+nombre+" esta patrullando en patines");
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y estoy patrullando en patines");
                 break;
             case TENIENTE:
-                System.out.println("El teniente "+nombre+" esta patrullando en burro");
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y estoy patrullando en burro tactico");
                 break;
             case CAPITAN:
-                System.out.println("El capitan "+nombre+" esta patrullando en un unicornio y esta chill de cojones");
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y estoy patrullando chill de cojones en un unicornio");
                 break;
             case CORONEL:
-                System.out.println("Soy el coronel " +nombre+ " y no patrullo, soy el fuking jefe");
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y no patrullo, soy fvking jefe");
+                break;
             default:
                 break;
         }
-
+    }
+        
+    public void saludar(){
         char primeraLetra = nombre.charAt(0);
         char ultimaLetra = nombre.charAt(nombre.length()-1);
 
         if(primeraLetra == ultimaLetra ){
-            System.out.println(" hola, soy el " + rango + " "+nombre+ " y ponte hacer algo ");
+            JOptionPane.showMessageDialog(null, "un saludo del "+ getRango()+ " "+ getNombre()+ " y ponte a estudiar ingles");
         }else{
-            System.out.println(" hola, soy el " + rango + " "+nombre+ " estoy mamado de esta vida");
+            JOptionPane.showMessageDialog(null, "un saludo del "+ getRango()+ " "+ getNombre()+ " y estoy mamado de esta vida");
         }
        
     }
 
-<<<<<<< HEAD
-=======
     
->>>>>>> c02074827648c8f7ad76d00ca8ef175b1891de08
     // Método regañado que baja de nivel al ser regañado
     public void regañado(List<Soldado> listaSoldados) {
         if (this.nivel > 0) {
