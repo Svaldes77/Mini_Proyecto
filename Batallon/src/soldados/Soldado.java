@@ -2,12 +2,13 @@ package soldados;
 
 import java.util.ArrayList;
 
+import misiones.OperacionesMilitares;
 import rangos.Nivel_militar;
 import rangos.Rango;
-//import misiones.OperacionesMilitares;
+import misiones.OperacionesMilitares;
 
 // La clase Soldado extiende la clase Rango
-public class Soldado extends Rango { 
+public class Soldado extends Rango  implements OperacionesMilitares {  
     
     //Atributos de la clase Soldado
     private final String nombre;
@@ -55,7 +56,7 @@ public class Soldado extends Rango {
 
     @Override
     public String toString() {
-        return "ID: " + id + ", Nombre: " + nombre + ", Identificación: " + id + ", Nivel Militar: " + rango;
+        return "ID: " + id + ", Nombre: " + nombre  + ", Nivel Militar: " + rango;
     }
 
     // public interface OperacionesMilitares{
@@ -85,19 +86,34 @@ public class Soldado extends Rango {
             soldado.mostrarInformacion(); //Muestra la informacion de cada soldado
         }
     }
+    
+    // Método regañado que baja de nivel al ser regañado
+    public void regañado(ArrayList<Soldado> listaSoldados) {
+        if (this.nivel > 0) {
+            this.nivel--;  // Baja el nivel
+            System.out.println(this.nombre + " ha sido regañado y su nivel ha bajado.");
+        }
+
+        // Si el nivel llega a 0, se expulsa al soldado
+        if (this.nivel == 0) {
+            System.out.println(this.nombre + " ha sido expulsado por llegar al nivel más bajo.");
+            listaSoldados.remove(this);  // Remueve el soldado de la lista
+        }
+    }
+
 
     public void patrullar(){
         switch (rango) {
-            case Nivel_militar.SOLDADO_RASO:
+            case SOLDADO_RASO:
                 System.out.println("El soldado raso "+nombre+" esta patrullando en patines");
                 break;
-            case Nivel_militar.TENIENTE:
+            case TENIENTE:
                 System.out.println("El teniente "+nombre+" esta patrullando en burro");
                 break;
-            case Nivel_militar.CAPITAN:
+            case CAPITAN:
                 System.out.println("El capitan "+nombre+" esta patrullando en un unicornio y esta chill de cojones");
                 break;
-            case Nivel_militar.CORONEL:
+            case CORONEL:
                 System.out.println("Soy el coronel " +nombre+ " y no patrulla, soy el fuking jefe");
             default:
                 break;
@@ -114,6 +130,8 @@ public class Soldado extends Rango {
        
     }
 
+<<<<<<< HEAD
+=======
     // Método regañado que baja de nivel al ser regañado
     public void regañado(ArrayList<Soldado> listaSoldados) {
         if (this.nivel > 0) {
@@ -126,7 +144,17 @@ public class Soldado extends Rango {
             System.out.println(this.nombre + " ha sido expulsado por llegar al nivel más bajo.");
             listaSoldados.remove(this);  // Remueve el soldado de la lista
         }
-    }  
+    }
+
+    @Override
+    public void asignarMision(String mision) {
+
+    }
+
+    @Override
+    public void reportarEstado() {
+
+    }
+
+>>>>>>> origin/bypipe
 }
-
-
