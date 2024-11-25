@@ -28,47 +28,47 @@ import misiones.OperacionesMilitares;
 
         // // }
 
-
-        // //Prueba de herencia, metodo mostrarInformacion
-
-        // soldadoRaso1.mostrarInformacion();
-        // teniente1.mostrarInformacion();
-        // coronel1.mostrarInformacion();
-        // capitan1.mostrarInformacion(); 
-
-        // // Mostrar el número de soldados
-        // System.out.println("el numero de soldados es: "+ Soldado.getContadorSoldados() );
-
-        //Downcasting 
-        // ArrayList<Soldado> lista = new ArrayList<Soldado>();
-        // lista.add(soldadoRaso1);
-        // lista.add(teniente1);
-        // lista.add(coronel1);
-        // lista.add(capitan1); 
-        // System.out.println("--------------------------------");
-        // for (Soldado soldadito: lista) {
-        //     if(soldadito.getClass() == Teniente.class){
-        //         Teniente tenientesoldadito = (Teniente)soldadito;
-        //         System.out.println("Es teniente");
-        //         tenientesoldadito.realizarAccion();
-        //     }
-        // }
-
-
-        // Mostrar la lista de soldados antes de ser regañados
-        // System.out.println("Soldados antes de ser regañados:");
-        // for (Soldado soldado : lista) {
-        //     System.out.println(soldado.getNombre() + " - Nivel: " + soldado.getNivel());
-        // }
-
-        // // El Coronel regaña a todos los soldados
-        // System.out.println("\nEl Coronel va a regañar a todos los soldados:");
-        // coronel1.regañarSoldados(lista);  // El Coronel regaña a todos los soldados
-
-        // // Mostrar la lista de soldados después de ser regañados
-        // System.out.println("\nSoldados después de ser regañados:");
-        // for (Soldado soldado : lista) {
-        //     System.out.println(soldado.getNombre() + " - Nivel: " + soldado.getNivel());
+        // import javax.swing.*;
+        // import java.awt.*;
+        // import java.awt.event.ActionEvent;
+        // import java.awt.event.ActionListener;
+        // import java.util.ArrayList;
+        
+        // public class App extends JFrame {
+        //     private ArrayList<Soldado> listaSoldados;
+        //     private DefaultListModel<String> listModel;
+        //     private JList<String> listSoldados;
+        
+        //     public App() {
+        //         listaSoldados = new ArrayList<>();
+        //         listModel = new DefaultListModel<>();
+        //         setTitle("Gestión de Soldados");
+        //         setSize(500, 400);
+        //         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //         setLayout(new BorderLayout());
+        
+        //         // Panel para mostrar la lista de soldados
+        //         JPanel panelLista = new JPanel(new BorderLayout());
+        //         listSoldados = new JList<>(listModel);
+        //         panelLista.add(new JScrollPane(listSoldados), BorderLayout.CENTER);
+        //         JButton btnAccionSoldado = new JButton("Realizar Acción");
+        //         panelLista.add(btnAccionSoldado, BorderLayout.SOUTH);
+        
+        //         // Botón para agregar soldado
+        //         JButton btnAgregarSoldado = new JButton("Agregar Soldado");
+        
+        //         // Agregar paneles al frame
+        //         add(btnAgregarSoldado, BorderLayout.NORTH);
+        //         add(panelLista, BorderLayout.CENTER);
+        
+        //         // Agregar listeners a los botones
+        //         btnAgregarSoldado.addActionListener(new ActionListener() {
+        //             @Override
+        //             public void actionPerformed(ActionEvent e) {
+        //                 mostrarDialogoCrearSoldado();
+        //             }
+        //         });
+        
         //         btnAccionSoldado.addActionListener(new ActionListener() {
         //             @Override
         //             public void actionPerformed(ActionEvent e) {
@@ -225,7 +225,10 @@ import misiones.OperacionesMilitares;
         //         });
         //     }
         // }
-        
+
+
+
+
         public class App extends java.awt.Frame {
 
             /**
@@ -264,6 +267,7 @@ import misiones.OperacionesMilitares;
                 label1 = new java.awt.Label();
                 label2 = new java.awt.Label();
                 label3 = new java.awt.Label();
+                label4 = new java.awt.Label();
                 label5 = new java.awt.Label();
                 label6 = new java.awt.Label();
                 jCheckBox4 = new javax.swing.JCheckBox();
@@ -280,11 +284,11 @@ import misiones.OperacionesMilitares;
                 setBackground(java.awt.Color.white);
                 setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 setLocation(new java.awt.Point(100, 100));
-                setMaximumSize(new java.awt.Dimension(800, 600));
-                setMinimumSize(new java.awt.Dimension(800, 600));
+                setMaximumSize(new java.awt.Dimension(900, 710));
+                setMinimumSize(new java.awt.Dimension(900, 710));
                 setPreferredSize(new java.awt.Dimension(900, 710));
                 setResizable(false);
-                setSize(new java.awt.Dimension(0, 0));
+                setSize(new java.awt.Dimension(2, 2));
                 setTitle("Gestión de Rangos ");
                 setType(java.awt.Window.Type.UTILITY);
                 addWindowListener(new java.awt.event.WindowAdapter() {
@@ -296,7 +300,7 @@ import misiones.OperacionesMilitares;
                 jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 70)); // NOI18N
                 jLabel1.setText("Gestión de Soldados");
         
-                jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icon.png"))); // NOI18N
+                jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("icon.png"))); // NOI18N
                 jLabel2.setToolTipText("");
 
 
@@ -808,5 +812,5 @@ private void mostrarFormularioCapitan() {
 
 
             
-        }
-    
+ }
+        
