@@ -17,6 +17,7 @@ public class Teniente extends Soldado {
     public Teniente(int nivel, String nombre, String id, Nivel_militar rango , String unidad) {
         super(nivel, nombre, id, rango); // Llamada al constructor de la clase padre
         this.rango = Nivel_militar.TENIENTE;
+        this.nivel = 2; // Nivel de Teniente
         this.unidad = unidad; 
     }
 

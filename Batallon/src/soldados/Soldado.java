@@ -1,7 +1,11 @@
 package soldados;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.JOptionPane;
+
+import javafx.event.ActionEvent;
 import misiones.OperacionesMilitares;
 import rangos.Nivel_militar;
 import rangos.Rango;
@@ -86,19 +90,19 @@ public class Soldado extends Rango  implements OperacionesMilitares {
         }
     }
     
-    // Método regañado que baja de nivel al ser regañado
-    public void regañado(ArrayList<Soldado> listaSoldados) {
-        if (this.nivel > 0) {
-            this.nivel--;  // Baja el nivel
-            System.out.println(this.nombre + " ha sido regañado y su nivel ha bajado.");
-        }
+    // // Método regañado que baja de nivel al ser regañado
+    // public void regañado(ArrayList<Soldado> listaSoldados) {
+    //     if (this.nivel > 0) {
+    //         this.nivel--;  // Baja el nivel
+    //         System.out.println(this.nombre + " ha sido regañado y su nivel ha bajado.");
+    //     }
 
-        // Si el nivel llega a 0, se expulsa al soldado
-        if (this.nivel == 0) {
-            System.out.println(this.nombre + " ha sido expulsado por llegar al nivel más bajo.");
-            listaSoldados.remove(this);  // Remueve el soldado de la lista
-        }
-    }
+    //     // Si el nivel llega a 0, se expulsa al soldado
+    //     if (this.nivel == 0) {
+    //         System.out.println(this.nombre + " ha sido expulsado por llegar al nivel más bajo.");
+    //         listaSoldados.remove(this);  // Remueve el soldado de la lista
+    //     }
+    // }
 
 
     public void patrullar(){
@@ -113,7 +117,7 @@ public class Soldado extends Rango  implements OperacionesMilitares {
                 System.out.println("El capitan "+nombre+" esta patrullando en un unicornio y esta chill de cojones");
                 break;
             case CORONEL:
-                System.out.println("Soy el coronel " +nombre+ " y no patrulla, soy el fuking jefe");
+                System.out.println("Soy el coronel " +nombre+ " y no patrullo, soy el fuking jefe");
             default:
                 break;
         }
@@ -132,10 +136,9 @@ public class Soldado extends Rango  implements OperacionesMilitares {
        
     }
 
-<<<<<<< HEAD
-=======
+    
     // Método regañado que baja de nivel al ser regañado
-    public void regañado(ArrayList<Soldado> listaSoldados) {
+    public void regañado(List<Soldado> listaSoldados) {
         if (this.nivel > 0) {
             this.nivel--;  // Baja el nivel
             System.out.println(this.nombre + " ha sido regañado y su nivel ha bajado.");
@@ -158,5 +161,4 @@ public class Soldado extends Rango  implements OperacionesMilitares {
 
     }
 
->>>>>>> origin/bypipe
 }
