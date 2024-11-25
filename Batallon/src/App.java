@@ -3,6 +3,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.ArrayList; 
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 
 import rangos.Nivel_militar;
@@ -52,13 +54,13 @@ import soldados.Teniente;
                 label5 = new Label();
                 label6 = new Label();
                 jCheckBox4 = new JCheckBox();
-                jCheckBox5 = new JCheckBox();
-                buttonRealizar = new JButton();
+                jCheckBoxReganar = new JCheckBox();
                 jLabel5 = new JLabel();
                 jButton1 = new JButton();
                 botonCrearSoldado = new JButton();
                 jPanel1 = new JPanel();
                 jScrollPaneSoldados = new JScrollPane();
+                listModel = new DefaultListModel<>();
                 jListSoldados = new JList<>(listModel);
                 jScrollPaneSoldados.setViewportView(jListSoldados);
         
@@ -77,6 +79,13 @@ import soldados.Teniente;
                         exitForm(evt);
                     }
                 });
+
+                jListSoldados.addListSelectionListener(new ListSelectionListener() {
+                      public void valueChanged(ListSelectionEvent evt) {
+                        soldadoSeleccionadoChanged(evt);
+                    }
+                });
+
         
                 jLabel1.setFont(new Font("Segoe UI Emoji", 1, 70)); // NOI18N
                 jLabel1.setText("Gestión de Soldados");
@@ -137,7 +146,7 @@ import soldados.Teniente;
                 buttonReportarEstado.setText("Reportar estado ");
                 buttonReportarEstado.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
-                        buttonReportarEstadoActionPerformed(evt);
+                        RadioButtonReportarEstado(evt);
                     }
                 });
         
@@ -145,7 +154,7 @@ import soldados.Teniente;
                 jRadioButton3.setText("Realizar acción ");
                 jRadioButton3.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
-                        jRadioButton3ActionPerformed(evt);
+                        RadioButtonRealizarAccion(evt);
                     }
                 });
         
@@ -153,7 +162,7 @@ import soldados.Teniente;
                 jCheckBox1.setText("Asignar misión");
                 jCheckBox1.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
-                        jCheckBox1ActionPerformed(evt);
+                        jCheckBoxAsignarMision(evt);
                     }
                 });
         
@@ -161,7 +170,7 @@ import soldados.Teniente;
                 jCheckBox2.setText("Anunciar Unidad");
                 jCheckBox2.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
-                        jCheckBox2ActionPerformed(evt);
+                        jCheckBoxAnunciarUnidad(evt);
                     }
                 });
         
@@ -197,25 +206,22 @@ import soldados.Teniente;
                 jCheckBox4.setText("Anunciar Numero de soldados bajo mando");
                 jCheckBox4.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
-                        jCheckBox4ActionPerformed(evt);
+                        jCheckBoxNumeroSoldadosEnMando(evt);
                     }
                 });
         
-                buttonGroupAcciones.add(jCheckBox5);
-                jCheckBox5.setText("Regañar");
-        
-                buttonRealizar.setBackground(new Color(51, 51, 51));
-                buttonRealizar.setFont(new Font("Segoe UI Emoji", 1, 14)); // NOI18N
-                buttonRealizar.setForeground(new Color(255, 255, 255));
-                buttonRealizar.setText("Realizar");
-                buttonRealizar.setBorder(BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-                buttonRealizar.setHorizontalTextPosition(SwingConstants.CENTER);
-                buttonRealizar.addActionListener(new ActionListener() {
+                buttonGroupAcciones.add(jCheckBoxReganar);
+                
+                jCheckBoxReganar.setText("Regañar");
+
+                //Evento para la funcionalidad del checkbox regañar
+                jCheckBoxReganar.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
-                        buttonRealizarActionPerformed(evt);
+                        CheckBoxReganar(evt);
                     }
                 });
         
+
                 jLabel5.setFont(new Font("Segoe UI Emoji", 1, 18)); // NOI18N
                 jLabel5.setText("Botón para crear Soldados      ------>");
         
@@ -245,7 +251,7 @@ import soldados.Teniente;
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jCheckBox3)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jCheckBox5))
+                                        .addComponent(jCheckBoxReganar))
                                     .addComponent(label4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -263,8 +269,7 @@ import soldados.Teniente;
                                             .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addComponent(botonCrearSoldado, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel4))
-                                            .addComponent(buttonRealizar, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel4)) 
                                             .addComponent(jRadioButton4, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))))
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 );
@@ -298,7 +303,7 @@ import soldados.Teniente;
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckBox3)
-                            .addComponent(jCheckBox5))
+                            .addComponent(jCheckBoxReganar))
                         .addGap(1, 1, 1)
                         .addComponent(label4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -313,7 +318,6 @@ import soldados.Teniente;
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCheckBox4)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonRealizar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70))
                 );
         
@@ -389,42 +393,90 @@ import soldados.Teniente;
             private void exitForm(WindowEvent evt) {                          
                 System.exit(0);
             }                         
+
+            private void soldadoSeleccionadoChanged(ListSelectionEvent evt) {
+                if (!evt.getValueIsAdjusting()) {
+                    String soldadoSeleccionado = jListSoldados.getSelectedValue();
+                    if (soldadoSeleccionado != null) {
+            
+                    }
+                 }
+            }
         
-            private void jButton1ActionPerformed(ActionEvent evt) {                                         
+            private void jButton1ActionPerformed(ActionEvent evt) {       
+                                                 
                 // 
             }                                        
 
             private void botonCrearSoldadoActionPerformed(ActionEvent evt) {
                 mostrarDialogoCrearSoldado();
                                                                 
+                
             }
 
-            private void buttonReportarEstadoActionPerformed(ActionEvent evt) {
-                // 
-            }
-  
-            private void jCheckBox4ActionPerformed(ActionEvent evt) {                                           
-                // 
-            }                                          
-        
-            private void jCheckBox2ActionPerformed(ActionEvent evt) {                                           
-                // 
-            }                                          
-        
-            private void jCheckBox1ActionPerformed(ActionEvent evt) {                                           
-                // 
-            }                                          
-        
-            private void jRadioButton3ActionPerformed(ActionEvent evt) {                                              
-                
-            }                                             
-        
-            private void buttonRealizarActionPerformed(ActionEvent evt) {    
-                String soldadoSeleccionado = jListSoldados.getSelectedValue();
-                ButtonModel accionSeleccionada = buttonGroupAcciones.getSelection();
+            private void CheckBoxReganar(ActionEvent evt) {
+                // Verifica si el checkbox está seleccionado
+                if (jCheckBoxReganar.isSelected()) {
+                    // Verifica que haya un elemento seleccionado en la lista
+                    int selectedIndex = jListSoldados.getSelectedIndex();
+                    if (selectedIndex != -1) {
+                        // Obtiene el soldado seleccionado
+                        String soldadoSeleccionadoNombre = jListSoldados.getSelectedValue();
+                        Soldado soldadoSeleccionado = null;
             
-                if (soldadoSeleccionado != null && accionSeleccionada != null) {
-                    String accion = accionSeleccionada.getActionCommand();
+                        // Busca el soldado en la lista de soldados
+                        for (Soldado soldado : listaSoldados) {
+                            if (soldado.toString().equals(soldadoSeleccionadoNombre)) {
+                                soldadoSeleccionado = soldado;
+                                break;
+                            }
+                        }
+            
+                        if (soldadoSeleccionado != null) {
+                            // Llama al método regañado del soldado
+                            soldadoSeleccionado.regañado(listaSoldados);
+            
+                            // Actualiza el modelo de la lista
+                            if (soldadoSeleccionado.getNivel() > 0) {
+                                //listModel.setElementAt(soldadoSeleccionado.getNombre(), selectedIndex);
+                                listModel.setElementAt(soldadoSeleccionado.toString(), selectedIndex);
+                                JOptionPane.showMessageDialog(this, 
+                                    "El nivel del soldado " + soldadoSeleccionado.getNombre() + " ha sido reducido a " + soldadoSeleccionado.getNivel() + ".", 
+                                    "Regañado", JOptionPane.INFORMATION_MESSAGE);
+                                        // Refresca la interfaz gráfica de la lista
+                                jListSoldados.repaint();
+                                jListSoldados.updateUI();
+                            } else {
+                                listModel.removeElementAt(selectedIndex);
+                                JOptionPane.showMessageDialog(this, 
+                                    "El soldado " + soldadoSeleccionado.getNombre() + " ha sido expulsado por alcanzar el nivel más bajo.", 
+                                    "Expulsión", JOptionPane.INFORMATION_MESSAGE);
+                            }
+                            // Refresca la interfaz gráfica de la lista
+                            jListSoldados.repaint();
+                            jListSoldados.updateUI();
+                        } else {
+                            JOptionPane.showMessageDialog(this, 
+                                "No se pudo encontrar el soldado seleccionado.", 
+                                "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, 
+                            "Por favor, selecciona un soldado de la lista para regañar.", 
+                            "Advertencia", JOptionPane.WARNING_MESSAGE);
+                    }
+            
+                    // Desmarca el checkbox después de la operación
+                    jCheckBoxReganar.setSelected(false);
+                }
+            }
+                
+                                                                
+
+            private void RadioButtonReportarEstado(ActionEvent evt) {
+                String soldadoSeleccionado = jListSoldados.getSelectedValue();
+
+                if (soldadoSeleccionado != null) {
                     Soldado soldado = null;
             
                     // Buscar el soldado seleccionado en la lista de soldados
@@ -437,14 +489,40 @@ import soldados.Teniente;
             
                     if (soldado != null) {
                         soldado.reportarEstado();
-
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection();  
                     } else {
                         JOptionPane.showMessageDialog(this, "Soldado no encontrado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
                     }
                 } else {
-                    JOptionPane.showMessageDialog(this, "Por favor, seleccione un soldado y una acción.");
+                    JOptionPane.showMessageDialog(this, "Por favor, seleccione un soldado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
                 }
-            }                       
+                
+            }
+  
+            private void jCheckBoxNumeroSoldadosEnMando(ActionEvent evt) {  
+                                                       
+                // 
+            }                                          
+        
+            private void jCheckBoxAnunciarUnidad(ActionEvent evt) {                                           
+                
+            }                                          
+        
+            private void jCheckBoxAsignarMision(ActionEvent evt) {
+                                                          
+                
+            }                                          
+        
+            private void RadioButtonRealizarAccion(ActionEvent evt) {
+                                                              
+                
+            }                                             
+                          
                 
                                                   
         
@@ -464,12 +542,11 @@ import soldados.Teniente;
             private ButtonGroup buttonGroupAcciones;
             private JButton jButton1;
             private JButton botonCrearSoldado;
-            private JButton buttonRealizar;
             private JCheckBox jCheckBox1;
             private JCheckBox jCheckBox2;
             private JCheckBox jCheckBox3;
             private JCheckBox jCheckBox4;
-            private JCheckBox jCheckBox5;
+            private JCheckBox jCheckBoxReganar;
             private JLabel jLabel1;
             private JLabel jLabel2;
             private JLabel jLabel3;

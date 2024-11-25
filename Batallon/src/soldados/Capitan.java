@@ -20,7 +20,7 @@ public class Capitan extends Soldado {
         super(nivel, nombre, id, rango); // Llama al constructor de la clase base Soldado
         //super(3);
         this.cantidadSoldadosBajoSuMando = cantidadSoldadosBajoSuMando; //Inicialización de atributos propios de la clase Capitan
-        this.nivel = 2;
+        this.nivel = 3;
     }
     public int getCantidadSoldadosBajoSuMando() {
         return cantidadSoldadosBajoSuMando;
