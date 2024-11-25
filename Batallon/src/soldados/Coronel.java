@@ -2,8 +2,6 @@ package soldados; //Paquete de la Clase
 
 import rangos.Nivel_militar;
 
-
-
 import javax.swing.JOptionPane;
 
 import java.util.ArrayList;
@@ -63,42 +61,11 @@ public class Coronel extends Soldado{
         System.out.println("La estrategia del coronel es: " + estrategia);
     } 
 
-     // Método regañado() sobreescrito
-    // @Override
-    // public void regañado(ArrayList<Soldado> listaSoldados) {
-    //     // Lógica de regañado específica para el Coronel
-    //     System.out.println(this.getNombre() + " (Coronel) está regañando a los soldados.");
-    // }
-    
+    // Método toString() sobreescrito
     @Override
     public String toString() {
         return super.toString() + ", Estrategia: " + estrategia;
     }
-
-     // Método regañado() sobreescrito
-    // @Override
-    // public void regañado(ArrayList<Soldado> listaSoldados) {
-    //     // Lógica de regañado específica para el Coronel
-    //     System.out.println(this.getNombre() + " (Coronel) está regañando a los soldados.");
-    // }
-
-    // // Método para ejecutar regañado a todos los soldados
-    // public void regañarSoldados(ArrayList<Soldado> listaSoldados) {
-    //     for (Soldado soldado : listaSoldados) {
-    //         soldado.regañado(listaSoldados);  // El Coronel regaña a cada soldado
-    //     }
-    // }
-
-    // Método para ejecutar regañado a todos los soldados
-//     public void regañarSoldados(ArrayList<Soldado> listaSoldados) {
-//         for (Soldado soldado : listaSoldados) {
-//             soldado.regañado(listaSoldados);  // El Coronel regaña a cada soldado
-//         }
-    
-
-
-    
-// }
 
     }
 

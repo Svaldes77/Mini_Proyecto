@@ -12,7 +12,6 @@ public class Teniente extends Soldado {
 
     private String unidad; 
 
-
     // Constructor de la clase Teniente que recibe los parametros nivel, nombre, id, rango y unidad
     public Teniente(int nivel, String nombre, String id, Nivel_militar rango , String unidad) {
         super(nivel, nombre, id, rango); // Llamada al constructor de la clase padre
@@ -20,8 +19,6 @@ public class Teniente extends Soldado {
         this.nivel = 2; // Nivel de Teniente
         this.unidad = unidad; 
     }
-
-
 
     // Metodos Get y Set
     public String getUnidad() {
@@ -43,20 +40,16 @@ public class Teniente extends Soldado {
     //metodo mostrar unidad 
     public void mostrarUnidad(){
         System.out.println("La unidad del teniente es: " + unidad);
-
-
     } 
 
     public void realizarRegano(){
 
     }
 
-    
     @Override
     public String toString() {
         return super.toString() + ", Unidad: " + unidad;
     }
-
 
     @Override
     public void asignarMision(String mision) {
