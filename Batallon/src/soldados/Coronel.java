@@ -6,6 +6,8 @@ import rangos.Nivel_militar;
 
 import javax.swing.JOptionPane;
 
+import java.util.ArrayList;
+
 //import java.util.Scanner;
 
 import java.util.Iterator;
