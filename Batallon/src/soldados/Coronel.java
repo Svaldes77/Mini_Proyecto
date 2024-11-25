@@ -1,6 +1,8 @@
 package soldados; //Paquete de la Clase
 
-import rangos.Nivel_militar;
+import rangos.Nivel_militar; //Importamos la clase Nivel_militar
+
+import java.util.ArrayList; //Importamos la clase ArrayList 
 
 
 

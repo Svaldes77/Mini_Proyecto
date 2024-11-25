@@ -86,19 +86,6 @@ public class Soldado extends Rango  implements OperacionesMilitares {
         }
     }
     
-    // Método regañado que baja de nivel al ser regañado
-    public void regañado(ArrayList<Soldado> listaSoldados) {
-        if (this.nivel > 0) {
-            this.nivel--;  // Baja el nivel
-            System.out.println(this.nombre + " ha sido regañado y su nivel ha bajado.");
-        }
-
-        // Si el nivel llega a 0, se expulsa al soldado
-        if (this.nivel == 0) {
-            System.out.println(this.nombre + " ha sido expulsado por llegar al nivel más bajo.");
-            listaSoldados.remove(this);  // Remueve el soldado de la lista
-        }
-    }
 
 
     public void patrullar(){
@@ -132,8 +119,6 @@ public class Soldado extends Rango  implements OperacionesMilitares {
        
     }
 
-<<<<<<< HEAD
-=======
     // Método regañado que baja de nivel al ser regañado
     public void regañado(ArrayList<Soldado> listaSoldados) {
         if (this.nivel > 0) {
@@ -158,5 +143,4 @@ public class Soldado extends Rango  implements OperacionesMilitares {
 
     }
 
->>>>>>> origin/bypipe
 }

@@ -62,16 +62,6 @@ import soldados.Teniente;
                 jListSoldados = new JList<>(listModel);
                 jScrollPaneSoldados.setViewportView(jListSoldados);
         
-<<<<<<< HEAD
-                setBackground(java.awt.Color.white);
-                setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-                setLocation(new java.awt.Point(100, 100));
-                setMaximumSize(new java.awt.Dimension(900, 710));
-                setMinimumSize(new java.awt.Dimension(900, 710));
-                setPreferredSize(new java.awt.Dimension(900, 710));
-                setResizable(false);
-                setSize(new java.awt.Dimension(2, 2));
-=======
                 setBackground(Color.white);
                 setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
                 setLocation(new Point(100, 100));
@@ -80,7 +70,6 @@ import soldados.Teniente;
                 setPreferredSize(new Dimension(980, 710));
                 setResizable(false);
                 setSize(new Dimension(0, 0));
->>>>>>> origin/bypipe
                 setTitle("Gestión de Rangos ");
                 setType(Window.Type.UTILITY);
                 addWindowListener(new WindowAdapter() {
@@ -553,95 +542,6 @@ import soldados.Teniente;
             String nombre = txtNombre.getText();
             String identificacion = txtIdentificacion.getText();
 
-<<<<<<< HEAD
-        Soldado nuevoSoldado = new SoldadoRaso(listaSoldados.size() + 1, nombre, identificacion, Nivel_militar.SOLDADO_RASO);
-        listaSoldados.add(nuevoSoldado);
-        listModel.addElement(nuevoSoldado.toString());
-    }
-}
-
-private void mostrarFormularioTeniente() {
-    JTextField txtNombre = new JTextField();
-    JTextField txtIdentificacion = new JTextField();
-    JTextField txtUnidad = new JTextField();
-
-    JPanel panel = new JPanel(new GridLayout(3, 2));
-    panel.add(new JLabel("Nombre:"));
-    panel.add(txtNombre);
-    panel.add(new JLabel("Identificación:"));
-    panel.add(txtIdentificacion);
-    panel.add(new JLabel("Unidad:"));
-    panel.add(txtUnidad);
-
-    int result = JOptionPane.showConfirmDialog(null, panel, "Crear Teniente", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-    if (result == JOptionPane.OK_OPTION) {
-        String nombre = txtNombre.getText();
-        String identificacion = txtIdentificacion.getText();
-        String unidad = txtUnidad.getText();
-
-        Soldado nuevoSoldado = new Teniente(listaSoldados.size() + 1, nombre, identificacion, Nivel_militar.TENIENTE, unidad);
-        listaSoldados.add(nuevoSoldado);
-        listModel.addElement(nuevoSoldado.toString());
-    }
-}
-
-private void mostrarFormularioCoronel() {
-    JTextField txtNombre = new JTextField();
-    JTextField txtIdentificacion = new JTextField();
-    JTextField txtEstrategia = new JTextField();
-
-    JPanel panel = new JPanel(new GridLayout(3, 2));
-    panel.add(new JLabel("Nombre:"));
-    panel.add(txtNombre);
-    panel.add(new JLabel("Identificación:"));
-    panel.add(txtIdentificacion);
-    panel.add(new JLabel("Estrategia:"));
-    panel.add(txtEstrategia);
-
-    int result = JOptionPane.showConfirmDialog(null, panel, "Crear Coronel", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-    if (result == JOptionPane.OK_OPTION) {
-        String nombre = txtNombre.getText();
-        String identificacion = txtIdentificacion.getText();
-        String estrategia = txtEstrategia.getText();
-
-        Soldado nuevoSoldado = new Coronel(listaSoldados.size() + 1, nombre, identificacion, Nivel_militar.CORONEL, estrategia);
-        listaSoldados.add(nuevoSoldado);
-        listModel.addElement(nuevoSoldado.toString());
-    }
-}
-
-private void mostrarFormularioCapitan() {
-    JTextField txtNombre = new JTextField();
-    JTextField txtIdentificacion = new JTextField();
-    JTextField txtNumSoldados = new JTextField();
-
-    JPanel panel = new JPanel(new GridLayout(3, 2));
-    panel.add(new JLabel("Nombre:"));
-    panel.add(txtNombre);
-    panel.add(new JLabel("Identificación:"));
-    panel.add(txtIdentificacion);
-    panel.add(new JLabel("Número de Soldados:"));
-    panel.add(txtNumSoldados);
-
-    int result = JOptionPane.showConfirmDialog(null, panel, "Crear Capitán", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-    if (result == JOptionPane.OK_OPTION) {
-        String nombre = txtNombre.getText();
-        String identificacion = txtIdentificacion.getText();
-        int numSoldados = Integer.parseInt(txtNumSoldados.getText());
-
-        Soldado nuevoSoldado = new Capitan(listaSoldados.size() + 1, nombre, identificacion, Nivel_militar.CAPITAN, numSoldados);
-        listaSoldados.add(nuevoSoldado);
-        listModel.addElement(nuevoSoldado.toString());
-    }
-}
-            
-            
-
-
-            
- }
-        
-=======
             Soldado nuevoSoldado = new SoldadoRaso(listaSoldados.size() + 1, nombre, identificacion, Nivel_militar.SOLDADO_RASO);
             listaSoldados.add(nuevoSoldado);
             listModel.addElement(nuevoSoldado.toString());
@@ -730,4 +630,3 @@ private void mostrarFormularioCapitan() {
             
  
 
->>>>>>> origin/bypipe
