@@ -2,16 +2,20 @@ package soldados; //Paquete de la Clase
 
 import rangos.Nivel_militar;
 
-import java.util.ArrayList;
+
+
+import javax.swing.JOptionPane;
 
 //import java.util.Scanner;
 
+import java.util.Iterator;
+
 //import rangos.Rango;
-import misiones.OperacionesMilitares;
+
 //importamos los paquetes necesarios
 
 //Clase Coronel que hereda de la clase Soldado e implementa la interfaz OperacionesMilitares
-public class Coronel extends Soldado implements OperacionesMilitares{
+public class Coronel extends Soldado{
     private String estrategia; 
 
     // Atributo que almacena la estrategia del coronel
@@ -32,8 +36,8 @@ public class Coronel extends Soldado implements OperacionesMilitares{
 
     // Sobrescritura del método reportarEstado de la interfaz OperacionesMilitares
     @Override
-    public void reportarEstado(String estado) {
-        System.out.println("Soy un coronel y mi estado es" + estado);  
+    public void reportarEstado() {
+        JOptionPane.showMessageDialog(null, "Coronel " + getNombre() + " reporto la  estrategia: " + getEstrategia() + " en su fase final" );
     }
     
     // Sobrescritura del método asignarMision de la interfaz OperacionesMilitares
@@ -57,8 +61,11 @@ public class Coronel extends Soldado implements OperacionesMilitares{
         System.out.println("La estrategia del coronel es: " + estrategia);
     } 
 
-    public void saludar(){
-
+     // Método regañado() sobreescrito
+    @Override
+    public void regañado(ArrayList<Soldado> listaSoldados) {
+        // Lógica de regañado específica para el Coronel
+        System.out.println(this.getNombre() + " (Coronel) está regañando a los soldados.");
     }
     
     @Override
@@ -80,35 +87,16 @@ public class Coronel extends Soldado implements OperacionesMilitares{
     //     }
     // }
 
+    // Método para ejecutar regañado a todos los soldados
+    public void regañarSoldados(ArrayList<Soldado> listaSoldados) {
+        for (Soldado soldado : listaSoldados) {
+            soldado.regañado(listaSoldados);  // El Coronel regaña a cada soldado
+        }
+    
+
 
     
-    // // Método estático para crear una instancia de Capitan
-    // public static Coronel crearCoronel (Scanner scanner) {
-    //     try {
-    //         System.out.println("Escribe el nivel: ");
-    //         int nivel = scanner.nextInt();
-    //         scanner.nextLine(); //Consumir linea
-            
-    //         System.out.println("Escribe el nombre: ");
-    //         String nombre = scanner.nextLine();
-
-    //         System.out.println("Escribe el ID: ");
-    //         String id = scanner.nextLine();
-
-    //         System.out.println("Escribe un rango (SOLDADO, SOLDADO_RASO, TENIENTE, CORONEL) :");
-    //         String rangoStr = scanner.nextLine();
-
-    //         Nivel_militar rango =Nivel_militar.valueOf(rangoStr.toUpperCase());
-
-    //         System.out.println("Escribe la estrategia asignada al coronel: ");
-    //         String estrategia = scanner.nextLine();
-            
-
-        
-    //         return new Coronel(nivel, nombre, id, rango, estrategia);
-    //     } catch (Exception e) {
-    //         System.out.println("Ocurrió un error al crear Capitán: " + e.getMessage());
-    //     }
-    //     return null;
-    // }  
 }
+
+    }
+
