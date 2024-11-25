@@ -144,7 +144,7 @@ public class Soldado extends Rango  implements OperacionesMilitares {
             this.nivel--;  // Baja el nivel
             System.out.println(this.nombre + " ha sido regañado y su nivel ha bajado.");
         }
-
+        
         // Si el nivel llega a 0, se expulsa al soldado
         if (this.nivel == 0) {
             System.out.println(this.nombre + " ha sido expulsado por llegar al nivel más bajo.");
