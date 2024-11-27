@@ -4,11 +4,11 @@ import rangos.Nivel_militar;
 
 import javax.swing.JOptionPane;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 //import java.util.Scanner;
 
-import java.util.Iterator;
+//import java.util.Iterator;
 
 //import rangos.Rango;
 
@@ -16,11 +16,10 @@ import java.util.Iterator;
 
 //Clase Coronel que hereda de la clase Soldado e implementa la interfaz OperacionesMilitares
 public class Coronel extends Soldado{
-    private String estrategia; 
 
     // Atributo que almacena la estrategia del coronel
-     
-    
+    private String estrategia; 
+
     //Constructor Coronel
     public Coronel(int nivel, String nombre, String id, Nivel_militar rango, String estrategia) {
         super(nivel, nombre, id,rango); // Llama al constructor de la clase base Soldado 
@@ -66,6 +65,11 @@ public class Coronel extends Soldado{
     public String toString() {
         return super.toString() + ", Estrategia: " + estrategia;
     }
+
+    public void asignarUnidad(String unidad) {
+        System.out.println("El Coronel " + getNombre() + " ha asignado la unidad: " + unidad);
+    }
+
 
     }
 

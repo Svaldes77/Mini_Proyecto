@@ -58,14 +58,8 @@ public class Teniente extends Soldado {
     public void reportarEstado() {
         JOptionPane.showMessageDialog(null, "Soy el teniente " + getNombre() + "  me reporto en la trinchera con la unidad " + getUnidad());
     }
-    // Sobrescribir el método regañado en Teniente
-    
+
 
     // Metodo que se sobre escribe de la interfaz OperacionesMilitares
-
-
-
-    
-
-    
+  
 }
