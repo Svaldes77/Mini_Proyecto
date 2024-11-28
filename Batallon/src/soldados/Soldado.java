@@ -3,17 +3,11 @@ package soldados;
 import java.util.ArrayList;
 import java.util.List;
 
-
-//import javax.swing.JOptionPane;
-
-//import javafx.event.ActionEvent;
-
 import javax.swing.JOptionPane;
 
 import misiones.OperacionesMilitares;
 import rangos.Nivel_militar;
 import rangos.Rango;
-//import misiones.OperacionesMilitares;
 
 // La clase Soldado extiende la clase Rango
 public class Soldado extends Rango  implements OperacionesMilitares {  

@@ -30,7 +30,6 @@ import soldados.Teniente;
                 jLabel2 = new JLabel();
                 jPanel1 = new JPanel();
                 jLabel3 = new JLabel();
-                //jScrollPane1 = new JScrollPane();
                 jPanel2 = new JPanel();
                 botonCrearSoldado = new JButton();
                 jLabel4 = new JLabel();
@@ -120,8 +119,6 @@ import soldados.Teniente;
                         .addComponent(jScrollPaneSoldados, GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                         .addGap(14, 14, 14))
                 );
-        
-                //jScrollPane1.getAccessibleContext().setAccessibleName("Listainterna");
                 
                 botonCrearSoldado.setBackground(new Color(51, 51, 51));
                 botonCrearSoldado.setFont(new Font("Segoe UI Emoji", 1, 14)); // NOI18N
@@ -558,11 +555,6 @@ import soldados.Teniente;
                             if (soldadoSeleccionado instanceof Coronel) {
                                 // Recupera la estrategia ya asignada al Coronel
                                 String estrategia = ((Coronel) soldadoSeleccionado).getEstrategia();
-<<<<<<< HEAD
-            
-=======
-
->>>>>>> origin/bypipe
                                 // Muestra la estrategia en una ventana emergente
                                 if (estrategia != null && !estrategia.trim().isEmpty()) {
                                     JOptionPane.showMessageDialog(this, 
@@ -615,14 +607,6 @@ import soldados.Teniente;
                         }
                     }
             
-<<<<<<< HEAD
-            
-        
-            private void jCheckBoxAnunciarUnidad(ActionEvent evt) {           
-                 // Verifica si el checkbox está seleccionado
-            }                                       
-                               
-=======
                     if (capitan != null) {
                         // Muestra un mensaje con la cantidad de soldados bajo su mando
                         JOptionPane.showMessageDialog(this, "El Capitán " + capitan.getNombre() + " tiene " + capitan.getCantidadSoldadosBajoSuMando() + " soldados bajo su mando.");
@@ -673,7 +657,6 @@ import soldados.Teniente;
                 
             }                                          
 
->>>>>>> origin/bypipe
             private void jCheckBoxAsignarMision(ActionEvent evt) {
                 // Verifica si el checkbox está seleccionado
                 if (JCheckboxAsignarMision.isSelected()) {
@@ -1039,13 +1022,9 @@ import soldados.Teniente;
         }
     }
         
-<<<<<<< HEAD
-}
-=======
 }          
             
 
 
             
  
->>>>>>> origin/bypipe
