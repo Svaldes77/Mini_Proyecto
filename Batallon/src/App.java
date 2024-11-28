@@ -30,7 +30,6 @@ import soldados.Teniente;
                 jLabel2 = new JLabel();
                 jPanel1 = new JPanel();
                 jLabel3 = new JLabel();
-                //jScrollPane1 = new JScrollPane();
                 jPanel2 = new JPanel();
                 botonCrearSoldado = new JButton();
                 jLabel4 = new JLabel();
@@ -120,8 +119,6 @@ import soldados.Teniente;
                         .addComponent(jScrollPaneSoldados, GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                         .addGap(14, 14, 14))
                 );
-        
-                //jScrollPane1.getAccessibleContext().setAccessibleName("Listainterna");
                 
                 botonCrearSoldado.setBackground(new Color(51, 51, 51));
                 botonCrearSoldado.setFont(new Font("Segoe UI Emoji", 1, 14)); // NOI18N
@@ -421,7 +418,7 @@ import soldados.Teniente;
                     model.remove(i);
                 }
             
-                // También puedes limpiar cualquier selección en el JList
+                // También puedes limpiar cualquier selección en el JListdd
                 jListSoldados.clearSelection();
             
                 JOptionPane.showMessageDialog(this, "La lista ha sido limpiada, excepto los primeros cuatro soldados.", "Operación Exitosa :P", JOptionPane.INFORMATION_MESSAGE);
@@ -535,10 +532,6 @@ import soldados.Teniente;
                 }
             }
             
-  
-
-            
-            
             private void jCheckBoxAnunciarEstrategia(ActionEvent evt) {   
                 // Verifica si el checkbox está seleccionado
                 if (JCheckbocAnunciarEstrategia.isSelected()) {
@@ -548,7 +541,7 @@ import soldados.Teniente;
                         // Obtiene el nombre del soldado seleccionado
                         String soldadoSeleccionadoNombre = jListSoldados.getSelectedValue();
                         Soldado soldadoSeleccionado = null;
-            
+
                         // Busca el soldado en la lista interna de soldados
                         for (Soldado soldado : listaSoldados) {
                             if (soldado.toString().equals(soldadoSeleccionadoNombre)) {
@@ -556,36 +549,28 @@ import soldados.Teniente;
                                 break;
                             }
                         }
-            
+
                         if (soldadoSeleccionado != null) {
                             // Verifica si el soldado seleccionado es un Coronel
                             if (soldadoSeleccionado instanceof Coronel) {
-                                // Solicita al usuario ingresar una estrategia para el Coronel
-                                String estrategia = JOptionPane.showInputDialog(this, 
-                                    "Ingresa la estrategia para el Coronel " + soldadoSeleccionado.getNombre() + ":",
-                                    "Asignar Estrategia",
-                                    JOptionPane.PLAIN_MESSAGE);
-            
-                                // Verifica que la estrategia no esté vacía
+                                // Recupera la estrategia ya asignada al Coronel
+                                String estrategia = ((Coronel) soldadoSeleccionado).getEstrategia();
+                                // Muestra la estrategia en una ventana emergente
                                 if (estrategia != null && !estrategia.trim().isEmpty()) {
-                                    // Asigna la estrategia al Coronel
-                                    ((Coronel) soldadoSeleccionado).setEstrategia(estrategia);
-            
-                                    // Muestra la estrategia en una ventana emergente
                                     JOptionPane.showMessageDialog(this, 
-                                        "Estrategia asignada al Coronel " + soldadoSeleccionado.getNombre() + ": " + estrategia,
+                                        "Estrategia del Coronel " + soldadoSeleccionado.getNombre() + ": " + estrategia,
                                         "Estrategia Asignada",
                                         JOptionPane.INFORMATION_MESSAGE);
                                 } else {
                                     JOptionPane.showMessageDialog(this, 
-                                        "No se asignó ninguna estrategia. Intenta de nuevo.", 
-                                        "Error de Entrada", 
-                                        JOptionPane.ERROR_MESSAGE);
+                                        "El Coronel " + soldadoSeleccionado.getNombre() + " no tiene una estrategia asignada.", 
+                                        "Sin Estrategia", 
+                                        JOptionPane.WARNING_MESSAGE);
                                 }
                             } else {
                                 // Si el soldado no es Coronel, muestra un mensaje
                                 JOptionPane.showMessageDialog(this, 
-                                    "Solo un Coronel puede recibir una estrategia.", 
+                                    "Solo un Coronel puede tener una estrategia.", 
                                     "Operación No Permitida", 
                                     JOptionPane.WARNING_MESSAGE);
                             }
@@ -597,20 +582,17 @@ import soldados.Teniente;
                         }
                     } else {
                         JOptionPane.showMessageDialog(this, 
-                            "Por favor, selecciona un soldado de la lista para asignar una estrategia.", 
+                            "Por favor, selecciona un soldado de la lista para ver la estrategia.", 
                             "Advertencia", 
                             JOptionPane.WARNING_MESSAGE);
                     }
-            
+
                     // Limpia la selección del checkbox y del JList
                     JCheckbocAnunciarEstrategia.setSelected(false);
                     jListSoldados.clearSelection();
                     buttonGroupAcciones.clearSelection();
                 }
             }
-            
-                
-                
 
             private void jCheckBoxNumeroSoldadosEnMando(ActionEvent evt) {
                 Capitan capitan = null; // Inicializa el Capitán
@@ -675,9 +657,6 @@ import soldados.Teniente;
                 
             }                                          
 
-        
-                                       
-                               
             private void jCheckBoxAsignarMision(ActionEvent evt) {
                 // Verifica si el checkbox está seleccionado
                 if (JCheckboxAsignarMision.isSelected()) {
@@ -790,8 +769,6 @@ import soldados.Teniente;
 
             }                                             
                           
-            
-            
             private void RadioButtonPatrullar(ActionEvent evt) {
                 String soldadoSeleccionado = jListSoldados.getSelectedValue();
                 if (soldadoSeleccionado != null) {
@@ -823,7 +800,6 @@ import soldados.Teniente;
                 
             }
                           
-            
             private void jRadioButtonSaludar(ActionEvent evt){
                 String soldadoSeleccionado = jListSoldados.getSelectedValue();
                 if (soldadoSeleccionado != null) {
@@ -862,7 +838,6 @@ import soldados.Teniente;
                     }
                 });
             }
-        
         
             // Variables declaration - do not modify                     
             private ButtonGroup buttonGroupAcciones;
