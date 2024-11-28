@@ -51,7 +51,7 @@ public class Capitan extends Soldado {
 
     @Override
     public void reportarEstado() {
-        JOptionPane.showMessageDialog(null, "Capitán  " + getNombre() + " reporto ofensiva contra los pinguinos de madagascar ");
+        JOptionPane.showMessageDialog(null, "Capitán " + getNombre() + " reporto ofensiva contra los pinguinos de madagascar ");
     }
 
 
