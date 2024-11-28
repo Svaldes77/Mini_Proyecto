@@ -1,8 +1,5 @@
-package soldados;
-
+package soldados; 
 import javax.swing.JOptionPane;
-
-//import java.util.Scanner;
 import rangos.Nivel_militar;
 
 //import rangos.Rango;
@@ -32,34 +29,33 @@ public class Teniente extends Soldado {
     // Metodo que se sobre escribe de la clase padre
     @Override
     public void realizarAccion() {
-        System.out.println("Soy el "+ Nivel_militar.TENIENTE + " y estoy Supervisando la trinchera"); //Mensaje que se imprime en consola
-        //JOptionPane.showMessageDialog(null, "Soy "+ Nivel_militar.TENIENTE + " y estoy Supervisando la trinchera");
+        JOptionPane.showMessageDialog(null, "Soy el "+ getRango() + " "+ getNombre() + "  estoy supervisando la trinchera nazi"); //Mensaje que se imprime en consola
+    } 
     
-    }
+
     //metodo mostrar unidad 
-    public void mostrarUnidad(){
-        System.out.println("La unidad del teniente es: " + unidad);
+    public void AnunciarUnidad(){
+        JOptionPane.showMessageDialog(null, "soy el "+getRango()+ " "+getNombre()+" La unidad a mi cargo es: " + unidad);
     } 
 
     public void realizarRegano(){
 
     }
 
+    // Metodo que se sobre escribe de la interfaz OperacionesMilitares
     @Override
     public String toString() {
         return super.toString() + ", Unidad: " + unidad;
     }
-
+    // Metodo que se sobre escribe de la interfaz OperacionesMilitares
     @Override
     public void asignarMision(String mision) {
         System.out.println("El teniente le han asignado la mision: " + mision);
     }
+    // Metodo que se sobre escribe de la interfaz OperacionesMilitares 
     @Override
     public void reportarEstado() {
         JOptionPane.showMessageDialog(null, "Soy el teniente " + getNombre() + "  me reporto en la trinchera con la unidad " + getUnidad());
     }
-
-
-    // Metodo que se sobre escribe de la interfaz OperacionesMilitares
   
 }

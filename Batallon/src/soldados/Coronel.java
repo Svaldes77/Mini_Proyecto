@@ -1,16 +1,8 @@
 package soldados; //Paquete de la Clase
-
-import rangos.Nivel_militar;
-
+import rangos.Nivel_militar; //Importamos la clase Nivel_militar
 import javax.swing.JOptionPane;
 
-//import java.util.ArrayList;
 
-//import java.util.Scanner;
-
-//import java.util.Iterator;
-
-//import rangos.Rango;
 
 //importamos los paquetes necesarios
 
@@ -30,7 +22,7 @@ public class Coronel extends Soldado{
     // Sobrescritura del método realizarAccion de la clase Soldado
     @Override
     public void realizarAccion() {
-        System.out.println("Soy un coronel y estoy Preparando la estrategia de ataque"); 
+        JOptionPane.showMessageDialog(null, "Soy el "+ getRango() + " "+ getNombre() + "  estoy libre viendo planeta vegeta");
     }
 
     // Sobrescritura del método reportarEstado de la interfaz OperacionesMilitares

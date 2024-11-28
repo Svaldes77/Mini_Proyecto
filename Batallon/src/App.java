@@ -15,16 +15,17 @@ import soldados.Teniente;
 
         public class App extends Frame {
 
-            /**
-             * Creates new form interfaz
-             */
+
             public App() {
                 initComponents();
+                inicializarSoldadosPorDefecto();
+
             }
             
-            private void initComponents() {
+            private void initComponents() { // se inicializan los componentes de la interfaz
 
-                buttonGroupAcciones = new ButtonGroup();
+                buttonGroupAcciones = new ButtonGroup(); // se crea un grupo de botones
+                //se inicializan los label para la interfaz
                 jLabel1 = new JLabel();
                 jLabel2 = new JLabel();
                 jPanel1 = new JPanel();
@@ -34,35 +35,37 @@ import soldados.Teniente;
                 botonCrearSoldado = new JButton();
                 jLabel4 = new JLabel();
                 buttonReportarEstado = new JRadioButton();
-                jRadioButton3 = new JRadioButton();
-                jCheckBox1 = new JCheckBox();
+                JRadioButtonRealizarAccion = new JRadioButton();
+                JCheckboxAsignarMision = new JCheckBox();
                 jCheckBox2 = new JCheckBox();
-                jRadioButton1 = new JRadioButton();
-                jRadioButton4 = new JRadioButton();
-                jCheckBox3 = new JCheckBox();
+                jRadioButtonPatrullar = new JRadioButton();
+                jRadioButtonSaludar = new JRadioButton();
+                JCheckbocAnunciarEstrategia = new JCheckBox();
                 label1 = new Label();
                 label2 = new Label();
                 label3 = new Label();
                 label4 = new Label();
                 label5 = new Label();
                 label6 = new Label();
-                jCheckBox4 = new JCheckBox();
+                JCheckbocAnunciarsoldadosBajo = new JCheckBox();
                 jCheckBoxReganar = new JCheckBox();
                 jLabel5 = new JLabel();
                 jButton1 = new JButton();
                 botonCrearSoldado = new JButton();
                 jPanel1 = new JPanel();
                 jScrollPaneSoldados = new JScrollPane();
-                listModel = new DefaultListModel<>();
-                jListSoldados = new JList<>(listModel);
-                jScrollPaneSoldados.setViewportView(jListSoldados);
+                listModel = new DefaultListModel<>(); // ListModel es una clase que implementa la interfaz ListModel y que se utiliza para almacenar elementos de una lista
+                jListSoldados = new JList<>(listModel); // se crea una lista de soldados
+                jScrollPaneSoldados.setViewportView(jListSoldados);// se agrega la lista de soldados al scrollpane
         
+
+            //se inicializan los componentes de la interfaz, mas que todo los botones y los labels
                 setBackground(Color.white);
                 setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
                 setLocation(new Point(100, 100));
                 setMaximumSize(new Dimension(800, 600));
                 setMinimumSize(new Dimension(800, 600));
-                setPreferredSize(new Dimension(980, 710));
+                setPreferredSize(new Dimension(1130, 710));
                 setResizable(false);
                 setSize(new Dimension(0, 0));
                 setTitle("Gestión de Rangos ");
@@ -73,9 +76,9 @@ import soldados.Teniente;
                     }
                 });
 
-                jListSoldados.addListSelectionListener(new ListSelectionListener() {
+                jListSoldados.addListSelectionListener(new ListSelectionListener() { //se añade un listener a la lista de soldados
                       public void valueChanged(ListSelectionEvent evt) {
-                        soldadoSeleccionadoChanged(evt);
+                        soldadoSeleccionadoChanged(evt);//se llama al metodo soldadoSeleccionadoChanged
                     }
                 });
 
@@ -95,10 +98,10 @@ import soldados.Teniente;
                 jLabel3.setText("Lista de soldados");
                 jLabel3.setToolTipText("");
         
-                GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
+                GroupLayout jPanel1Layout = new GroupLayout(jPanel1); //se crea un layout para el panel 1
                 jPanel1.setLayout(jPanel1Layout);
                 jPanel1Layout.setHorizontalGroup(
-                    jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)//se crea un grupo de layout
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPaneSoldados)
@@ -140,18 +143,20 @@ import soldados.Teniente;
                         RadioButtonReportarEstado(evt);
                     }
                 });
+
+
         
-                buttonGroupAcciones.add(jRadioButton3);
-                jRadioButton3.setText("Realizar acción ");
-                jRadioButton3.addActionListener(new ActionListener() {
+                buttonGroupAcciones.add(JRadioButtonRealizarAccion);
+                JRadioButtonRealizarAccion.setText("Realizar acción ");
+                JRadioButtonRealizarAccion.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
                         RadioButtonRealizarAccion(evt);
                     }
                 });
         
-                buttonGroupAcciones.add(jCheckBox1);
-                jCheckBox1.setText("Asignar misión");
-                jCheckBox1.addActionListener(new ActionListener() {
+                buttonGroupAcciones.add(JCheckboxAsignarMision);
+                JCheckboxAsignarMision.setText("Asignar misión");
+                JCheckboxAsignarMision.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
                         jCheckBoxAsignarMision(evt);
                     }
@@ -167,15 +172,26 @@ import soldados.Teniente;
 
 
         
-                buttonGroupAcciones.add(jRadioButton1);
-                jRadioButton1.setText("Patrullar");
+                buttonGroupAcciones.add(jRadioButtonPatrullar);
+                jRadioButtonPatrullar.setText("Patrullar");
+                jRadioButtonPatrullar.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        RadioButtonPatrullar(evt);
+                    }
+                });
+
         
-                buttonGroupAcciones.add(jRadioButton4);
-                jRadioButton4.setText("Saludar");
+                buttonGroupAcciones.add(jRadioButtonSaludar);
+                jRadioButtonSaludar.setText("Saludar");
+                jRadioButtonSaludar.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        jRadioButtonSaludar(evt);
+                    }
+                });
         
-                buttonGroupAcciones.add(jCheckBox3);
-                jCheckBox3.setText("Anunciar estrategia");
-                jCheckBox3.addActionListener(new ActionListener() {
+                buttonGroupAcciones.add(JCheckbocAnunciarEstrategia);
+                JCheckbocAnunciarEstrategia.setText("Anunciar estrategia");
+                JCheckbocAnunciarEstrategia.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
                         jCheckBoxAnunciarEstrategia(evt);
                     }
@@ -200,9 +216,9 @@ import soldados.Teniente;
                 label6.setFont(new Font("Corbel", 1, 14)); // NOI18N
                 label6.setText("Acción solo para Capitan");
         
-                buttonGroupAcciones.add(jCheckBox4);
-                jCheckBox4.setText("Anunciar Numero de soldados bajo mando");
-                jCheckBox4.addActionListener(new ActionListener() {
+                buttonGroupAcciones.add(JCheckbocAnunciarsoldadosBajo);
+                JCheckbocAnunciarsoldadosBajo.setText("Anunciar Numero de soldados bajo mando");
+                JCheckbocAnunciarsoldadosBajo.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
                         jCheckBoxNumeroSoldadosEnMando(evt);
                     }
@@ -237,17 +253,17 @@ import soldados.Teniente;
                                 .addGap(592, 592, 592))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox4)
+                                    .addComponent(JCheckbocAnunciarsoldadosBajo)
                                     .addComponent(jCheckBox2))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                     .addComponent(label3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox1)
+                                    .addComponent(JCheckboxAsignarMision)
                                     .addComponent(label5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jCheckBox3)
+                                        .addComponent(JCheckbocAnunciarEstrategia)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jCheckBoxReganar))
                                     .addComponent(label4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -255,11 +271,11 @@ import soldados.Teniente;
                                         .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addGap(262, 262, 262)
-                                                .addComponent(jRadioButton1, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jRadioButtonPatrullar, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addComponent(buttonReportarEstado)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jRadioButton3))
+                                                .addComponent(JRadioButtonRealizarAccion))
                                             .addComponent(label2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel5))
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -268,7 +284,7 @@ import soldados.Teniente;
                                                 .addComponent(botonCrearSoldado, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel4)) 
-                                            .addComponent(jRadioButton4, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jRadioButtonSaludar, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))))
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 );
                 jPanel2Layout.setVerticalGroup(
@@ -289,18 +305,18 @@ import soldados.Teniente;
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(buttonReportarEstado)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton4))
+                            .addComponent(JRadioButtonRealizarAccion)
+                            .addComponent(jRadioButtonPatrullar)
+                            .addComponent(jRadioButtonSaludar))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
-                        .addComponent(jCheckBox1)
+                        .addComponent(JCheckboxAsignarMision)
                         .addGap(1, 1, 1)
                         .addComponent(label5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox3)
+                            .addComponent(JCheckbocAnunciarEstrategia)
                             .addComponent(jCheckBoxReganar))
                         .addGap(1, 1, 1)
                         .addComponent(label4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -314,7 +330,7 @@ import soldados.Teniente;
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(label6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox4)
+                        .addComponent(JCheckbocAnunciarsoldadosBajo)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGap(70, 70, 70))
                 );
@@ -383,16 +399,13 @@ import soldados.Teniente;
                 getAccessibleContext().setAccessibleName("Form");
         
                 pack();
-            }// </editor-fold>                        
-        
-            /**
-             * Exit the Application
-             */
+            }                    
+
             private void exitForm(WindowEvent evt) {                          
                 System.exit(0);
             }                         
 
-            private void soldadoSeleccionadoChanged(ListSelectionEvent evt) {
+            private void soldadoSeleccionadoChanged(ListSelectionEvent evt) {//meotodo para el evento de seleccionar un soldado
                 if (!evt.getValueIsAdjusting()) {
                     String soldadoSeleccionado = jListSoldados.getSelectedValue();
                     if (soldadoSeleccionado != null) {
@@ -402,21 +415,22 @@ import soldados.Teniente;
             }
         
             private void jButton1ActionPerformed(ActionEvent evt) {
-                // Limpia la lista de soldados en la interfaz
+                // Limpia la lista de soldados en la interfaz, excepto las primeras cuatro posiciones
                 DefaultListModel<String> model = (DefaultListModel<String>) jListSoldados.getModel();
-                model.clear(); // Elimina todos los elementos de la lista
+                for (int i = model.getSize() - 1; i >= 4; i--) {
+                    model.remove(i);
+                }
             
-                // También puedes limpiar cualquier selección en el JList
+                // También puedes limpiar cualquier selección en el JListdd
                 jListSoldados.clearSelection();
             
-                JOptionPane.showMessageDialog(this, "La lista ha sido limpiada.", "Operación Exitosa :P", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "La lista ha sido limpiada, excepto los primeros cuatro soldados.", "Operación Exitosa :P", JOptionPane.INFORMATION_MESSAGE);
             }
                                                    
 
             private void botonCrearSoldadoActionPerformed(ActionEvent evt) {
                 mostrarDialogoCrearSoldado();
                                                                 
-                
             }
 
             private void CheckBoxReganar(ActionEvent evt) {
@@ -484,10 +498,9 @@ import soldados.Teniente;
                     }
                 }
                 
-            private void RadioButtonReportarEstado(ActionEvent evt) {
-                String soldadoSeleccionado = jListSoldados.getSelectedValue();
-
-                if (soldadoSeleccionado != null) {
+            private void RadioButtonReportarEstado(ActionEvent evt) {//metodo para el evento de reportar estado
+                String soldadoSeleccionado = jListSoldados.getSelectedValue(); //busca el soldado seleccionado  
+                if (soldadoSeleccionado != null) { //si el soldado seleccionado no es nulo
                     Soldado soldado = null;
             
                     // Buscar el soldado seleccionado en la lista de soldados
@@ -522,23 +535,16 @@ import soldados.Teniente;
                 }
             }
             
-  
-            private void jCheckBoxNumeroSoldadosEnMando(ActionEvent evt) {  
-                                                       
-                // 
-            } 
-            
-            
             private void jCheckBoxAnunciarEstrategia(ActionEvent evt) {   
                 // Verifica si el checkbox está seleccionado
-                if (jCheckBox3.isSelected()) {
+                if (JCheckbocAnunciarEstrategia.isSelected()) {
                     // Verifica que haya un elemento seleccionado en la lista
                     int selectedIndex = jListSoldados.getSelectedIndex();
                     if (selectedIndex != -1) {
                         // Obtiene el nombre del soldado seleccionado
                         String soldadoSeleccionadoNombre = jListSoldados.getSelectedValue();
                         Soldado soldadoSeleccionado = null;
-            
+
                         // Busca el soldado en la lista interna de soldados
                         for (Soldado soldado : listaSoldados) {
                             if (soldado.toString().equals(soldadoSeleccionadoNombre)) {
@@ -546,13 +552,17 @@ import soldados.Teniente;
                                 break;
                             }
                         }
-            
+
                         if (soldadoSeleccionado != null) {
                             // Verifica si el soldado seleccionado es un Coronel
                             if (soldadoSeleccionado instanceof Coronel) {
                                 // Recupera la estrategia ya asignada al Coronel
                                 String estrategia = ((Coronel) soldadoSeleccionado).getEstrategia();
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> origin/bypipe
                                 // Muestra la estrategia en una ventana emergente
                                 if (estrategia != null && !estrategia.trim().isEmpty()) {
                                     JOptionPane.showMessageDialog(this, 
@@ -584,23 +594,89 @@ import soldados.Teniente;
                             "Advertencia", 
                             JOptionPane.WARNING_MESSAGE);
                     }
-            
+
                     // Limpia la selección del checkbox y del JList
-                    jCheckBox3.setSelected(false);
+                    JCheckbocAnunciarEstrategia.setSelected(false);
                     jListSoldados.clearSelection();
                     buttonGroupAcciones.clearSelection();
                 }
             }
+
+            private void jCheckBoxNumeroSoldadosEnMando(ActionEvent evt) {
+                Capitan capitan = null; // Inicializa el Capitán
+                String soldadoSeleccionado = jListSoldados.getSelectedValue(); //busca el soldado seleccionado
+                if (soldadoSeleccionado != null) {//si el soldado seleccionado no es nulo
+                    for (Soldado s : listaSoldados) {
+                        if (s.toString().equals(soldadoSeleccionado)) { //si el soldado que escogimos es igual al soldado al de la lista
+                            if (s instanceof Capitan) { 
+                                capitan = (Capitan) s;
+                                break;
+                            }
+                        }
+                    }
             
+<<<<<<< HEAD
             
         
             private void jCheckBoxAnunciarUnidad(ActionEvent evt) {           
                  // Verifica si el checkbox está seleccionado
             }                                       
                                
+=======
+                    if (capitan != null) {
+                        // Muestra un mensaje con la cantidad de soldados bajo su mando
+                        JOptionPane.showMessageDialog(this, "El Capitán " + capitan.getNombre() + " tiene " + capitan.getCantidadSoldadosBajoSuMando() + " soldados bajo su mando.");
+                        jListSoldados.clearSelection(); // Limpia la selección de la lista
+                        buttonGroupAcciones.clearSelection();  // Limpia la selección de los botones
+                    } else {
+                        JOptionPane.showMessageDialog(this, "El soldado seleccionado no es un Capitán.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Por favor, seleccione un soldado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                }                    
+            }                                          
+    
+            private void jCheckBoxAnunciarUnidad(ActionEvent evt) {   
+                Teniente teniente = null;
+                String soldadoSeleccionado = jListSoldados.getSelectedValue();//busca el soldado dentro de la lista
+                if (soldadoSeleccionado != null) {
+                    // Buscar el soldado seleccionado en la lista de soldados
+                    for (Soldado s : listaSoldados) {
+                        if (s.toString().equals(soldadoSeleccionado)) {
+                            if (s instanceof Teniente) {
+                                teniente = (Teniente) s;
+                                break;
+                            }
+                        }
+                    }
+            
+                    if (teniente != null) {
+                        teniente.AnunciarUnidad();//siel teniente esta en la lista se anuncia la unidad
+                        //.AnunciarUnidad es un metodo que se encuentra en la clase teniente
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection();  //limpia la seleción de los botones
+                    } else {
+                        JOptionPane.showMessageDialog(this, "El soldado seleccionado no es un Teniente.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Por favor, seleccione un soldado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                }
+                
+                
+            }                                          
+
+>>>>>>> origin/bypipe
             private void jCheckBoxAsignarMision(ActionEvent evt) {
                 // Verifica si el checkbox está seleccionado
-                if (jCheckBox1.isSelected()) {
+                if (JCheckboxAsignarMision.isSelected()) {
                     // Verifica que haya un elemento seleccionado en la lista
                     int selectedIndex = jListSoldados.getSelectedIndex();
                     if (selectedIndex != -1) {
@@ -671,7 +747,7 @@ import soldados.Teniente;
                     }
             
                     // Limpia la selección del checkbox y del JList
-                    jCheckBox1.setSelected(false);
+                    JCheckboxAsignarMision.setSelected(false);
                     jListSoldados.clearSelection();
                     buttonGroupAcciones.clearSelection();
                 }
@@ -679,15 +755,99 @@ import soldados.Teniente;
             
         
             private void RadioButtonRealizarAccion(ActionEvent evt) {
+                String soldadoSeleccionado = jListSoldados.getSelectedValue();
+                if (soldadoSeleccionado != null) {
+                    Soldado soldado = null;
+            
+                    // Buscar el soldado seleccionado en la lista de soldados
+                    for (Soldado s : listaSoldados) {
+                        if (s.toString().equals(soldadoSeleccionado)) {
+                            soldado = s;
+                            break;
+                        }
+                    }
+            
+                    if (soldado != null) {
+                        soldado.realizarAccion();
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection();  
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Soldado no encontrado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Por favor, seleccione un soldado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                }                                      
+
                                                               
+
             }                                             
                           
+            private void RadioButtonPatrullar(ActionEvent evt) {
+                String soldadoSeleccionado = jListSoldados.getSelectedValue();
+                if (soldadoSeleccionado != null) {
+                    Soldado soldado = null;
+            
+                    // Buscar el soldado seleccionado en la lista de soldados
+                    for (Soldado s : listaSoldados) {
+                        if (s.toString().equals(soldadoSeleccionado)) {
+                            soldado = s;
+                            break;
+                        }
+                    }
+            
+                    if (soldado != null) {
+                        soldado.patrullar();
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection();  
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Soldado no encontrado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Por favor, seleccione un soldado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                }                                             
+
                 
+            }
+                          
+            private void jRadioButtonSaludar(ActionEvent evt){
+                String soldadoSeleccionado = jListSoldados.getSelectedValue();
+                if (soldadoSeleccionado != null) {
+                    Soldado soldado = null;
+            
+                    // Buscar el soldado seleccionado en la lista de soldados
+                    for (Soldado s : listaSoldados) {
+                        if (s.toString().equals(soldadoSeleccionado)) {
+                            soldado = s;
+                            break;
+                        }
+                    }
+            
+                    if (soldado != null) {
+                        soldado.saludar();
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection();  
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Soldado no encontrado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Por favor, seleccione un soldado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                }
+            }
                                                   
         
-            /**
-             * @param args the command line arguments
-             */
+ 
             public static void main(String args[]) {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
@@ -696,15 +856,14 @@ import soldados.Teniente;
                 });
             }
         
-        
             // Variables declaration - do not modify                     
             private ButtonGroup buttonGroupAcciones;
             private JButton jButton1;
             private JButton botonCrearSoldado;
-            private JCheckBox jCheckBox1;
+            private JCheckBox JCheckboxAsignarMision;
             private JCheckBox jCheckBox2;
-            private JCheckBox jCheckBox3;
-            private JCheckBox jCheckBox4;
+            private JCheckBox JCheckbocAnunciarEstrategia;
+            private JCheckBox JCheckbocAnunciarsoldadosBajo;
             private JCheckBox jCheckBoxReganar;
             private JLabel jLabel1;
             private JLabel jLabel2;
@@ -713,10 +872,10 @@ import soldados.Teniente;
             private JLabel jLabel5;
             private JPanel jPanel1;
             private JPanel jPanel2;
-            private JRadioButton jRadioButton1;
+            private JRadioButton jRadioButtonPatrullar;
             private JRadioButton buttonReportarEstado;
-            private JRadioButton jRadioButton3;
-            private JRadioButton jRadioButton4;
+            private JRadioButton JRadioButtonRealizarAccion;
+            private JRadioButton jRadioButtonSaludar;
 
             private Label label1;
             private Label label2;
@@ -730,7 +889,8 @@ import soldados.Teniente;
             private JScrollPane jScrollPaneSoldados = new JScrollPane(jListSoldados);
 
             // End of variables declaration         
-
+     
+     //este metodo se encarga de mostrar un dialogo para crear un soldado
     private void mostrarDialogoCrearSoldado() {
         JRadioButton rbtnSoldadoRaso = new JRadioButton("Soldado Raso");
         JRadioButton rbtnTeniente = new JRadioButton("Teniente");
@@ -743,12 +903,14 @@ import soldados.Teniente;
         group.add(rbtnCoronel);
         group.add(rbtnCapitan);
 
+        // Crea un panel con los radio buttons 
         JPanel panelRangos = new JPanel(new GridLayout(4, 1));
         panelRangos.add(rbtnSoldadoRaso);
         panelRangos.add(rbtnTeniente);
         panelRangos.add(rbtnCoronel);
         panelRangos.add(rbtnCapitan);
 
+        // Muestra el diálogo de selección de rango y crea el soldado correspondiente 
         int result = JOptionPane.showConfirmDialog(null, panelRangos, "Seleccionar Rango", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION) {
             if (rbtnSoldadoRaso.isSelected()) {
@@ -762,7 +924,7 @@ import soldados.Teniente;
             }
         }
     }
-
+    // comentario: este metodo se encarga de mostrar un dialogo para crear un soldado raso
     private void mostrarFormularioSoldadoRaso() {
         JTextField txtNombre = new JTextField();
         JTextField txtIdentificacion = new JTextField();
@@ -783,7 +945,7 @@ import soldados.Teniente;
             listModel.addElement(nuevoSoldado.toString());
         }
     }
-
+    // comentario: este metodo se encarga de mostrar un dialogo para crear un teniente
     private void mostrarFormularioTeniente() {
         JTextField txtNombre = new JTextField();
         JTextField txtIdentificacion = new JTextField();
@@ -809,6 +971,7 @@ import soldados.Teniente;
         }
     }
 
+    // comentario: este metodo se encarga de mostrar un dialogo para crear un coronel
     private void mostrarFormularioCoronel() {
         JTextField txtNombre = new JTextField();
         JTextField txtIdentificacion = new JTextField();
@@ -833,7 +996,7 @@ import soldados.Teniente;
             listModel.addElement(nuevoSoldado.toString());
         }
     }
-
+    // comentario: este metodo se encarga de mostrar un dialogo para crear un capitan
     private void mostrarFormularioCapitan() {
         JTextField txtNombre = new JTextField();
         JTextField txtIdentificacion = new JTextField();
@@ -858,5 +1021,31 @@ import soldados.Teniente;
             listModel.addElement(nuevoSoldado.toString());
         }
     }
+    
+    // Método para inicializar los soldados por defecto en la lista
+    private void inicializarSoldadosPorDefecto() {
+        Soldado soldado1 = new SoldadoRaso(1, "Juan", "001", Nivel_militar.SOLDADO_RASO);
+        Soldado soldado2 = new Teniente(2, "Pedro", "002", Nivel_militar.TENIENTE, "Unidad A");
+        Soldado soldado3 = new Capitan(3, "Luis", "003", Nivel_militar.CAPITAN, 50);
+        Soldado soldado4 = new Coronel(4, "Carlos", "004", Nivel_militar.CORONEL, "Estrategia X");
+
+        listaSoldados.add(soldado1);
+        listaSoldados.add(soldado2);
+        listaSoldados.add(soldado3);
+        listaSoldados.add(soldado4);
+
+        for (Soldado soldado : listaSoldados) {
+            listModel.addElement(soldado.toString());
+        }
+    }
         
+<<<<<<< HEAD
 }
+=======
+}          
+            
+
+
+            
+ 
+>>>>>>> origin/bypipe
