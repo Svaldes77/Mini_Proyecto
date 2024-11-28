@@ -1,13 +1,16 @@
 package soldados;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.JOptionPane;
+
+import misiones.OperacionesMilitares;
 import rangos.Nivel_militar;
 import rangos.Rango;
-//import misiones.OperacionesMilitares;
 
 // La clase Soldado extiende la clase Rango
-public class Soldado extends Rango { 
+public class Soldado extends Rango  implements OperacionesMilitares {  
     
     //Atributos de la clase Soldado
     private final String nombre;
@@ -34,7 +37,6 @@ public class Soldado extends Rango {
         // Implementacion de metodo realizar accion
     }
 
-
     //Metodos Get
     public String getNombre() {
         return nombre;
@@ -52,12 +54,32 @@ public class Soldado extends Rango {
     public void setRango(Nivel_militar rango) {
         this.rango = rango;
     }
+    //Metodo que retorna la informacion del soldado en forma de cadena de texto 
+    @Override
+    public String toString() {
+    String rango;
+    String detallesAdicionales = ""; // Inicializamos una cadena vacía para detalles adicionales
 
-    // public interface OperacionesMilitares{
-    //     void asignarMision(String mision);
-    //     void reportarEstado();
+        // Asignar rango según el nivel
+        switch (nivel) {
+            case 1:
+                rango = "Soldado Raso";
+                break;
+            case 2:
+                rango = "Teniente";
+                break;
+            case 3:
+                rango = "Capitán";
+                break;
+            default:
+                rango = nivel >= 4 ? "Coronel" : "Expulsado"; // Nivel >= 4: Coronel, Nivel 0: Expulsado
+                break;
+        }
 
-    // }
+        return "ID: " + id + ", Nombre: " + nombre + ", Nivel: " + nivel + ", Rango: " + rango + detallesAdicionales;
+    }
+
+
 
     //Mostra en consola informacion de los Militares
      public void mostrarInformacion() {
@@ -71,51 +93,67 @@ public class Soldado extends Rango {
     //en el app.java esta el ejemplo de como se imprime la informacion de los soldados
 
     
-    
     //Mostra en cosola informacion de militares pero que son de tipo coronel
-
-     //Metodo que recibe un ArrayList de Soldados y muestra la informacion de cada uno
     public static void mostrarInformacion(ArrayList<Soldado> listaSoldados) {
         for (Soldado soldado : listaSoldados) { //Recorre la lista de soldados
             soldado.mostrarInformacion(); //Muestra la informacion de cada soldado
         }
     }
-
-    public void  patrullar(){
+    
+    //Metodo que se implementa en las clases hijas
+    public void patrullar(){
         switch (rango) {
-            case Nivel_militar.SOLDADO_RASO:
-                System.out.println("El soldado raso "+nombre+" esta patrullando en patines");
+            case SOLDADO_RASO:
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y estoy patrullando en patines");
                 break;
-            case Nivel_militar.TENIENTE:
-                System.out.println("El teniente "+nombre+" esta patrullando en burro");
+            case TENIENTE:
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y estoy patrullando en burro tactico");
                 break;
-            case Nivel_militar.CAPITAN:
-                System.out.println("El capitan "+nombre+" esta patrullando en un unicornio y esta chill de cojones");
+            case CAPITAN:
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y estoy patrullando chill de cojones en un unicornio");
                 break;
-            case Nivel_militar.CORONEL:
-                System.out.println("Soy el coronel " +nombre+ " y no patrulla, soy el fuking jefe");
+            case CORONEL:
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y no patrullo, soy fvking jefe");
+                break;
             default:
                 break;
         }
-
-        
     }
-
+        
     public void saludar(){
         char primeraLetra = nombre.charAt(0);
         char ultimaLetra = nombre.charAt(nombre.length()-1);
 
         if(primeraLetra == ultimaLetra ){
-            System.out.println(" hola, soy el " + rango + " "+nombre+ " y ponte hacer algo ");
+            JOptionPane.showMessageDialog(null, "un saludo del "+ getRango()+ " "+ getNombre()+ " y ponte a estudiar ingles");
         }else{
-            System.out.println(" hola, soy el " + rango + " "+nombre+ " estoy mamado de esta vida");
+            JOptionPane.showMessageDialog(null, "un saludo del "+ getRango()+ " "+ getNombre()+ " y estoy mamado de esta vida");
         }
        
     }
 
-    public void regañado(){
+    
+    // Método regañado que baja de nivel al ser regañado
+    public void regañado(List<Soldado> listaSoldados) {
+        if (this.nivel > 0) {
+            this.nivel--;  // Baja el nivel
+        }
         
-    }   
+        // Si el nivel llega a 0, se expulsa al soldado
+        if (this.nivel == 0) {
+            listaSoldados.remove(this);  // Remueve el soldado de la lista
+        }
+    }
+
+    
+    @Override
+    public void asignarMision(String mision) {
+
+    }
+
+    @Override
+    public void reportarEstado() {
+
+    }
+
 }
-
-
