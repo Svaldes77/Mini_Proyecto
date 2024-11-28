@@ -10,10 +10,6 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 7d6015a305f5bae19d1b5bfa10bd929cafe648de
 import misiones.OperacionesMilitares;
 import rangos.Nivel_militar;
 import rangos.Rango;
@@ -64,7 +60,7 @@ public class Soldado extends Rango  implements OperacionesMilitares {
     public void setRango(Nivel_militar rango) {
         this.rango = rango;
     }
-
+    //Metodo que retorna la informacion del soldado en forma de cadena de texto 
     @Override
     public String toString() {
     String rango;
@@ -90,11 +86,6 @@ public class Soldado extends Rango  implements OperacionesMilitares {
     }
 
 
-    // public interface OperacionesMilitares{
-    //     void asignarMision(String mision);
-    //     void reportarEstado();
-
-    // }
 
     //Mostra en consola informacion de los Militares
      public void mostrarInformacion() {

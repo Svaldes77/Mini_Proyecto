@@ -1,18 +1,8 @@
 package soldados; //Paquete de la Clase
-
 import rangos.Nivel_militar; //Importamos la clase Nivel_militar
-
-import java.util.ArrayList; //Importamos la clase ArrayList 
-
 import javax.swing.JOptionPane;
 
-//import java.util.ArrayList;
 
-//import java.util.Scanner;
-
-//import java.util.Iterator;
-
-//import rangos.Rango;
 
 //importamos los paquetes necesarios
 

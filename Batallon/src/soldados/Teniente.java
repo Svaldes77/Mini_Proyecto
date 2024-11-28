@@ -1,8 +1,5 @@
-package soldados;
-
+package soldados; 
 import javax.swing.JOptionPane;
-
-//import java.util.Scanner;
 import rangos.Nivel_militar;
 
 //import rangos.Rango;
@@ -33,8 +30,7 @@ public class Teniente extends Soldado {
     @Override
     public void realizarAccion() {
         JOptionPane.showMessageDialog(null, "Soy el "+ getRango() + " "+ getNombre() + "  estoy supervisando la trinchera nazi"); //Mensaje que se imprime en consola
-    } //Mensaje que se imprime en consola
-        //JOptionPane.showMessageDialog(null, "Soy "+ Nivel_militar.TENIENTE + " y estoy Supervisando la trinchera");
+    } 
     
 
     //metodo mostrar unidad 
@@ -46,21 +42,20 @@ public class Teniente extends Soldado {
 
     }
 
+    // Metodo que se sobre escribe de la interfaz OperacionesMilitares
     @Override
     public String toString() {
         return super.toString() + ", Unidad: " + unidad;
     }
-
+    // Metodo que se sobre escribe de la interfaz OperacionesMilitares
     @Override
     public void asignarMision(String mision) {
         System.out.println("El teniente le han asignado la mision: " + mision);
     }
+    // Metodo que se sobre escribe de la interfaz OperacionesMilitares 
     @Override
     public void reportarEstado() {
         JOptionPane.showMessageDialog(null, "Soy el teniente " + getNombre() + "  me reporto en la trinchera con la unidad " + getUnidad());
     }
-
-
-    // Metodo que se sobre escribe de la interfaz OperacionesMilitares
   
 }

@@ -1,12 +1,6 @@
 package soldados;
-
 import javax.swing.JOptionPane;
-
 import rangos.Nivel_militar;
-
-//import java.util.Scanner;
-
-//import rangos.Rango;
 
 //importamos los paquetes necesarios
 
@@ -26,12 +20,13 @@ public class SoldadoRaso extends Soldado  {
     public void asignarMision(String mision){
         System.out.println("Soldado Raso asignado a la misión: " + mision);
     };
-
+    // metodo para reportar estado
     public void reportarEstado(){ 
         JOptionPane.showMessageDialog(null, "Soldado Raso " +  getNombre() + " reportandome desde la selva");
      };
 
-     
+
+    //Metodo toString que retorna el nombre del soldado 
     @Override
     public String toString() {
         return super.toString();
