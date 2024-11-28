@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 
 import rangos.Nivel_militar;
 
-
 //import java.util.Scanner;
 
 //import rangos.Rango;
@@ -43,7 +42,7 @@ public class SoldadoRaso extends Soldado  {
     public void realizarAccion() {
         JOptionPane.showMessageDialog(null, "Soy el "+ getRango() + " "+ getNombre() + "  estoy en la trinchera combatiendo contra el sr. tocino");//Mensaje que se imprime en consola
     }
-    
+
 }
 
 
