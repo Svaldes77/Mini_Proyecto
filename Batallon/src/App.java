@@ -441,23 +441,67 @@ import soldados.Teniente;
                         if (soldadoSeleccionado != null) {
                             // Llama al método regañado del soldado
                             soldadoSeleccionado.regañado(listaSoldados);
-
-                            actualizarListaGrafica();
             
-                            // Actualiza el modelo de la lista
+                            // Verifica si el nivel del soldado ha bajado
                             if (soldadoSeleccionado.getNivel() > 0) {
-                                listModel.setElementAt(soldadoSeleccionado.toString(), selectedIndex);
+                                // Determina el nuevo rango basado en el nivel
+                                String nuevoRango;
+                                switch (soldadoSeleccionado.getNivel()) {
+                                    case 3:
+                                        nuevoRango = "Teniente";
+                                        break;
+                                    case 2:
+                                        nuevoRango = "Capitán";
+                                        break;
+                                    case 1:
+                                        nuevoRango = "Soldado Raso";
+                                        break;
+                                    default:
+                                        nuevoRango = "Coronel";
+                                        break;
+                                }
+            
+                                // Crea una nueva instancia de la clase correspondiente al nuevo rango
+                                Soldado nuevoSoldado;
+                                if (nuevoRango.equals("Soldado Raso")) {
+                                    switch (nuevoRango) {
+                                        case "Soldado Raso":
+                                            nuevoSoldado = new SoldadoRaso(listaSoldados.size() + 1, soldadoSeleccionado.getNombre(), soldadoSeleccionado.getId(), Nivel_militar.SOLDADO_RASO);
+                                            break;
+                                        case "Teniente":
+                                        nuevoSoldado = new Teniente(listaSoldados.size() + 1, soldadoSeleccionado.getNombre(), soldadoSeleccionado.getId(), Nivel_militar.TENIENTE, ((Teniente) soldadoSeleccionado).getUnidad());
+                                            break;
+                                        case "Capitán":
+                                            nuevoSoldado = new Capitan(listaSoldados.size() + 1, soldadoSeleccionado.getNombre(), soldadoSeleccionado.getId(), Nivel_militar.CAPITAN, ((Capitan) soldadoSeleccionado).getCantidadSoldadosBajoSuMando());
+                                            break;
+                                        case "Coronel":
+                                            nuevoSoldado = new Coronel(listaSoldados.size() + 1, soldadoSeleccionado.getNombre(), soldadoSeleccionado.getId(), Nivel_militar.CORONEL, ((Coronel) soldadoSeleccionado).getEstrategia());
+                                            break;
+                                        default:
+                                            throw new IllegalArgumentException("Rango desconocido: " + nuevoRango);
+                                    }
+
+            
+                                // Reemplaza el soldado en la lista
+                                listaSoldados.set(selectedIndex, nuevoSoldado);
+            
+                                // Actualiza la lista gráfica
+                                actualizarListaGrafica();
+            
+                                // Actualiza el modelo de la lista
+                                listModel.setElementAt(nuevoSoldado.toString(), selectedIndex);
                                 JOptionPane.showMessageDialog(this, 
-                                    "El nivel del soldado " + soldadoSeleccionado.getNombre() + " ha sido reducido a " + soldadoSeleccionado.getNivel() + ".", 
+                                    "El nivel del soldado " + nuevoSoldado.getNombre() + " ha sido reducido a " + nuevoSoldado.getNivel() + " y su nuevo rango es " + nuevoRango + ".", 
                                     "Regañado", JOptionPane.INFORMATION_MESSAGE);
-                                       
+            
                             } else {
+                                listaSoldados.remove(selectedIndex);
                                 listModel.removeElementAt(selectedIndex);
                                 JOptionPane.showMessageDialog(this, 
                                     "El soldado " + soldadoSeleccionado.getNombre() + " ha sido expulsado por alcanzar el nivel más bajo.", 
                                     "Expulsión", JOptionPane.INFORMATION_MESSAGE);
                             }
-                            
+            
                         } else {
                             JOptionPane.showMessageDialog(this, 
                                 "No se pudo encontrar el soldado seleccionado.", 
@@ -467,15 +511,50 @@ import soldados.Teniente;
                         JOptionPane.showMessageDialog(this, 
                             "Por favor, selecciona un soldado de la lista para regañar.", 
                             "Advertencia", JOptionPane.WARNING_MESSAGE);
+                        }
                     }
-            
-                    // Desmarca el checkbox después de la operación
-                    jCheckBoxReganar.setSelected(false);
                 }
+                
             }
                 
                                                                 
 
+            // private void RadioButtonReportarEstado(ActionEvent evt) {
+            //     String soldadoSeleccionado = jListSoldados.getSelectedValue();
+            //     if (soldadoSeleccionado != null) {
+            //         Soldado soldado = null;
+            
+            //         // Buscar el soldado seleccionado en la lista de soldados
+            //         for (Soldado s : listaSoldados) {
+            //             if (s.toString().equals(soldadoSeleccionado)) {
+            //                 soldado = s;
+            //                 break;
+            //             }
+            //         }
+            
+            //         if (soldado != null) {
+            //             soldado.reportarEstado();
+            //             jListSoldados.clearSelection(); 
+            //             buttonGroupAcciones.clearSelection();  
+            //         } else {
+            //             JOptionPane.showMessageDialog(this, "Soldado no encontrado.");
+            //             jListSoldados.clearSelection(); 
+            //             buttonGroupAcciones.clearSelection(); 
+            //         }
+            //     } else {
+            //         JOptionPane.showMessageDialog(this, "Por favor, seleccione un soldado.");
+            //             jListSoldados.clearSelection(); 
+            //             buttonGroupAcciones.clearSelection(); 
+            //     }
+                
+            // }
+
+            // private void actualizarListaGrafica() {
+            //     listModel.clear(); // Limpia el modelo actual
+            //     for (Soldado soldado : listaSoldados) {
+            //         listModel.addElement(soldado.toString()); // Agrega cada soldado actualizado
+            //     }
+            // }
             private void RadioButtonReportarEstado(ActionEvent evt) {
                 String soldadoSeleccionado = jListSoldados.getSelectedValue();
                 if (soldadoSeleccionado != null) {

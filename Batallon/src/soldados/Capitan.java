@@ -24,6 +24,12 @@ public class Capitan extends Soldado {
     public int getCantidadSoldadosBajoSuMando() {
         return cantidadSoldadosBajoSuMando;
     }
+    
+    public void setNumSoldados(int cantidadSoldadosBajoSuMando) {
+
+        this.cantidadSoldadosBajoSuMando = cantidadSoldadosBajoSuMando;
+
+    }
     // Método sobrescrito de la clase Soldado
     @Override
     public void realizarAccion() {
@@ -53,6 +59,7 @@ public class Capitan extends Soldado {
     public void reportarEstado() {
         JOptionPane.showMessageDialog(null, "Capitán  " + getNombre() + " reporto ofensiva con " + getCantidadSoldadosBajoSuMando() + " soldados bajo mi mando");
     }
+
 
 
     // Este método no tiene lógica propia, pero puede ser llamado

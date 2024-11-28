@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
-<<<<<<< HEAD
 
 
-=======
->>>>>>> d0190f92fa13d256d207da1ce7e848aebc8902a7
 import misiones.OperacionesMilitares;
 import rangos.Nivel_militar;
 import rangos.Rango;
