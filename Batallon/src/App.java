@@ -819,12 +819,8 @@ import soldados.Teniente;
                         jListSoldados.clearSelection(); 
                         buttonGroupAcciones.clearSelection(); 
                 }                                             
-<<<<<<< HEAD
-                    
-=======
 
                 
->>>>>>> origin/bypipe
             }
                           
             
