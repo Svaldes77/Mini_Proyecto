@@ -33,16 +33,25 @@ public class Capitan extends Soldado {
     // Método sobrescrito de la interfaz OperacionesMilitares para asignar una misión
     @Override 
     public void asignarMision(String mision) {
-    System.out.println("Capitán asignado a coordinar la misión: " + mision);//Mensaje que se imprime en consola
+        System.out.println("Capitán asignado a coordinar la misión: " + mision);//Mensaje que se imprime en consola
+    
     // + mision es para concatenar el valor de la variable mision que le otorgamos en el app.java
     }
 
     // // Método sobrescrito de la interfaz OperacionesMilitares para reportar el estado
 
+
+
+    // Método para mostrar la cantidad de soldados bajo su mando
+    public void mostrarNumerosoldados(){
+        System.out.println("El numero de soldados bajo mi mando es: " + cantidadSoldadosBajoSuMando);
+    } 
+=======
     // // Método para mostrar la cantidad de soldados bajo su mando
     // public void mostrarNumerosoldados(){
     //     System.out.println("El numero de soldados bajo mi mando es: " + cantidadSoldadosBajoSuMando);
     // } 
+
 
     // @Override
     // public String toString() {
@@ -53,7 +62,6 @@ public class Capitan extends Soldado {
     public void reportarEstado() {
         JOptionPane.showMessageDialog(null, "Capitán  " + getNombre() + " reporto ofensiva contra los pinguinos de madagascar ");
     }
-
 
     // Este método no tiene lógica propia, pero puede ser llamado
     
@@ -86,8 +94,6 @@ public class Capitan extends Soldado {
     //         System.out.println("Ocurrió un error al crear Capitán: " + e.getMessage());
     //     }
     //     return null;
-    // }    
-
-    //¿BORRAMOS LO DE ARRIBA?
+    // }
 
 }
