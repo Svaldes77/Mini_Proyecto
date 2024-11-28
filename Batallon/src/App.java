@@ -550,32 +550,25 @@ import soldados.Teniente;
                         if (soldadoSeleccionado != null) {
                             // Verifica si el soldado seleccionado es un Coronel
                             if (soldadoSeleccionado instanceof Coronel) {
-                                // Solicita al usuario ingresar una estrategia para el Coronel
-                                String estrategia = JOptionPane.showInputDialog(this, 
-                                    "Ingresa la estrategia para el Coronel " + soldadoSeleccionado.getNombre() + ":",
-                                    "Asignar Estrategia",
-                                    JOptionPane.PLAIN_MESSAGE);
+                                // Recupera la estrategia ya asignada al Coronel
+                                String estrategia = ((Coronel) soldadoSeleccionado).getEstrategia();
             
-                                // Verifica que la estrategia no esté vacía
+                                // Muestra la estrategia en una ventana emergente
                                 if (estrategia != null && !estrategia.trim().isEmpty()) {
-                                    // Asigna la estrategia al Coronel
-                                    ((Coronel) soldadoSeleccionado).setEstrategia(estrategia);
-            
-                                    // Muestra la estrategia en una ventana emergente
                                     JOptionPane.showMessageDialog(this, 
-                                        "Estrategia asignada al Coronel " + soldadoSeleccionado.getNombre() + ": " + estrategia,
+                                        "Estrategia del Coronel " + soldadoSeleccionado.getNombre() + ": " + estrategia,
                                         "Estrategia Asignada",
                                         JOptionPane.INFORMATION_MESSAGE);
                                 } else {
                                     JOptionPane.showMessageDialog(this, 
-                                        "No se asignó ninguna estrategia. Intenta de nuevo.", 
-                                        "Error de Entrada", 
-                                        JOptionPane.ERROR_MESSAGE);
+                                        "El Coronel " + soldadoSeleccionado.getNombre() + " no tiene una estrategia asignada.", 
+                                        "Sin Estrategia", 
+                                        JOptionPane.WARNING_MESSAGE);
                                 }
                             } else {
                                 // Si el soldado no es Coronel, muestra un mensaje
                                 JOptionPane.showMessageDialog(this, 
-                                    "Solo un Coronel puede recibir una estrategia.", 
+                                    "Solo un Coronel puede tener una estrategia.", 
                                     "Operación No Permitida", 
                                     JOptionPane.WARNING_MESSAGE);
                             }
@@ -587,7 +580,7 @@ import soldados.Teniente;
                         }
                     } else {
                         JOptionPane.showMessageDialog(this, 
-                            "Por favor, selecciona un soldado de la lista para asignar una estrategia.", 
+                            "Por favor, selecciona un soldado de la lista para ver la estrategia.", 
                             "Advertencia", 
                             JOptionPane.WARNING_MESSAGE);
                     }
@@ -598,6 +591,7 @@ import soldados.Teniente;
                     buttonGroupAcciones.clearSelection();
                 }
             }
+            
             
         
             private void jCheckBoxAnunciarUnidad(ActionEvent evt) {           
@@ -865,10 +859,4 @@ import soldados.Teniente;
         }
     }
         
-}          
-            
-
-
-            
- 
-
+}
