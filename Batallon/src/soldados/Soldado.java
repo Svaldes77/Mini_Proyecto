@@ -3,13 +3,21 @@ package soldados;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//import javax.swing.JOptionPane;
+
+//import javafx.event.ActionEvent;
+
 import javax.swing.JOptionPane;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7d6015a305f5bae19d1b5bfa10bd929cafe648de
 import misiones.OperacionesMilitares;
 import rangos.Nivel_militar;
 import rangos.Rango;
-import misiones.OperacionesMilitares;
+//import misiones.OperacionesMilitares;
 
 // La clase Soldado extiende la clase Rango
 public class Soldado extends Rango  implements OperacionesMilitares {  
@@ -39,7 +47,6 @@ public class Soldado extends Rango  implements OperacionesMilitares {
         // Implementacion de metodo realizar accion
     }
 
-
     //Metodos Get
     public String getNombre() {
         return nombre;
@@ -61,6 +68,7 @@ public class Soldado extends Rango  implements OperacionesMilitares {
     @Override
     public String toString() {
     String rango;
+    String detallesAdicionales = ""; // Inicializamos una cadena vacía para detalles adicionales
 
         // Asignar rango según el nivel
         switch (nivel) {
@@ -78,7 +86,7 @@ public class Soldado extends Rango  implements OperacionesMilitares {
                 break;
         }
 
-        return "ID: " + id + ", Nombre: " + nombre + ", Nivel: " + nivel + ", Rango: " + rango;
+        return "ID: " + id + ", Nombre: " + nombre + ", Nivel: " + nivel + ", Rango: " + rango + detallesAdicionales;
     }
 
 
@@ -144,16 +152,15 @@ public class Soldado extends Rango  implements OperacionesMilitares {
     public void regañado(List<Soldado> listaSoldados) {
         if (this.nivel > 0) {
             this.nivel--;  // Baja el nivel
-            System.out.println(this.nombre + " ha sido regañado y su nivel ha bajado.");
         }
         
         // Si el nivel llega a 0, se expulsa al soldado
         if (this.nivel == 0) {
-            System.out.println(this.nombre + " ha sido expulsado por llegar al nivel más bajo.");
             listaSoldados.remove(this);  // Remueve el soldado de la lista
         }
     }
 
+    
     @Override
     public void asignarMision(String mision) {
 

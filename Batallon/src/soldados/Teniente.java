@@ -38,8 +38,8 @@ public class Teniente extends Soldado {
     
 
     //metodo mostrar unidad 
-    public void mostrarUnidad(){
-        System.out.println("La unidad del teniente es: " + unidad);
+    public void AnunciarUnidad(){
+        JOptionPane.showMessageDialog(null, "soy el "+getRango()+ " "+getNombre()+" La unidad a mi cargo es: " + unidad);
     } 
 
     public void realizarRegano(){
@@ -59,14 +59,8 @@ public class Teniente extends Soldado {
     public void reportarEstado() {
         JOptionPane.showMessageDialog(null, "Soy el teniente " + getNombre() + "  me reporto en la trinchera con la unidad " + getUnidad());
     }
-    // Sobrescribir el método regañado en Teniente
-    
+
 
     // Metodo que se sobre escribe de la interfaz OperacionesMilitares
-
-
-
-    
-
-    
+  
 }
