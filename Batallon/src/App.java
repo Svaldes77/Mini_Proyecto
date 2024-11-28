@@ -515,12 +515,67 @@ import soldados.Teniente;
             
   
             private void jCheckBoxNumeroSoldadosEnMando(ActionEvent evt) {  
+                Capitan capitan = null; // Inicializa el Capitán
+                String soldadoSeleccionado = jListSoldados.getSelectedValue(); //busca el soldado seleccionado
+                if (soldadoSeleccionado != null) {//si el soldado seleccionado no es nulo
+                    for (Soldado s : listaSoldados) {
+                        if (s.toString().equals(soldadoSeleccionado)) { //si el soldado que escogimos es igual al soldado al de la lista
+                            if (s instanceof Capitan) { 
+                                capitan = (Capitan) s;
+                                break;
+                            }
+                        }
+                    }
+            
+                    if (capitan != null) {
+                        // Muestra un mensaje con la cantidad de soldados bajo su mando
+                        JOptionPane.showMessageDialog(this, "El Capitán " + capitan.getNombre() + " tiene " + capitan.getCantidadSoldadosBajoSuMando() + " soldados bajo su mando.");
+                        jListSoldados.clearSelection(); // Limpia la selección de la lista
+                        buttonGroupAcciones.clearSelection();  // Limpia la selección de los botones
+                    } else {
+                        JOptionPane.showMessageDialog(this, "El soldado seleccionado no es un Capitán.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Por favor, seleccione un soldado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                }
 
-                                                       
-                // 
+                    
             }                                          
-        
-            private void jCheckBoxAnunciarUnidad(ActionEvent evt) {                                           
+    
+            private void jCheckBoxAnunciarUnidad(ActionEvent evt) {   
+                Teniente teniente = null;
+                String soldadoSeleccionado = jListSoldados.getSelectedValue();//busca el soldado dentro de la lista
+                if (soldadoSeleccionado != null) {
+                    // Buscar el soldado seleccionado en la lista de soldados
+                    for (Soldado s : listaSoldados) {
+                        if (s.toString().equals(soldadoSeleccionado)) {
+                            if (s instanceof Teniente) {
+                                teniente = (Teniente) s;
+                                break;
+                            }
+                        }
+                    }
+            
+                    if (teniente != null) {
+                        teniente.AnunciarUnidad();//siel teniente esta en la lista se anuncia la unidad
+                        //.AnunciarUnidad es un metodo que se encuentra en la clase teniente
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection();  //limpia la seleción de los botones
+                    } else {
+                        JOptionPane.showMessageDialog(this, "El soldado seleccionado no es un Teniente.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Por favor, seleccione un soldado.");
+                        jListSoldados.clearSelection(); 
+                        buttonGroupAcciones.clearSelection(); 
+                }
+                
                 
             }                                          
         

@@ -37,21 +37,21 @@ public class Capitan extends Soldado {
     // + mision es para concatenar el valor de la variable mision que le otorgamos en el app.java
     }
 
-    // Método sobrescrito de la interfaz OperacionesMilitares para reportar el estado
+    // // Método sobrescrito de la interfaz OperacionesMilitares para reportar el estado
 
-    // Método para mostrar la cantidad de soldados bajo su mando
-    public void mostrarNumerosoldados(){
-        System.out.println("El numero de soldados bajo mi mando es: " + cantidadSoldadosBajoSuMando);
-    } 
+    // // Método para mostrar la cantidad de soldados bajo su mando
+    // public void mostrarNumerosoldados(){
+    //     System.out.println("El numero de soldados bajo mi mando es: " + cantidadSoldadosBajoSuMando);
+    // } 
 
-    @Override
-    public String toString() {
-        return super.toString() + ", Número de Soldados: " + cantidadSoldadosBajoSuMando;
-    }
+    // @Override
+    // public String toString() {
+    //     return super.toString() + ", Número de Soldados: " + cantidadSoldadosBajoSuMando;
+    // }
 
     @Override
     public void reportarEstado() {
-        JOptionPane.showMessageDialog(null, "Capitán  " + getNombre() + " reporto ofensiva con " + getCantidadSoldadosBajoSuMando() + " soldados bajo mi mando");
+        JOptionPane.showMessageDialog(null, "Capitán  " + getNombre() + " reporto ofensiva contra los pinguinos de madagascar ");
     }
 
 

@@ -38,8 +38,8 @@ public class Teniente extends Soldado {
     
 
     //metodo mostrar unidad 
-    public void mostrarUnidad(){
-        System.out.println("La unidad del teniente es: " + unidad);
+    public void AnunciarUnidad(){
+        JOptionPane.showMessageDialog(null, "soy el "+getRango()+ " "+getNombre()+" La unidad a mi cargo es: " + unidad);
     } 
 
     public void realizarRegano(){
