@@ -32,13 +32,14 @@ public class Teniente extends Soldado {
     // Metodo que se sobre escribe de la clase padre
     @Override
     public void realizarAccion() {
-        System.out.println("Soy el "+ Nivel_militar.TENIENTE + " y estoy Supervisando la trinchera"); //Mensaje que se imprime en consola
+        JOptionPane.showMessageDialog(null, "Soy el "+ getRango() + " "+ getNombre() + "  estoy supervisando la trinchera nazi"); //Mensaje que se imprime en consola
+    } //Mensaje que se imprime en consola
         //JOptionPane.showMessageDialog(null, "Soy "+ Nivel_militar.TENIENTE + " y estoy Supervisando la trinchera");
     
-    }
+
     //metodo mostrar unidad 
-    public void mostrarUnidad(){
-        System.out.println("La unidad del teniente es: " + unidad);
+    public void AnunciarUnidad(){
+        JOptionPane.showMessageDialog(null, "soy el "+getRango()+ " "+getNombre()+" La unidad a mi cargo es: " + unidad);
     } 
 
     public void realizarRegano(){

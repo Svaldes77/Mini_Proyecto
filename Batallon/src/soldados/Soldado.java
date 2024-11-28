@@ -3,9 +3,13 @@ package soldados;
 import java.util.ArrayList;
 import java.util.List;
 
+
 //import javax.swing.JOptionPane;
 
 //import javafx.event.ActionEvent;
+
+import javax.swing.JOptionPane;
+
 import misiones.OperacionesMilitares;
 import rangos.Nivel_militar;
 import rangos.Rango;
@@ -102,8 +106,8 @@ public class Soldado extends Rango  implements OperacionesMilitares {
     
     //Mostra en cosola informacion de militares pero que son de tipo coronel
     public static void mostrarInformacion(ArrayList<Soldado> listaSoldados) {
-        for (Soldado soldado : listaSoldados) {
-            soldado.mostrarInformacion();
+        for (Soldado soldado : listaSoldados) { //Recorre la lista de soldados
+            soldado.mostrarInformacion(); //Muestra la informacion de cada soldado
         }
     }
     
@@ -111,30 +115,30 @@ public class Soldado extends Rango  implements OperacionesMilitares {
     public void patrullar(){
         switch (rango) {
             case SOLDADO_RASO:
-                System.out.println("El soldado raso "+nombre+" esta patrullando en patines");
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y estoy patrullando en patines");
                 break;
             case TENIENTE:
-                System.out.println("El teniente "+nombre+" esta patrullando en burro");
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y estoy patrullando en burro tactico");
                 break;
             case CAPITAN:
-                System.out.println("El capitan "+nombre+" esta patrullando en un unicornio y esta chill de cojones");
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y estoy patrullando chill de cojones en un unicornio");
                 break;
             case CORONEL:
-                System.out.println("Soy el coronel " +nombre+ " y no patrullo, soy el fuking jefe");
+                JOptionPane.showMessageDialog(null, "soy el "+getRango()+" "+getNombre()+ " y no patrullo, soy fvking jefe");
+                break;
             default:
                 break;
         }
-
     }
-
+        
     public void saludar(){
         char primeraLetra = nombre.charAt(0);
         char ultimaLetra = nombre.charAt(nombre.length()-1);
 
         if(primeraLetra == ultimaLetra ){
-            System.out.println(" hola, soy el " + rango + " "+nombre+ " y ponte hacer algo ");
+            JOptionPane.showMessageDialog(null, "un saludo del "+ getRango()+ " "+ getNombre()+ " y ponte a estudiar ingles");
         }else{
-            System.out.println(" hola, soy el " + rango + " "+nombre+ " estoy mamado de esta vida");
+            JOptionPane.showMessageDialog(null, "un saludo del "+ getRango()+ " "+ getNombre()+ " y estoy mamado de esta vida");
         }
        
     }
@@ -145,7 +149,7 @@ public class Soldado extends Rango  implements OperacionesMilitares {
         if (this.nivel > 0) {
             this.nivel--;  // Baja el nivel
         }
-
+        
         // Si el nivel llega a 0, se expulsa al soldado
         if (this.nivel == 0) {
             listaSoldados.remove(this);  // Remueve el soldado de la lista
