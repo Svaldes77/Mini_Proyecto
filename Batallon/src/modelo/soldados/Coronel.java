@@ -1,5 +1,5 @@
-package soldados; //Paquete de la Clase
-import rangos.Nivel_militar; //Importamos la clase Nivel_militar
+package modelo.soldados; //Paquete de la Clase
+import modelo.rangos.Nivel_militar; //Importamos la clase Nivel_militar
 import javax.swing.JOptionPane;
 
 
