@@ -56,6 +56,33 @@ public class controlador {
         gui.getjCheckBox2().addActionListener(this::jCheckBoxAnunciarUnidad);
         gui.getJRadioButtonRealizarAccion().addActionListener(this::RadioButtonRealizarAccion);
         gui.getjRadioButtonPatrullar().addActionListener(this::RadioButtonPatrullar);
+        gui.getMenuItemAgregar().addActionListener(this::menuItemAgregarActionPerformed); 
+        gui.getMenuItemEliminar().addActionListener(this::menuItemEliminarActionPerformed); 
+        gui.getMenuItemActualizar().addActionListener(this::menuItemActualizarActionPerformed);
+    }
+
+    private void menuItemEliminarActionPerformed(ActionEvent evt) {
+        int selectedIndex = gui.getjListSoldados().getSelectedIndex();
+        if (selectedIndex != -1) {
+            soldados.remove(selectedIndex);
+            actualizarListaGrafica();
+        } else {
+            JOptionPane.showMessageDialog(gui, "Seleccione un soldado para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void menuItemAgregarActionPerformed(ActionEvent evt) {
+        mostrarDialogoCrearSoldado();
+    }
+
+    private void menuItemActualizarActionPerformed(ActionEvent evt) {
+        int selectedIndex = gui.getjListSoldados().getSelectedIndex();
+        if (selectedIndex != -1) {
+            Soldado soldadoSeleccionado = soldados.get(selectedIndex);
+            mostrarDialogoActualizarSoldado(soldadoSeleccionado, selectedIndex);
+        } else {
+            JOptionPane.showMessageDialog(gui, "Seleccione un soldado para actualizar.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void jButton1ActionPerformed(ActionEvent evt) {
@@ -619,6 +646,56 @@ public class controlador {
 
         actualizarListaGrafica();
 
+    }
+    private void mostrarDialogoActualizarSoldado(Soldado soldado, int index) {
+        JTextField txtNombre = new JTextField(soldado.getNombre());
+        JTextField txtIdentificacion = new JTextField(soldado.getId());
+        txtNombre.setEnabled(false); // Deshabilita el campo de nombre
+        txtIdentificacion.setEnabled(false); // Deshabilita el campo de identificación
+    
+        JPanel panel = new JPanel(new GridLayout(3, 2));
+        panel.add(new JLabel("Nombre:"));
+        panel.add(txtNombre);
+        panel.add(new JLabel("Identificación:"));
+        panel.add(txtIdentificacion);
+    
+        if (soldado instanceof SoldadoRaso) {
+            JOptionPane.showMessageDialog(null, "El Soldado Raso no tiene datos adicionales para actualizar.", "Información", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        } else if (soldado instanceof Teniente) {
+            JTextField txtUnidad = new JTextField(((Teniente) soldado).getUnidad());
+            panel.add(new JLabel("Unidad:"));
+            panel.add(txtUnidad);
+    
+            int result = JOptionPane.showConfirmDialog(null, panel, "Actualizar Teniente", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            if (result == JOptionPane.OK_OPTION) {
+                String unidad = txtUnidad.getText();
+                ((Teniente) soldado).setUnidad(unidad);
+            }
+        } else if (soldado instanceof Capitan) {
+            JTextField txtNumSoldados = new JTextField(String.valueOf(((Capitan) soldado).getCantidadSoldadosBajoSuMando()));
+            panel.add(new JLabel("Número de Soldados:"));
+            panel.add(txtNumSoldados);
+    
+            int result = JOptionPane.showConfirmDialog(null, panel, "Actualizar Capitán", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            if (result == JOptionPane.OK_OPTION) {
+                int numSoldados = Integer.parseInt(txtNumSoldados.getText());
+                ((Capitan) soldado).setNumSoldados(numSoldados);
+            }
+        } else if (soldado instanceof Coronel) {
+            JTextField txtEstrategia = new JTextField(((Coronel) soldado).getEstrategia());
+            panel.add(new JLabel("Estrategia:"));
+            panel.add(txtEstrategia);
+    
+            int result = JOptionPane.showConfirmDialog(null, panel, "Actualizar Coronel", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            if (result == JOptionPane.OK_OPTION) {
+                String estrategia = txtEstrategia.getText();
+                ((Coronel) soldado).setEstrategia(estrategia);
+            }
+        }
+    
+        soldados.set(index, soldado);
+        actualizarListaGrafica(); // Actualiza la lista gráfica
     }
 
     private void actualizarListaGrafica() {
