@@ -1,7 +1,6 @@
-package soldados;
-import rangos.Nivel_militar;
+package modelo.soldados; 
+import modelo.rangos.Nivel_militar; 
 import javax.swing.JOptionPane;
-
 
 
 // La clase Capitan extiende la clase Soldado e implementa la interfaz OperacionesMilitares
