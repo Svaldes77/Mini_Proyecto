@@ -7,7 +7,6 @@ import javax.swing.event.ListSelectionListener;
 import modelo.soldados.Soldado;
 import modelo.soldados.*;
 import modelo.rangos.Nivel_militar.*;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -78,7 +77,10 @@ public class Gui extends Frame {
             listModel = new DefaultListModel<>(); // ListModel es una clase que implementa la interfaz ListModel y que se utiliza para almacenar elementos de una lista
             jListSoldados = new JList<>(listModel); // se crea una lista de soldados
             jScrollPaneSoldados.setViewportView(jListSoldados);// se agrega la lista de soldados al scrollpane
-    
+            popMenu = new JPopupMenu(); //se crea un menu emergente
+            menuItemEliminar = new JMenuItem(); //se crea un item para el menu emergente
+            menuItemAgregar = new JMenuItem(); //se crea un item para el menu emergente 
+            menuItemActualizar = new JMenuItem(); //se crea un item para el menu emergente
 
         //se inicializan los componentes de la interfaz, mas que todo los botones y los labels
             setBackground(Color.white);
@@ -410,6 +412,16 @@ public class Gui extends Frame {
                             .addComponent(jButton1, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(74, Short.MAX_VALUE))
             );
+            //se añaden los items al menu emergente
+            menuItemEliminar.setText("Eliminar Soldado"); 
+            popMenu.add(menuItemEliminar);
+            jListSoldados.setComponentPopupMenu(popMenu); 
+            menuItemAgregar.setText("Agregar Soldado"); 
+            popMenu.add(menuItemAgregar); 
+            jListSoldados.setComponentPopupMenu(popMenu);
+            menuItemActualizar.setText("Actualizar Soldado");
+            popMenu.add(menuItemActualizar); 
+
     
             jLabel1.getAccessibleContext().setAccessibleName("titulo");
             jLabel2.getAccessibleContext().setAccessibleName("imagentitulo");
@@ -449,7 +461,10 @@ public class Gui extends Frame {
         private DefaultListModel<String> listModel = new DefaultListModel<>();
         private JList<String> jListSoldados = new JList<>(listModel);
         private JScrollPane jScrollPaneSoldados = new JScrollPane(jListSoldados);
-
+        private JPopupMenu popMenu;
+        private JMenuItem menuItemEliminar;
+        private JMenuItem menuItemAgregar; 
+        private JMenuItem menuItemActualizar; 
 
         
 
@@ -497,6 +512,7 @@ public class Gui extends Frame {
         private void jButton1ActionPerformed(ActionEvent evt) {
             // Método vacío para ser implementado en el controlador
         }
+
             
         private void exitForm(WindowEvent evt) {
             System.exit(0);
@@ -518,13 +534,23 @@ public class Gui extends Frame {
             return buttonGroupAcciones;
         }
 
-
+        
 
 
         public JButton getjButton1() {
             return jButton1;
         }
 
+        public JMenuItem getMenuItemEliminar() {
+            return menuItemEliminar; 
+        }
+    
+        public JMenuItem getMenuItemAgregar() {
+            return menuItemAgregar;
+        }
+        public JMenuItem getMenuItemActualizar() {
+            return menuItemActualizar;
+        }
 
 
 
