@@ -537,7 +537,7 @@ public class controlador {
                 gui.getbuttonGroupAcciones().clearSelection(); 
         }                                      
 
-                                                      
+                          //                            
 
     }                                             
                   
