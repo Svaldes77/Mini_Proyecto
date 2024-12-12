@@ -1,7 +1,15 @@
 {
-    "java.project.sourcePaths": ["src"],
+    // Rutas de los archivos fuente del proyecto
+    "java.project.sourcePaths": [
+        "src", // Directorio de código fuente principal
+        "lib"  // Directorio de bibliotecas adicionales
+    ],
+    
+    // Ruta de salida para los archivos compilados
     "java.project.outputPath": "bin",
+    
+    // Bibliotecas referenciadas en el proyecto
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "lib/**/*.jar" // Incluir todos los archivos JAR en el directorio lib y sus subdirectorios
     ]
 }

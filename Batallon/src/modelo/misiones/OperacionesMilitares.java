@@ -1,4 +1,4 @@
-package misiones; // Paquete de la interfaz
+package modelo.misiones; // Paquete de la interfaz
 
 // Interfaz que define las operaciones militares
 public interface OperacionesMilitares {
