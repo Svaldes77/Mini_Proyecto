@@ -4,9 +4,7 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import modelo.soldados.Soldado;
 import modelo.soldados.*;
-import modelo.rangos.Nivel_militar.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -81,8 +79,10 @@ public class Gui extends Frame {
             menuItemEliminar = new JMenuItem(); //se crea un item para el menu emergente
             menuItemAgregar = new JMenuItem(); //se crea un item para el menu emergente 
             menuItemActualizar = new JMenuItem(); //se crea un item para el menu emergente
-
+            menuItemGraficaPastel = new JMenuItem(); //se crea un item para el menu emergente
+            menuItemGraficaBarras = new JMenuItem(); //se crea un item para el menu emergente
         //se inicializan los componentes de la interfaz, mas que todo los botones y los labels
+
             setBackground(Color.white);
             setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             setLocation(new Point(100, 100));
@@ -104,6 +104,7 @@ public class Gui extends Frame {
                     soldadoSeleccionadoChanged(evt);//se llama al metodo soldadoSeleccionadoChanged
                 }
             });
+            jListSoldados.setComponentPopupMenu(popMenu); 
 
     
             jLabel1.setFont(new Font("Segoe UI Emoji", 1, 70)); // NOI18N
@@ -415,12 +416,18 @@ public class Gui extends Frame {
             //se añaden los items al menu emergente
             menuItemEliminar.setText("Eliminar Soldado"); 
             popMenu.add(menuItemEliminar);
-            jListSoldados.setComponentPopupMenu(popMenu); 
             menuItemAgregar.setText("Agregar Soldado"); 
             popMenu.add(menuItemAgregar); 
-            jListSoldados.setComponentPopupMenu(popMenu);
             menuItemActualizar.setText("Actualizar Soldado");
             popMenu.add(menuItemActualizar); 
+            menuItemGraficaPastel.setText("Grafica de pastel");
+            popMenu.add(menuItemGraficaPastel); 
+            menuItemGraficaBarras.setText("Grafica de barras");
+            popMenu.add(menuItemGraficaBarras);
+
+
+        
+
 
     
             jLabel1.getAccessibleContext().setAccessibleName("titulo");
@@ -465,6 +472,8 @@ public class Gui extends Frame {
         private JMenuItem menuItemEliminar;
         private JMenuItem menuItemAgregar; 
         private JMenuItem menuItemActualizar; 
+        private JMenuItem menuItemGraficaPastel;
+        private JMenuItem menuItemGraficaBarras;
 
         
 
@@ -535,7 +544,9 @@ public class Gui extends Frame {
         }
 
         
-
+        public JMenuItem getMenuItemGraficaPastel() {
+            return menuItemGraficaPastel;
+        } 
 
         public JButton getjButton1() {
             return jButton1;
@@ -552,6 +563,9 @@ public class Gui extends Frame {
             return menuItemActualizar;
         }
 
+        public JMenuItem getMenuItemGraficaBarras() {
+            return menuItemGraficaBarras;
+        }
 
 
         public JButton getBotonCrearSoldado() {
