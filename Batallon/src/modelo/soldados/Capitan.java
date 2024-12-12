@@ -84,6 +84,6 @@ public class Capitan extends Soldado {
      */
     @Override
     public String toString() {
-        return super.toString() + ", Numero de soldados en mando: " + cantidadSoldadosBajoSuMando;
+        return super.toString() + ", Num soldados en mando: " + cantidadSoldadosBajoSuMando;
     }
 }

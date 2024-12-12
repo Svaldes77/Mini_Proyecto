@@ -8,7 +8,6 @@ import modelo.soldados.Capitan;
 import modelo.soldados.Coronel;
 import modelo.soldados.Teniente;
 import modelo.rangos.Nivel_militar;
-import modelo.rangos.Rango;
 
 import java.awt.Color;
 import java.awt.Font;

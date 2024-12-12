@@ -173,8 +173,6 @@ public class Gui extends Frame {
                     CheckBoxAnunciarUnidad(evt);
                 }
             });
-
-
     
             buttonGroupAcciones.add(jRadioButtonPatrullar);
             jRadioButtonPatrullar.setText("Patrullar");
