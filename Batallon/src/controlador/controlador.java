@@ -8,19 +8,29 @@ import modelo.soldados.Capitan;
 import modelo.soldados.Coronel;
 import modelo.soldados.Teniente;
 import modelo.rangos.Nivel_militar;
+import modelo.rangos.Rango;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 import vista.Gui;
-import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import java.awt.event.ActionEvent;
 import java.util.List;
+import java.util.Map;
 
 
 public class controlador {
 
-    private Soldado soldado;
+    //private Soldado soldado;
     private Gui gui; 
     private List<Soldado> soldados; 
     DefaultListModel<String> listModel = new DefaultListModel<>();
@@ -59,7 +69,58 @@ public class controlador {
         gui.getMenuItemAgregar().addActionListener(this::menuItemAgregarActionPerformed); 
         gui.getMenuItemEliminar().addActionListener(this::menuItemEliminarActionPerformed); 
         gui.getMenuItemActualizar().addActionListener(this::menuItemActualizarActionPerformed);
+        gui.getMenuItemGraficaPastel().addActionListener(this::menuItemGraficaPastelActionPerformed);
     }
+
+    private void menuItemGraficaPastelActionPerformed(ActionEvent evt) {
+            // Crear un dataset de pastel
+    DefaultPieDataset dataset = new DefaultPieDataset();
+
+    // Suponiendo que tienes una lista de soldados y un método para obtener el rango
+    List<Soldado> soldados = this.soldados; // Método que devuelve la lista de soldados
+    Map<String, Integer> rangoConteo = new HashMap<>();
+
+    // Contar los soldados por rango
+    for (Soldado soldado : soldados) {
+        Nivel_militar nivel = soldado.getRango(); // Método que devuelve el rango del soldado
+        String nombreRango = nivel.toString(); // Método que devuelve el nombre del rango 
+        rangoConteo.put(nombreRango, rangoConteo.getOrDefault(nombreRango, 0) + 1);
+    }
+
+    // Agregar los datos al dataset
+    for (Map.Entry<String, Integer> entry : rangoConteo.entrySet()) {
+        dataset.setValue(entry.getKey(), entry.getValue());
+    }
+
+    // Crear un gráfico de pastel
+    JFreeChart chart = ChartFactory.createPieChart(
+            "Grafica pastel de Soldados por Rango", // Título del gráfico
+            dataset, // Datos
+            true, // Incluir leyenda
+            true,
+            false
+    );
+        // Personalizar el gráfico
+    chart.setBackgroundPaint(Color.WHITE);
+    chart.getTitle().setPaint(Color.BLACK);
+    chart.getLegend().setItemFont(new Font("Arial", Font.PLAIN, 12));
+
+    // Personalizar el plot
+    PiePlot plot = (PiePlot) chart.getPlot();
+    plot.setLabelFont(new Font("Arial", Font.PLAIN, 12));
+    plot.setCircular(true);
+    plot.setLabelGap(0.02);
+
+
+    // Crear un panel de gráficos y agregarlo a la GUI
+    ChartPanel chartPanel = new ChartPanel(chart);
+    JFrame frame = new JFrame();
+    frame.add(chartPanel);
+    frame.pack();
+    frame.setVisible(true);
+    }
+    
+
 
     private void menuItemEliminarActionPerformed(ActionEvent evt) {
         int selectedIndex = gui.getjListSoldados().getSelectedIndex();
