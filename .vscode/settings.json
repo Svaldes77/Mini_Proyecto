@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "Batallon\\src"
+    ],
+    "java.project.referencedLibraries": [
+        "Batallon\\lib\\jcommon-1.0.23.jar",
+        "Batallon\\lib\\jfreechart-1.0.19.jar"
+    ]
+}
