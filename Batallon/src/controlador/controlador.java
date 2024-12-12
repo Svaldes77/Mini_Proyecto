@@ -70,6 +70,7 @@ public class controlador {
         gui.getMenuItemEliminar().addActionListener(this::menuItemEliminarActionPerformed); 
         gui.getMenuItemActualizar().addActionListener(this::menuItemActualizarActionPerformed);
         gui.getMenuItemGraficaPastel().addActionListener(this::menuItemGraficaPastelActionPerformed);
+        gui.getMenuItemGraficaBarras().addActionListener(this::menuItemGraficaBarrasActionPerformed);
     }
 
     private void menuItemGraficaPastelActionPerformed(ActionEvent evt) {
@@ -120,7 +121,46 @@ public class controlador {
     frame.setVisible(true);
     }
     
+    private void menuItemGraficaBarrasActionPerformed(ActionEvent evt) {
+        // Crear un dataset de barras
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
+        // Suponiendo que tienes una lista de soldados y un método para obtener el rango
+        List<Soldado> soldados = this.soldados; // Método que devuelve la lista de soldados
+        Map<String, Integer> rangoConteo = new HashMap<>();
+
+        // Contar los soldados por rango
+        for (Soldado soldado : soldados) {
+            Nivel_militar nivel = soldado.getRango(); // Método que devuelve el rango del soldado
+            String nombreRango = nivel.toString(); // Método que devuelve el nombre del rango 
+            rangoConteo.put(nombreRango, rangoConteo.getOrDefault(nombreRango, 0) + 1);
+        }
+
+        // Agregar los datos al dataset
+        for (Map.Entry<String, Integer> entry : rangoConteo.entrySet()) {
+            dataset.addValue(entry.getValue(), "Soldados", entry.getKey());
+        }
+
+        // Crear un gráfico de barras
+        JFreeChart chart = ChartFactory.createBarChart(
+                "Grafica de barras de Soldados por Rango", // Título del gráfico
+                "Rango", // Etiqueta del eje X
+                "Cantidad", // Etiqueta del eje Y
+                dataset // Datos
+        );
+
+        // Personalizar el gráfico
+        chart.setBackgroundPaint(Color.WHITE);
+        chart.getTitle().setPaint(Color.BLACK);
+        chart.getLegend().setItemFont(new Font("Arial", Font.PLAIN, 12));
+
+        // Crear un panel de gráficos y agregarlo a la GUI
+        ChartPanel chartPanel = new ChartPanel(chart);
+        JFrame frame = new JFrame();
+        frame.add(chartPanel);
+        frame.pack();
+        frame.setVisible(true);
+    }
 
     private void menuItemEliminarActionPerformed(ActionEvent evt) {
         int selectedIndex = gui.getjListSoldados().getSelectedIndex();

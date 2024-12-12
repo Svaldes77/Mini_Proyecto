@@ -80,7 +80,9 @@ public class Gui extends Frame {
             menuItemAgregar = new JMenuItem(); //se crea un item para el menu emergente 
             menuItemActualizar = new JMenuItem(); //se crea un item para el menu emergente
             menuItemGraficaPastel = new JMenuItem(); //se crea un item para el menu emergente
+            menuItemGraficaBarras = new JMenuItem(); //se crea un item para el menu emergente
         //se inicializan los componentes de la interfaz, mas que todo los botones y los labels
+
             setBackground(Color.white);
             setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             setLocation(new Point(100, 100));
@@ -420,6 +422,11 @@ public class Gui extends Frame {
             popMenu.add(menuItemActualizar); 
             menuItemGraficaPastel.setText("Grafica de pastel");
             popMenu.add(menuItemGraficaPastel); 
+            menuItemGraficaBarras.setText("Grafica de barras");
+            popMenu.add(menuItemGraficaBarras);
+
+
+        
 
 
     
@@ -466,6 +473,7 @@ public class Gui extends Frame {
         private JMenuItem menuItemAgregar; 
         private JMenuItem menuItemActualizar; 
         private JMenuItem menuItemGraficaPastel;
+        private JMenuItem menuItemGraficaBarras;
 
         
 
@@ -555,6 +563,9 @@ public class Gui extends Frame {
             return menuItemActualizar;
         }
 
+        public JMenuItem getMenuItemGraficaBarras() {
+            return menuItemGraficaBarras;
+        }
 
 
         public JButton getBotonCrearSoldado() {
