@@ -9,20 +9,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-// funcion para inicializar la interfaz grafica
-
-//                 initComponents();
-//                 inicializarSoldadosPorDefecto();
-
-//             }
-     
-    //   // Método main para iniciar la aplicación
-    // public static void main(String[] args) {
-    //     Gui gui = new Gui();  // Crear la instancia de Gui
-    // }       
-    //         public Gui() {
-    //     initComponentes(); // Llamar a initComponentes desde el constructor
-    // }
 
 public class Gui extends Frame {
     public Gui() {
@@ -36,11 +22,6 @@ public class Gui extends Frame {
             }
     }); 
     }
-
-    // // Método para establecer el controlador
-    // public void setControlador(controlador controlador) {
-    //     this.controlador = controlador;
-    // }
 
     private void initComponentes(){
             buttonGroupAcciones = new ButtonGroup(); // se crea un grupo de botones
@@ -81,6 +62,8 @@ public class Gui extends Frame {
             menuItemActualizar = new JMenuItem(); //se crea un item para el menu emergente
             menuItemGraficaPastel = new JMenuItem(); //se crea un item para el menu emergente
             menuItemGraficaBarras = new JMenuItem(); //se crea un item para el menu emergente
+            menuItemGraficaLineal = new JMenuItem(); //se crea un item para el menu emergente
+
         //se inicializan los componentes de la interfaz, mas que todo los botones y los labels
 
             setBackground(Color.white);
@@ -166,7 +149,6 @@ public class Gui extends Frame {
                 }
             });
 
-
     
             buttonGroupAcciones.add(JRadioButtonRealizarAccion);
             JRadioButtonRealizarAccion.setText("Realizar acción ");
@@ -191,8 +173,6 @@ public class Gui extends Frame {
                     CheckBoxAnunciarUnidad(evt);
                 }
             });
-
-
     
             buttonGroupAcciones.add(jRadioButtonPatrullar);
             jRadioButtonPatrullar.setText("Patrullar");
@@ -424,12 +404,10 @@ public class Gui extends Frame {
             popMenu.add(menuItemGraficaPastel); 
             menuItemGraficaBarras.setText("Grafica de barras");
             popMenu.add(menuItemGraficaBarras);
+            menuItemGraficaLineal.setText("Grafica lineal");
+            popMenu.add(menuItemGraficaLineal);
 
-
-        
-
-
-    
+            
             jLabel1.getAccessibleContext().setAccessibleName("titulo");
             jLabel2.getAccessibleContext().setAccessibleName("imagentitulo");
             jPanel1.getAccessibleContext().setAccessibleName("panelLista");
@@ -474,9 +452,9 @@ public class Gui extends Frame {
         private JMenuItem menuItemActualizar; 
         private JMenuItem menuItemGraficaPastel;
         private JMenuItem menuItemGraficaBarras;
+        private JMenuItem menuItemGraficaLineal;
 
         
-
 
         private void botonCrearSoldado(ActionEvent evt) {
             // Método vacío para ser implementado en el controlador
@@ -536,9 +514,6 @@ public class Gui extends Frame {
                 }
         }
 
-
-
-
         public ButtonGroup getbuttonGroupAcciones() {
             return buttonGroupAcciones;
         }
@@ -567,12 +542,14 @@ public class Gui extends Frame {
             return menuItemGraficaBarras;
         }
 
+        public JMenuItem getMenuItemGraficaLineal() {
+            return menuItemGraficaLineal;
+        }
+
 
         public JButton getBotonCrearSoldado() {
             return botonCrearSoldado;
         }
-
-
 
 
         public JCheckBox getJCheckboxAsignarMision() {
@@ -580,13 +557,9 @@ public class Gui extends Frame {
         }
 
 
-
-
         public JCheckBox getjCheckBox2() {
             return jCheckBox2;
         }
-
-
 
 
         public JCheckBox getJCheckbocAnunciarEstrategia() {
@@ -594,13 +567,9 @@ public class Gui extends Frame {
         }
 
 
-
-
         public JCheckBox getJCheckbocAnunciarsoldadosBajo() {
             return JCheckbocAnunciarsoldadosBajo;
         }
-
-
 
 
         public JCheckBox getjCheckBoxReganar() {
@@ -608,18 +577,9 @@ public class Gui extends Frame {
         }
 
 
-
-
-
-
-
-
-
         public JRadioButton getjRadioButtonPatrullar() {
             return jRadioButtonPatrullar;
         }
-
-
 
 
         public JRadioButton getButtonReportarEstado() {
@@ -627,13 +587,9 @@ public class Gui extends Frame {
         }
 
 
-
-
         public JRadioButton getJRadioButtonRealizarAccion() {
             return JRadioButtonRealizarAccion;
         }
-
-
 
 
         public JRadioButton getjRadioButtonSaludar() {
@@ -645,13 +601,9 @@ public class Gui extends Frame {
         }
 
 
-
-
         public DefaultListModel<String> getListModel() {
             return listModel;
         }
-
-
 
 
         public JList<String> getjListSoldados() {
@@ -659,24 +611,8 @@ public class Gui extends Frame {
         }
 
 
-
-
         public JScrollPane getjScrollPaneSoldados() {
             return jScrollPaneSoldados;
         }
 
-        
-
-
     }
-
-    
-
-
-
-
-
-    
-
-    
-
